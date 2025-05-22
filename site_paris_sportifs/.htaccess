@@ -1,0 +1,11 @@
+# Fichier de configuration d'apache pour la gestion uri
+# Ne pas toucher
+
+RewriteEngine On
+
+# Réécrit toutes les requêtes sauf celles qui pointent vers un fichier ou dossier réel
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirige vers index.php
+RewriteRule ^ index.php [QSA,L]
