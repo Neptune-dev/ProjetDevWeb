@@ -1,9 +1,15 @@
 <?php
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+////////////////////////////////////////////
+// ROUTEUR, NE PAS TOUCHER POUR L'INSTANT //
+////////////////////////////////////////////
 
-$uri = rtrim($uri, 'projet_paris_sportifs/');
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //récupération de l'URL de la requete HTTP du client
 
+//supression des éléments non nécessaires
+$uri = rtrim($uri, 'projet_paris_sportifs/'); //spécifique à l'utilisation de XAMPP, à adapter une fois en production
+
+//routing
 switch ($uri) {
     case '':
         require 'views/homepage.php';
