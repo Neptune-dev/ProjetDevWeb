@@ -33,7 +33,7 @@ switch ($route) {
 
     default:
         http_response_code(404);
-        echo "404 - Not Found";
+        require 'routes/404.php';
         break;
 }
 
