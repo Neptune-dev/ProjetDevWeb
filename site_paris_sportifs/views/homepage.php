@@ -9,5 +9,8 @@
 </head>
 <body>
     <h1>Bienvenue</h1>
+    <?php
+    session_start();
+    ?>
 </body>
 </html>

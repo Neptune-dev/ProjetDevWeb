@@ -31,6 +31,10 @@ switch ($route) {
         require 'routes/login.php';
         break;
 
+    case '/signin':
+        require 'routes/signin.php';
+        break;
+
     default:
         http_response_code(404);
         require 'routes/404.php';

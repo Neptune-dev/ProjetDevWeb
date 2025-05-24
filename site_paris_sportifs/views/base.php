@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- C'est un fichier template qui sert
-     de base structurelle commune à toutes les pages qui se ressembleront-->
+    de base structurelle commune à toutes les pages qui se ressembleront-->
     <?= $content ?> 
 </body>
 </html>
