@@ -9,7 +9,7 @@ ob_start();
 
 <form action="login" method="POST">
     Nom d'utilisateur : <input type="text" name="username" required><br>
-    mot de passe : <input type="password" name="pwd" required><br>
+    Mot de passe : <input type="password" name="pwd" required><br>
     <input type="submit" value="Se connecter">
 </form>
 
@@ -20,7 +20,7 @@ ob_start();
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
-        $pwd =$_POST['pwd'];
+        $pwd = $_POST['pwd'];
 
         $stmt = $pdo->prepare("SELECT * FROM Users WHERE Username=?");
         $stmt->execute([$username]);
