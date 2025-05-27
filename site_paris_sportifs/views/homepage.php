@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="public/images/placeholderIcon.png">
+    <link rel="icon" type="image/x-icon" href="public/images/favicon.png">
     <title>Home page</title>
     <link rel="stylesheet" href="public/css/DA.css">
     <link rel="stylesheet" href="public/css/homepage_style.css">
@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="public/images/logo.png" alt="Logo du site">
+            <img src="public/images/logosansfond.png" alt="Logo du site">
         </div>
         <nav>
             <ul>
