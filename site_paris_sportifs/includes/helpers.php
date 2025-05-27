@@ -14,4 +14,11 @@
         return $pdo;
     }
 
+    function checkAdmin () {
+        if ($_SESSION["user"]["isAdmin"] != 1) {
+        header("Location: /site_paris_sportifs/401");
+        exit();
+        }
+    }
+
 ?>

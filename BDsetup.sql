@@ -38,6 +38,17 @@ CREATE TABLE Games (
   PRIMARY KEY (ID)
 );
 
+/* table des paris */
+CREATE TABLE Bets (
+  ID int NOT NULL AUTO_INCREMENT,
+  UserID int NOT NULL,
+  GameID int NOT NULL,
+  H2H int NOT NULL,
+  Amount int NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (UserID) REFERENCES Users(ID),
+  FOREIGN KEY (GameID) REFERENCES Games(ID),
+);
 
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" */

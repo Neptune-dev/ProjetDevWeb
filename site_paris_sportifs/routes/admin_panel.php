@@ -5,20 +5,21 @@ ob_start();
 
 <!--contenu de la page -->
 
-<h1>Panneau de configuration admin</h1>
-
 <?php
 session_start();
 
 // sécurité
-if ($_SESSION["user"]["isAdmin"] != 1) {
-    header("Location: /site_paris_sportifs/401");
-    exit();
-}
-
+require_once('includes/helpers.php');
+checkAdmin();
 
 
 ?>
+
+<h1>Panneau de configuration administrateur</h1>
+
+<a href="/site_paris_sportifs/createGame">Créer un match</a>
+<a href="/site_paris_sportifs/modifyGame">Modifier un match</a>
+
 
 <!--fin du contenu -->
 <?php
