@@ -3,7 +3,7 @@ body {
   font-family: 'League Spartan', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: var(--bg-color);
   color: var(--text-color);
 }
 
@@ -87,4 +87,97 @@ nav a:hover::after {
 nav a[href="/site_paris_sportifs/"] {
   color: var(--secondary-color);
   font-weight: 700;
+}
+
+
+
+/*CSS du contact*/
+/* Formulaire contact */
+#Contact {
+  padding: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#Contact h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+#contactForm label {
+  font-weight: bold;
+}
+
+/*Je préfère que ça soit les couleurs pures ici*/
+#contactForm input,
+#contactForm textarea {
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  background-color: white;
+  color: #000;
+  font-family: inherit;
+}
+
+/*Si on fait une version dark mode*/
+.dark #contactForm input,
+.dark #contactForm textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid var(--accent-color);
+}
+
+#contactForm button {
+  background-color: var(--primary-color); /*La couleur orange du bouton contact*/
+  color: var(--text-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/*Oui quand tu survoles le bouton j'ai mit bleu header, perso j'aime bien*/
+#contactForm button:hover {
+  background-color: var(--header-color);
+}
+
+
+
+/* Footer */
+footer {
+  background-color: var(--header-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .socials {
+  margin-top: 1rem;
+}
+
+footer .socials a {
+  margin: 0 12px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/*Quand on survole les logos des entreprises, ça devient bleu vif, j'adore perso*/
+footer .socials a:hover {
+  color: var(--accent-color);
 }

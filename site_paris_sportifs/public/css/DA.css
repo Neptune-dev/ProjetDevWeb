@@ -3,7 +3,7 @@
   --secondary-color: #ffcc33 ; /*Jaune*/
   --tertiary-color: #f4a300 ; /*Orangé*/
   --accent-color : #0f7abf; /*Bleu vif*/
-  --background-color: #1b3555 ; /*Bleu nuit mais plus clair qu avant*/
+  --bg-color: #1b3555 ; /*Bleu nuit mais plus clair qu avant*/
   --header-color: #0e1b2e; /*Initialement la couleur du background*/
   --text-color: #f4f2ee; /*Blanc cassé*/
 }
