@@ -10,6 +10,7 @@ CREATE TABLE Users (
   Email varchar(255),
   Birthdate DATE NOT NULL,
   Pwd varchar(255) NOT NULL,
+  isAdmin bool NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -26,8 +27,8 @@ CREATE TABLE Wallets (
 
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" */
-INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd)
-VALUES ("Toto", "Legrand", "DarkTOTO", "toto@server.fr", "2000-05-24", "$2y$10$RpDO0tGPhU77NdrJ7RdDz.StAikvsuK08jDZHVfABZEZGVGEVO3/e");
+INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd, isAdmin)
+VALUES ("Toto", "Legrand", "DarkTOTO", "toto@server.fr", "2000-05-24", "$2y$10$RpDO0tGPhU77NdrJ7RdDz.StAikvsuK08jDZHVfABZEZGVGEVO3/e", 0);
 
 INSERT INTO Wallets (UserID, Balance)
 SELECT ID, 10000

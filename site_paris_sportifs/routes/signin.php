@@ -37,7 +37,7 @@ ob_start();
         if ($pwd == $pwdConfirm) {
             if (!$user) {
                 $hashedPassword = password_hash($pwd, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd) VALUES (?,?,?,?,?)");
+                $stmt = $pdo->prepare("INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd) VALUES (?,?,?,?,?, 0)");
                 $stmt->execute([$firstName, $lastName, $username, $birthdate, $hashedPassword]);
                 header("Location: /site_paris_sportifs/");
                 exit();
