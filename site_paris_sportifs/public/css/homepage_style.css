@@ -1,13 +1,4 @@
 /* homepage_style.css */
-:root {
-  --primary-color: #f26a24; /* Orange vif */
-  --secondary-color: #f4a300; /* Orangé */
-  --tertiary-color: #ffcc33; /* Jaune */
-  --accent-color: #0f7abf; /* Bleu vif */
-  --background-color: #0e1b2e; /* Bleu nuit */
-  --text-color: #f4f2ee; /* Blanc cassé */
-}
-
 body {
   font-family: 'League Spartan', sans-serif;
   margin: 0;
