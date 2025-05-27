@@ -4,7 +4,7 @@
 // notamment pour les tests
 
 $dbName = 'SiteParis';
-$addr = 'localhost:8000';
+$addr = 'localhost:3307';
 $MySQLusername = 'root';
 $MySQLpwd = '';
 
