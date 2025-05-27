@@ -1,15 +1,167 @@
-﻿body {
+/* homepage_style.css */
+:root {
+  --primary-color: #f26a24; /* Orange vif */
+  --secondary-color: #f4a300; /* Orangé */
+  --tertiary-color: #ffcc33; /* Jaune */
+  --accent-color: #0f7abf; /* Bleu vif */
+  --background-color: #0e1b2e; /* Bleu nuit */
+  --text-color: #f4f2ee; /* Blanc cassé */
+}
+
+body {
+  font-family: 'League Spartan', sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: var(--background-color);
-  font-family: 'Monserrat', sans-serif;
   color: var(--text-color);
 }
 
-button {
-  background-color: var(--primary-color);
+header {
+  background-color: var(--background-color);
+  padding: 1rem 3rem; /* Augmentation du padding latéral */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée */
+  /* Retrait de la bordure bleue */
+}
+
+.logo img {
+  height: 70px; /* Taille augmentée (était 50px) */
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem; /* Espacement légèrement augmenté */
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600; /* Police un peu plus épaisse */
+  font-size: 1.2rem; /* Taille de police augmentée */
+  letter-spacing: 0.8px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--primary-color); /* Changement pour orange vif au survol */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px; /* Épaisseur augmentée */
+  background-color: var(--primary-color); /* Changement pour orange vif */
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Style pour le lien actif */
+nav a[href="/site_paris_sportifs/"] {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+_______________________________
+
+/* homepage_style.css */
+:root {
+  --primary-color: #f26a24; /* Orange vif */
+  --secondary-color: #f4a300; /* Orangé */
+  --tertiary-color: #ffcc33; /* Jaune */
+  --accent-color: #0f7abf; /* Bleu vif */
+  --background-color: #0e1b2e; /* Bleu nuit */
+  --text-color: #f4f2ee; /* Blanc cassé */
+}
+
+body {
+  font-family: 'League Spartan', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 
-h1{
-  font-family: 'League-Spartan', sans-serif;
-  color : var(--secondary-color);
+header {
+  background-color: var(--background-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.logo img {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--tertiary-color);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--tertiary-color);
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Animation pour le lien actif */
+nav a[href="/site_paris_sportifs/"] {
+  color: var(--tertiary-color);
+  font-weight: 700;
 }
