@@ -35,8 +35,15 @@ switch ($route) {
         require 'routes/signin.php';
         break;
 
+    case '/admin_panel':
+        require 'routes/admin_panel.php';
+        break;
+
+    case '/401':
+        require 'routes/401.php';
+        break;
+
     default:
-        http_response_code(404);
         require 'routes/404.php';
         break;
 }

@@ -36,9 +36,16 @@ ob_start();
 
         if ($pwd == $pwdConfirm) {
             if (!$user) {
+                // ajoute l'utilisateur à la DB
                 $hashedPassword = password_hash($pwd, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd) VALUES (?,?,?,?,?, 0)");
-                $stmt->execute([$firstName, $lastName, $username, $birthdate, $hashedPassword]);
+                $stmt = $pdo->prepare("INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd, isAdmin) VALUES (?,?,?,?,?,?)");
+                $stmt->execute([$firstName, $lastName, $username, $birthdate, $hashedPassword, 0]);
+                
+                // créé un porte monnaie pour cet utilisateur
+                require_once('includes/config.php');
+                $stmt = $pdo->prepare("INSERT INTO Wallets (UserID, Balance) SELECT ID, ? FROM Users WHERE Username=?");
+                $stmt->execute([$baseMoney, $username]);
+                
                 header("Location: /site_paris_sportifs/");
                 exit();
             } else {

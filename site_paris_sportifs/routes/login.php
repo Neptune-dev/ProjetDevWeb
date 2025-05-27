@@ -29,7 +29,11 @@ ob_start();
 
         if ($user && password_verify($pwd, $user["Pwd"])) {
             $_SESSION["user"] = $user;
-            header("Location: /site_paris_sportifs/");
+            if ($user["isAdmin"] == 1) {
+                header("Location: /site_paris_sportifs/admin_panel");
+            } else {
+                header("Location: /site_paris_sportifs/");
+            }
             exit();
         } else {
             echo "<p> Identifiants incorrects.</p>";

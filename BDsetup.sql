@@ -25,6 +25,20 @@ CREATE TABLE Wallets (
   FOREIGN KEY (UserID) REFERENCES Users(ID)
 );
 
+/* table des matchs */
+CREATE TABLE Games (
+  ID int NOT NULL AUTO_INCREMENT,
+  Home varchar(255) NOT NULL,
+  Away varchar(255) NOT NULL,
+  GameDate DATE NOT NULL,
+  isLive bool NOT NULL,
+  H2H int,
+  HomeScore int,
+  AwayScore int,
+  PRIMARY KEY (ID)
+);
+
+
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" */
 INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd, isAdmin)
@@ -34,3 +48,7 @@ INSERT INTO Wallets (UserID, Balance)
 SELECT ID, 10000
 FROM Users
 WHERE Username="DarkTOTO";
+
+/* le pwd est 1234 */
+INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd, isAdmin)
+VALUES ("admin", "admin", "admin",  "2000-01-01", "$2y$10$dxFZ3Cv.kyxBGgEG0UfGl..0D66Glj5q5Spr6QQdjRz6ex/jhHRrm", 1);
