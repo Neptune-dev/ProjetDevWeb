@@ -1,3 +1,8 @@
-body {
-    background-color: antiquewhite;
+:root {
+    --bleu_nuit: #0e1b2e;
+    --Orange_vif: #F26A24;
+    --Blanc_casse: #F4F2EE;
+    --Orangé : #F4A300;
+    --Jaune : #FFCC33;
+    --Bleu_vif : #0f7abf;
 }
