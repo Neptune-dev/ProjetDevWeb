@@ -1,8 +1,18 @@
 ﻿:root {
   --primary-color: #f26a24; /*Orange vif*/
-  --secondary-color: #f4a300; /*Orangé*/
-  --tertiary-color: #ffcc33 ; /*Jaune*/
+  --secondary-color: #ffcc33 ; /*Jaune*/
+  --tertiary-color: #f4a300 ; /*Orangé*/
   --accent-color : #0f7abf; /*Bleu vif*/
   --background-color: #0e1b2e; /*Bleu nuit*/
   --text-color: #f4f2ee; /*Blanc cassé*/
+}
+
+@font-face {
+  font-family: 'League-Spartan';
+  src: url('/public/fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
