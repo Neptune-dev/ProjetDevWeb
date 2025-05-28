@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,11 +25,10 @@
             </ul>
         </nav>
     </header>
-
     <section id="Contact">
         <hr>
         <h2>Contactez-moi</h2>
-        <form id="contactForm">
+        <form  action="https://formspree.io/f/xgvkgzoq" method="POST" id="contactForm">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required>
 
@@ -39,9 +40,9 @@
 
             <button type="submit">Envoyer</button>
         </form>
+        <script src="script.js"></script>
         <p id="msg"></p>
     </section>
-
     <footer>
         <div>
             <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
