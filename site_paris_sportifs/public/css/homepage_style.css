@@ -63,7 +63,7 @@ body {
   cursor: pointer;
 }
 
-/*Oui quand tu survoles le bouton j'ai mit bleu header, perso j'aime bien*/
+/*Oui quand tu survoles le bouton j'ai mit jaune, perso j'aime bien*/
 #contactForm button:hover {
-  background-color: var(--header-color);
+  background-color: var(--secondary-color);
 }

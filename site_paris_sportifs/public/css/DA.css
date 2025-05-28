@@ -72,7 +72,6 @@ nav a:focus {
   outline-offset: 4px;
 }
 
-
 /* CSS texte header au survol */
 nav a:hover {
   color: var(--secondary-color); 
@@ -101,6 +100,67 @@ nav a[href="/site_paris_sportifs/"] {
   color: var(--secondary-color);
   font-weight: 700;
 }
+
+
+/* CSS contact, logIn et SignIn */
+.Contact {
+  padding: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.Contact h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contactForm label {
+  font-weight: bold;
+}
+
+.contactForm input,
+.contactForm textarea {
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  background-color: white;
+  color: #000;
+  font-family: inherit;
+}
+
+/* Style sombre activé avec .contact-dark */
+.contactForm.contact-dark input,
+.contactForm.contact-dark textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid var(--accent-color);
+}
+
+.contactForm button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.contactForm button:hover {
+  background-color: var(--secondary-color);
+}
+
+
+
 
 
 /* Footer */

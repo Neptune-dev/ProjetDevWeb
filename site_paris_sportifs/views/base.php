@@ -28,8 +28,9 @@
 
     <!-- C'est un fichier template qui sert
     de base structurelle commune à toutes les pages qui se ressembleront-->
-    <?= $content ?> 
-
+    <main>
+        <?= $content ?> 
+    </main>
     <footer>
         <div>
             <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
