@@ -17,3 +17,108 @@
   font-family: 'Montserrat';
   src: url('/public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
+
+/*Header*/
+header {
+  background-color: var(--header-color);
+  padding: 0.1rem 3rem; /* Réglage du padding vertical*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Ombre */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/*CSS du logo dans le header*/
+.logo img { 
+  max-height: 100px; /* Taille augmentée (était 50px) */
+  width: auto; /*Responsive*/
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/*CSS du texte du header, sait pas trop ce que c'est mdr*/
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem; /* Espacement légèrement augmenté */
+}
+
+/*Ne pas toucher !*/
+nav a {
+  display: inline-block; /*Pour que la barre dessous texte ne dépasse pas*/
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 550; /* Epaisseur des lettres */
+  font-size: 1.2rem; /* Taille de police */
+  letter-spacing: 0.8px; /* Espaces entre chaque lettres */
+  padding: 0.5rem 1rem; /* Espace entre chaque pages */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/*Pour l'accessibilité focus clavier pour les personnes en situation d'handicap.*/
+nav a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+
+/* CSS texte header au survol */
+nav a:hover {
+  color: var(--secondary-color); 
+}
+
+/*CSS de la barre en dessous du texte*/
+nav a::after { 
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /*Ne pas y toucher !*/
+  width: 0;
+  height: 3px; /* Épaisseur augmentée */
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+/*CSS de la taille de la barre en dessous du texte*/
+nav a:hover::after {
+  width: 70%;
+}
+
+/* Style pour le lien actif */
+nav a[href="/site_paris_sportifs/"] {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+
+/* Footer */
+footer {
+  background-color: var(--header-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 0rem 1rem; /*marge en y puis x*/
+  margin-top: 0 rem;
+}
+
+footer .socials a {
+  margin: 0 12px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/*Quand on survole les logos des entreprises, ça devient bleu vif, j'adore perso*/
+footer .socials a:hover {
+  color: var(--accent-color);
+}

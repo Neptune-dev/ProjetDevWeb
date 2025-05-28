@@ -23,7 +23,6 @@
             </ul>
         </nav>
     </header>
-    <button onclick="toggleTheme()">Dark Mode 🌓</button>
     <section id="Contact">
         <hr>
         <h2>Contactez-moi</h2>
@@ -43,12 +42,13 @@
     </section>
     <footer>
         <div>
-            <p><a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a></p>
+            <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
             <div class="socials">
                 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
+            <!--Le <p> ajoute automatiquement un margin, mais j'aime pas celui du bas.-->
             <p>&copy; <span id="year"></span> Groupe_des_Wapitis</p>
         </div>
     </footer>
