@@ -4,18 +4,22 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-
-<h1>Signin</h1>
-
-<form action="signin" method="POST">
-    Prénom : <input type="text" name="firstName" required><br>
-    Nom de famille : <input type="text" name="lastNamme" required><br>
-    Date de naissance : <input type="date" name="birthdate" required><br>
-    Nom d'utilisateur : <input type="text" name="username" required><br>
-    Mot de passe : <input type="password" name="pwd" required><br>
-    Confirmer le mot de passe : <input type="password" name="pwdConfirm" required><br>
-    <input type="submit" value="Créer un compte">
-</form>
+<br>
+<br>
+<br>
+<section class="Contact">
+    <h2>Créer un compte.</h2>
+    <!--On peut garder que Nom d'utilisateur, date de naissance et les deux mots de passe. -->
+    <form class="contactForm" action="signin" method="POST">
+        Prénom : <input type="text" name="firstName" required><br>
+        Nom de famille : <input type="text" name="lastNamme" required><br>
+        Date de naissance : <input type="date" name="birthdate" required><br>
+        Nom d'utilisateur : <input type="text" name="username" required><br>
+        Mot de passe : <input type="password" name="pwd" required><br>
+        Confirmer le mot de passe : <input type="password" name="pwdConfirm" required><br>
+        <button type="submit">Créer un compte</button>
+    </form>
+</section>
 
 <?php
     session_start();

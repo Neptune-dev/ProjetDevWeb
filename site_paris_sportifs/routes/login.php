@@ -4,14 +4,18 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-
-<h1>Login</h1>
-
-<form action="login" method="POST">
-    Nom d'utilisateur : <input type="text" name="username" required><br>
-    Mot de passe : <input type="password" name="pwd" required><br>
-    <input type="submit" value="Se connecter">
-</form>
+<br>
+<br>
+<br>
+<section class="Contact">
+    <h2>Veuillez vous identifier.</h2>
+    <form class="contactForm" action="login" method="POST">
+        Nom d'utilisateur : <input type="text" name="username" required><br>
+        Mot de passe : <input type="password" name="pwd" required><br>
+        <button type="submit">Se connecter</button>
+    </form>
+</section>
+<script src="script.js"></script>
 
 <?php
     session_start();

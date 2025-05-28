@@ -1,29 +1,22 @@
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Message après envoi
+document.querySelectorAll(".contactForm").forEach(form => {
+  const msg = form.querySelector(".msg");
+
+  form.addEventListener("submit", function(e) {
     e.preventDefault();
-    const form = e.target;
-    const msgElement = document.getElementById('msg');
-    const formData = new FormData(form);
+    msg.textContent = "Merci pour votre message !";
+    msg.style.color = "green";
+    form.reset();
     
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
+    setTimeout(() => {
+      msg.textContent = "";
+    }, 2000);
+
+    document.addEventListener("click", function handleClickOutside(e) {
+        if (!form.contains(e.target)) {
+            msg.textContent = "";
+            document.removeEventListener("click", handleClickOutside); // Retire l'écouteur une fois utilisé
         }
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Erreur réseau');
-        return response.json();
-    })
-    .then(data => {
-        msgElement.textContent = data.message;
-        msgElement.style.color = data.success ? 'green' : 'red';
-        if (data.success) {
-            form.reset(); // Seulement si l'envoi a réussi
-        }
-    })
-    .catch(error => {
-        msgElement.textContent = 'Erreur: ' + error.message;
-        msgElement.style.color = 'red';
     });
+  });
 });

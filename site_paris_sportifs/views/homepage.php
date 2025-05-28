@@ -26,7 +26,7 @@
 
     <section class="Contact">
         <hr>
-        <h2>Contactez-moi</h2>
+        <h2>Contactez-nous</h2>
         <form class="contactForm">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" required>
@@ -38,9 +38,10 @@
             <textarea name="message" rows="5" required></textarea>
 
             <button type="submit">Envoyer</button>
+            <p class="msg"></p>
         </form>
-        <p class="msg"></p>
     </section>
+    <script src="/site_paris_sportifs/views/script.js"></script>
 
     <footer>
         <div>
