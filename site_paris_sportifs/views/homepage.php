@@ -23,14 +23,14 @@
             </ul>
         </nav>
     </header>
-    
+
     <br>
     <br>
     <br>
     <section class="Contact">
         <hr>
         <h2>Contactez-nous</h2>
-        <form class="contactForm">
+        <form class="contactForm" action="https://formspree.io/f/xgvkgzoq" method="POST">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" required>
 
