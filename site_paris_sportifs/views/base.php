@@ -25,6 +25,9 @@
             </ul>
         </nav>
     </header>
+    <!-- Le script est pour la couleur de la page actuelle.-->
+    <script src="/site_paris_sportifs/views/script.js"></script>
+
 
     <!-- C'est un fichier template qui sert
     de base structurelle commune à toutes les pages qui se ressembleront-->

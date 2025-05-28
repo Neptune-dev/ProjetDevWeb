@@ -96,7 +96,7 @@ nav a:hover::after {
 }
 
 /* Style pour le lien actif */
-nav a[href="/site_paris_sportifs/"] {
+nav a.active {
   color: var(--secondary-color);
   font-weight: 700;
 }

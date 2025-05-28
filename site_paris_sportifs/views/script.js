@@ -20,3 +20,16 @@ document.querySelectorAll(".contactForm").forEach(form => {
     });
   });
 });
+
+//Couleur jaune sur la page active.
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll("nav a");
+  const currentUrl = window.location.pathname;
+
+  links.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    if (linkPath === currentUrl || linkPath.endsWith(currentUrl)) {
+      link.classList.add("active");
+    }
+  });
+});

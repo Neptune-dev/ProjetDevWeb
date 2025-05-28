@@ -23,7 +23,10 @@
             </ul>
         </nav>
     </header>
-
+    
+    <br>
+    <br>
+    <br>
     <section class="Contact">
         <hr>
         <h2>Contactez-nous</h2>
