@@ -4,7 +4,6 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-
 <?php http_response_code(404); ?>
 <br><br><br>
 <div class="NotFound">
@@ -16,6 +15,7 @@ ob_start();
 
 <script>
     const messages = [
+        "Ma chérie tu es à contre-sens... Reviens dans le match.",
         "Vous êtes hors-jeu ! Cette page n'existe pas.",
         "Page inexistante... comme vos gains.",
         "Oups, ce pari n'était pas gagnant.",

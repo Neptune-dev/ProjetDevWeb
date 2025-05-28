@@ -20,6 +20,13 @@ ob_start();
 <?php
     session_start();
     require_once('includes/helpers.php');
+
+    /*Un peu facultatif, en soit ça sert à rien de log si t'es connecté*/
+    if (isset($_SESSION['user'])) {
+    header("Location: /site_paris_sportifs/mon_compte");
+    exit();
+    }
+
     $pdo = openDB();
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

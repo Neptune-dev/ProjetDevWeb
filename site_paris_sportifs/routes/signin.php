@@ -26,6 +26,12 @@ ob_start();
     require_once('includes/helpers.php');
     $pdo = openDB();
 
+    /*Un peu facultatif, en soit ça sert à rien de signIn si t'es connecté*/
+    if (isset($_SESSION['user'])) {
+    header("Location: /site_paris_sportifs/mon_compte");
+    exit();
+    }
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastNamme'];
