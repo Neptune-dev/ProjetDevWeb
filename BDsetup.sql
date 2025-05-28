@@ -10,7 +10,7 @@ CREATE TABLE Users (
   Email varchar(255),
   Birthdate DATE NOT NULL,
   Pwd varchar(255) NOT NULL,
-  isAdmin bool NOT NULL,
+  isAdmin int NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -31,7 +31,7 @@ CREATE TABLE Games (
   Home varchar(255) NOT NULL,
   Away varchar(255) NOT NULL,
   GameDate DATE NOT NULL,
-  isLive bool NOT NULL,
+  isLive int,
   H2H int,
   HomeScore int,
   AwayScore int,
@@ -47,7 +47,7 @@ CREATE TABLE Bets (
   Amount int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (UserID) REFERENCES Users(ID),
-  FOREIGN KEY (GameID) REFERENCES Games(ID),
+  FOREIGN KEY (GameID) REFERENCES Games(ID)
 );
 
 /*Remplissage des tables avec des exemples
@@ -63,3 +63,9 @@ WHERE Username="DarkTOTO";
 /* le pwd est 1234 */
 INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd, isAdmin)
 VALUES ("admin", "admin", "admin",  "2000-01-01", "$2y$10$dxFZ3Cv.kyxBGgEG0UfGl..0D66Glj5q5Spr6QQdjRz6ex/jhHRrm", 1);
+
+INSERT INTO Games (Home, Away, GameDate)
+VALUES ("Equipe A", "Equipe B", "2025-06-20");
+
+INSERT INTO Games (Home, Away, GameDate, H2H, HomeScore, AwayScore)
+VALUES ("Equipe C", "Equipe D", "2025-04-15", 1, 2, 1);
