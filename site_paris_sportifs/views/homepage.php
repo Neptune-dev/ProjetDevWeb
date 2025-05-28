@@ -27,7 +27,7 @@
     <section class="Contact">
         <hr>
         <h2>Contactez-moi</h2>
-        <form class="contactForm">
+        <form  action="https://formspree.io/f/xgvkgzoq" method="POST"class="contactForm">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" required>
 
