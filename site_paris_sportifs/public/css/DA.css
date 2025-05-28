@@ -109,6 +109,19 @@ nav a.active {
   color: var(--text-color);
 }
 
+/*Pour le LogIn pour passer à SignIn*/
+.Contact a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem auto;
+  color: var(--text-color);
+}
+
+.Contact a:hover{
+  color:var(--accent-color);
+}
+
 .Contact h2 {
   text-align: center;
   margin-bottom: 1.5rem;

@@ -24,7 +24,6 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
             <ul>
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>
                 <li><a href="/site_paris_sportifs/login">Login</a></li>
-                <li><a href="/site_paris_sportifs/signin">Sign in</a></li>
             </ul>
         </nav>
     </header>

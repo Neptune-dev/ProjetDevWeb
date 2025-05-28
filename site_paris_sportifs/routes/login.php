@@ -14,6 +14,7 @@ ob_start();
         Mot de passe : <input type="password" name="pwd" required><br>
         <button type="submit">Se connecter</button>
     </form>
+    <a href="/site_paris_sportifs/signin">Vous n'avez pas de compte ? Cliquez ici.</a>
 </section>
 
 <?php
