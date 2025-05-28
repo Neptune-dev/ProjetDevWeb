@@ -60,3 +60,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
+/*Publicité*/
+const adButton = document.getElementById('adButton');
+const videoContainer = document.getElementById('videoContainer');
+const rewardMsg = document.getElementById('rewardMsg');
+const balanceElem = document.getElementById('balance');
+
+adButton.addEventListener('click', () => {
+  adButton.disabled = true;
+  console.log("On lance la pub !"); /*Pour le test*/
+  videoContainer.style.display = 'block';
+
+  setTimeout(() => {
+    fetch('/site_paris_sportifs/api/reward_ad.php') /*Peut-être un bug ici*/
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          balanceElem.textContent = data.newBalance;
+          rewardMsg.textContent = "✅ +200 unités ajoutées à votre solde !";
+        } else {
+          rewardMsg.textContent = "Erreur : " + data.message;
+        }
+      });
+  }, 15000); // 15 secondes
+});

@@ -56,3 +56,14 @@ button {
 .logout-btn:hover {
   background-color: var(--secondary-color);
 }
+
+.video-container {
+  display: none;
+  margin-top: 1rem;
+}
+
+#rewardMsg {
+  color: green;
+  font-weight: bold;
+  margin-top: 1rem;
+}

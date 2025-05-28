@@ -50,6 +50,10 @@ switch ($route) {
     case '/401':
         require 'routes/401.php';
         break;
+    
+    case '/reward_ad':
+        require 'api/reward_ad.php';
+        break;
 
     default:
         require 'routes/404.php';

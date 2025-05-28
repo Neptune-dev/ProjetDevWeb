@@ -6,11 +6,22 @@ ob_start();
 <!--contenu de la page -->
 <?php
 session_start();
+require_once('includes/helpers.php');
+
 if (!isset($_SESSION['user'])) {
     header("Location: /site_paris_sportifs/login");
     exit();
 }
 $user = $_SESSION['user'];
+
+$pdo = openDB();
+
+// Récupération du solde
+$stmt = $pdo->prepare("SELECT Balance FROM Wallets WHERE UserID = ?");
+$stmt->execute([$user["ID"]]);
+$wallet = $stmt->fetch();
+
+$balance = $wallet ? $wallet["Balance"] : 0;
 ?>
 
 <br>
@@ -22,8 +33,20 @@ $user = $_SESSION['user'];
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <p><a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a></p>
-    <?php endif; ?>
+    <?php else: ?>
+        <p>💰 Solde actuel : <strong id="balance"><?= $balance ?></strong> unités</p>
 
+        <button id="adButton">Regarder une publicité (+200 unités)</button>
+
+        <div class="video-container" id="videoContainer">
+            <p>🎬 La publicité commence... Patientez 15 secondes.</p>
+            <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&start=0" 
+            frameborder="0" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <p id="rewardMsg"></p>
+    <?php endif; ?>
+    <script src="/site_paris_sportifs/public/js/script.js"></script>
     <a href="/site_paris_sportifs/logout" class="logout-btn">Se déconnecter</a>
 </section>
 
