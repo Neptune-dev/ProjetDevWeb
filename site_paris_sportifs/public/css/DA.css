@@ -116,6 +116,7 @@ nav a.active {
   text-decoration: none;
   margin: 1rem auto;
   color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .Contact a:hover{
@@ -204,6 +205,9 @@ footer .socials a {
 footer .socials a:hover {
   color: var(--accent-color);
 }
+
+
+
 
 /*Css des matches*/  
 .TopPari h2 {
@@ -308,5 +312,3 @@ footer .socials a:hover {
   position: relative;
   z-index: 2;
 }
-
-

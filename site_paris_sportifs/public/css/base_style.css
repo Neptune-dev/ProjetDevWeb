@@ -40,3 +40,19 @@ button {
 .NotFound a:hover{
   background-color: var(--secondary-color);
 }
+
+/*Mon compte*/
+.logout-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--secondary-color);
+}

@@ -23,7 +23,12 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
         <nav>
             <ul>
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>
-                <li><a href="/site_paris_sportifs/login">Login</a></li>
+
+                <?php if (isset($_SESSION['user'])): ?>
+                    <li><a href="/site_paris_sportifs/mon_compte">Mon compte</a></li>
+                <?php else: ?>
+                    <li><a href="/site_paris_sportifs/login">Se connecter</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

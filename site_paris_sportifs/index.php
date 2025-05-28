@@ -39,6 +39,14 @@ switch ($route) {
         require 'routes/admin_panel.php';
         break;
 
+    case '/mon_compte':
+        require 'routes/mon_compte.php';
+        break;
+    
+    case '/logout':
+        require 'routes/logout.php';
+        break;
+
     case '/401':
         require 'routes/401.php';
         break;
