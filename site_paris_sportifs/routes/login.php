@@ -15,7 +15,6 @@ ob_start();
         <button type="submit">Se connecter</button>
     </form>
 </section>
-<script src="script.js"></script>
 
 <?php
     session_start();
