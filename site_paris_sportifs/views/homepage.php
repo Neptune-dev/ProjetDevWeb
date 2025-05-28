@@ -23,6 +23,7 @@
             </ul>
         </nav>
     </header>
+
     <section id="Contact">
         <hr>
         <h2>Contactez-moi</h2>
@@ -40,6 +41,7 @@
         </form>
         <p id="msg"></p>
     </section>
+
     <footer>
         <div>
             <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
@@ -49,7 +51,7 @@
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <!--Le <p> ajoute automatiquement un margin, mais j'aime pas celui du bas.-->
-            <p>&copy; <span id="year"></span> Groupe_des_Wapitis</p>
+            &copy; <span id="year"></span> Groupe_des_Wapitis
         </div>
     </footer>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
