@@ -91,9 +91,5 @@ session_start();
         </div>
     </footer>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-
-    <?php
-    session_start();
-    ?>
 </body>
 </html>
