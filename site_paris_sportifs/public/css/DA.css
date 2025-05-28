@@ -156,7 +156,7 @@ nav a.active {
 }
 
 .contactForm button:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
 }
 
 
