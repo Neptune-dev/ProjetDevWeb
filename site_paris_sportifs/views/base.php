@@ -12,6 +12,9 @@
     <!--Le dernier c'est pour les favicons de entreprises pour le footer-->
 </head>
 
+<!-- C'est un fichier template qui sert
+de base structurelle commune à toutes les pages qui se ressembleront-->
+
 <body>
     <header>
         <div class="logo">
@@ -26,14 +29,12 @@
         </nav>
     </header>
     <!-- Le script est pour la couleur de la page actuelle.-->
-    <script src="/site_paris_sportifs/views/script.js"></script>
+    <script src="/site_paris_sportifs/public/js/script.js"></script>
 
-
-    <!-- C'est un fichier template qui sert
-    de base structurelle commune à toutes les pages qui se ressembleront-->
     <main>
         <?= $content ?> 
     </main>
+
     <footer>
         <div>
             <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
