@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     videoContainer.appendChild(iframe);
 
     setTimeout(() => {
-      fetch('/site_paris_sportifs/reward_ad.php')
+      fetch('/site_paris_sportifs/reward_ad')
         .then(res => res.json())
         .then(data => {
           if (data.success) {
