@@ -32,18 +32,14 @@ $balance = $wallet ? $wallet["Balance"] : 0;
     <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
-        <p><a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a></p>
+        <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
     <?php else: ?>
         <p>💰 Solde actuel : <strong id="balance"><?= $balance ?></strong> unités</p>
 
         <button id="adButton">Regarder une publicité (+200 unités)</button>
 
-        <div class="video-container" id="videoContainer">
-            <p>🎬 La publicité commence... Patientez 15 secondes.</p>
-            <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&start=0" 
-            frameborder="0" allow="autoplay" allowfullscreen></iframe>
-        </div>
+        <div class="video-container" id="videoContainer"></div>
+        
         <p id="rewardMsg"></p>
     <?php endif; ?>
     <script src="/site_paris_sportifs/public/js/script.js"></script>

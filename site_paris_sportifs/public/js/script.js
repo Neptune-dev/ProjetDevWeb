@@ -63,26 +63,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /*Publicité*/
-const adButton = document.getElementById('adButton');
-const videoContainer = document.getElementById('videoContainer');
-const rewardMsg = document.getElementById('rewardMsg');
-const balanceElem = document.getElementById('balance');
+document.addEventListener('DOMContentLoaded', () => {
+  const adButton = document.getElementById('adButton');
+  const videoContainer = document.getElementById('videoContainer');
+  const rewardMsg = document.getElementById('rewardMsg');
+  const balanceElem = document.getElementById('balance');
 
-adButton.addEventListener('click', () => {
-  adButton.disabled = true;
-  console.log("On lance la pub !"); /*Pour le test*/
-  videoContainer.style.display = 'block';
+  if (!adButton || !videoContainer || !rewardMsg || !balanceElem) return;
 
-  setTimeout(() => {
-    fetch('/site_paris_sportifs/api/reward_ad.php') /*Peut-être un bug ici*/
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          balanceElem.textContent = data.newBalance;
-          rewardMsg.textContent = "✅ +200 unités ajoutées à votre solde !";
-        } else {
-          rewardMsg.textContent = "Erreur : " + data.message;
-        }
-      });
-  }, 15000); // 15 secondes
+  adButton.addEventListener('click', () => {
+    adButton.disabled = true;
+    console.log("On lance la pub !");
+    videoContainer.classList.add('active');
+
+    videoContainer.innerHTML = `<p>🎬 La publicité commence... Patientez 15 secondes.</p>`;
+
+    const iframe = document.createElement('iframe');
+    iframe.width = 560;
+    iframe.height = 315;
+    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0";
+    iframe.frameBorder = 0;
+    iframe.allow = "autoplay";
+    iframe.allowFullscreen = true;
+
+    videoContainer.appendChild(iframe);
+
+    setTimeout(() => {
+      fetch('/site_paris_sportifs/reward_ad.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            balanceElem.textContent = data.newBalance;
+            rewardMsg.textContent = "✅ +200 unités ajoutées à votre solde !";
+          } else {
+            rewardMsg.textContent = "Erreur : " + data.message;
+          }
+        });
+    }, 15000);
+  });
 });

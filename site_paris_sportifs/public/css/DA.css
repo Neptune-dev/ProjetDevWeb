@@ -109,7 +109,7 @@ nav a.active {
   color: var(--text-color);
 }
 
-/*Pour le LogIn pour passer à SignIn*/
+/*Pour le LogIn pour passer à SignIn, en vrai pareil pour tous*/
 .Contact a {
   display: block;
   text-align: center;
