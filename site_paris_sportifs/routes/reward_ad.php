@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/helpers.php';
+require_once ('includes/helpers.php');
 
 header('Content-Type: application/json');
 
@@ -25,3 +25,5 @@ echo json_encode([
     "success" => true,
     "newBalance" => $wallet["Balance"]
 ]);
+
+?>
