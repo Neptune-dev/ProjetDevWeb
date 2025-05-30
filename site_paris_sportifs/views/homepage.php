@@ -31,29 +31,10 @@ session_start();
             </ul>
         </nav>
     </header>
+    
     <section class="TopPari">
         <h2>Les Matches De La Semaine</h2>
-            <a href="/match/1" class="match-bubble">
-                <div class="teams">
-                    <div class="team">
-                        <img src="public/images/psg.webp" alt="PSG">
-                        <span class="team-name">PSG</span>
-                    </div>
-                    <span class="vs">VS</span>
-                    <div class="team">
-                        <img src="public/images/om.png" alt="OM">
-                        <span class="team-name">OM</span>
-                    </div>
-                </div>
-                <div class="odds">
-                    <div class="odd">1.75</div>
-                    <div class="odd">3.40</div>
-                    <div class="odd">4.20</div>
-                </div>
-                <div class="match-info">
-                    Ligue 1 - 20h45 - 15/05/2023
-                </div>
-            </a>
+        <?php require ('game_view.php'); ?>
     </section>
 
     <br>
