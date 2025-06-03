@@ -33,7 +33,7 @@ session_start();
     </header>
     
     <section class="TopPari">
-        <h2>Les Matches De La Semaine</h2>
+        <h1>Les Matches De La Semaine</h1>
         <?php
 
         require_once 'includes/helpers.php';
