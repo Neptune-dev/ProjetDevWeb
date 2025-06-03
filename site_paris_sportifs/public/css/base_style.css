@@ -2,6 +2,7 @@ body {
   font-family: 'League Spartan', sans-serif;
   margin: 0;
   padding: 0;
+  padding-left: 10px;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -99,4 +100,61 @@ button {
   color: green;
   font-weight: bold;
   margin-top: 1rem;
+}
+
+/*Pour la page utilisateur*/
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.7);        /* fond noir */
+    color: var(--text-color);                  /* texte en blanc */
+    padding: 20px;                 /* espace intérieur */
+    border-radius: 12px;           /* coins arrondis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* ombre douce */
+}
+
+.user-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.avatar {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    margin: 0;
+    font-size: 24px;
+}
+
+.bio {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.edit-profile {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.edit-profile:hover {
+    background-color: var(--header-color);
 }

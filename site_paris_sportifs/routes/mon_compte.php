@@ -28,12 +28,25 @@ $balance = $wallet ? $wallet["Balance"] : 0;
 <br>
 <br>
 <section class="account">
-    <h1>Bienvenue, <?= htmlspecialchars($user['Username']) ?> !</h1>
+    <div class="profile-container">
+        <div class="user-info">
+            <img src="public/images/psg.webp" alt="Avatar" class="avatar">
+            <div class="user-details">
+                <h1 class="username">Bienvenue, <?= htmlspecialchars($user['Username']) ?> !</h1>
+                <p class="bio"><?= htmlspecialchars($user['bio'] ?? 'Aucune bio renseignée.') ?></p>
+            </div>
+        </div>
+        <button class="edit-profile">Modifier le profil</button>
+    </div>
+
     <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
     <?php else: ?>
+        
+        
+        
         <p>💰 Solde actuel : <strong id="balance"><?= $balance ?></strong> unités</p>
 
         <button id="adButton">Regarder une publicité (+200 unités)</button>
@@ -41,6 +54,12 @@ $balance = $wallet ? $wallet["Balance"] : 0;
         <div class="video-container" id="videoContainer"></div>
         
         <p id="rewardMsg"></p>
+
+
+
+
+
+
     <?php endif; ?>
     <script src="/site_paris_sportifs/public/js/script.js"></script>
     <a href="/site_paris_sportifs/logout" class="logout-btn">Se déconnecter</a>
