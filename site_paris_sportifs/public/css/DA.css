@@ -32,6 +32,14 @@ header {
     0 0 30px rgba(0, 0, 0, 0.5);
 }
 
+.balance {
+  color: var(--text-color);
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 2rem; /* Ajustement de l'espacement */
+}
+
 /*CSS du logo dans le header*/
 .logo img { 
   max-height: 100px; /* Taille augmentée (était 50px) */

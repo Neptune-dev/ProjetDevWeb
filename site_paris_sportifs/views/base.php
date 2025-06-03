@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once('includes/helpers.php');
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+
+    $pdo = openDB();
+
+    // Récupération du solde
+    $stmt = $pdo->prepare("SELECT Balance FROM Wallets WHERE UserID = ?");
+    $stmt->execute([$user["ID"]]);
+    $wallet = $stmt->fetch();
+
+    $balance = $wallet ? $wallet["Balance"] : 0;
+}
+
+?>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -20,6 +37,11 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
         <div class="logo">
             <img src="public/images/logosansfond.png" alt="Logo du site">
         </div>
+        <?php if (isset($_SESSION['user'])): ?>
+            <div class="balance">
+                Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong> 💰
+            </div>
+        <?php endif; ?>
         <nav>
             <ul>
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>

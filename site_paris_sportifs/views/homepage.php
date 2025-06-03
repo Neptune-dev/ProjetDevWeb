@@ -1,5 +1,22 @@
 <?php
 session_start();
+require_once('includes/helpers.php');
+?>
+
+<?php
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+
+    $pdo = openDB();
+
+    // Récupération du solde
+    $stmt = $pdo->prepare("SELECT Balance FROM Wallets WHERE UserID = ?");
+    $stmt->execute([$user["ID"]]);
+    $wallet = $stmt->fetch();
+
+    $balance = $wallet ? $wallet["Balance"] : 0;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +36,11 @@ session_start();
         <div class="logo">
             <img src="public/images/logosansfond.png" alt="Logo du site">
         </div>
+        <?php if (isset($_SESSION['user'])): ?>
+            <div class="balance">
+                Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong> 💰
+            </div>
+        <?php endif; ?>
         <nav>
             <ul>
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>
