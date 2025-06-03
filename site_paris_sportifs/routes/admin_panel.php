@@ -121,7 +121,7 @@ function dropDownTeams($name) {
 <div class="collapsible-content">
     <section class="Contact">
         <h2>Créer un match</h2>
-        <form class="contactForm" action="admin_panel" method="POST">
+        <form class="contactForm" action="admin_panel?addGame" method="POST">
             Date* : <input type="date" name="gameDate" required><br>
             Time* : <input type="time" name="gameTime" required><br>
             League* : <input type="text" name="league" required><br>
@@ -138,9 +138,21 @@ function dropDownTeams($name) {
     </section>
 </div>
 
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<button type="button" class="collapsible"><h2>Ajouter une équipe</h2></button>
+<div class="collapsible-content">
+    <section class="Contact">
+        <h2>Créer une équipe</h2>
+        <form class="contactForm" action="admin_panel?addTeam" method="POST">
+            Nom* : <input type="text" name="teamName" required><br>
+            Logo url* : <input type="text" name="logo" required><br>
+            <button type="submit">Créer l'équipe</button>
+        </form>
+    </section>
+</div>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_GET["addGame"])) {
         $league = $_POST['league'];
         $home = $_POST['home'];
         $away = $_POST['away'];
@@ -159,13 +171,24 @@ function dropDownTeams($name) {
             $isLive = 0;
         }
 
-        echo $gameTime;
 
         $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore, HomeOdd, AwayOdd) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
         $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd]);
         header("Refresh:0");
         exit();
     }
+    if (isset($_GET["addTeam"])) {
+        $teamName = $_POST['teamName'];
+        $logo = $_POST['logo'];
+
+
+        $stmt = $pdo->prepare("INSERT INTO Teams (TeamName, TeamLogo) VALUES (?,?)");
+        $stmt->execute([$teamName, $logo]);
+        header("Refresh:0");
+        exit();
+    }
+
+}
 ?>
 
 <script src="/site_paris_sportifs/public/js/collapse.js"></script>

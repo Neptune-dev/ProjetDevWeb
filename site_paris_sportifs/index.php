@@ -21,6 +21,9 @@ if ($base !== '' && str_starts_with($uri, $base)) {
     $route = $uri;
 }
 
+// On s'assure que $route ne contient pas de query string (sécurité supplémentaire)
+$route = strtok($route, '?');
+
 //routing
 switch ($route) {
     case '/':
@@ -49,12 +52,6 @@ switch ($route) {
 
     case '/reward_ad':
         require 'routes/reward_ad.php';
-        break;
-
-    // NE FONCTIONNE PAS ENCORE
-    case preg_match('#^/game_view/(\d+)$#', $route, $matches):
-        $_GET['game_id'] = $matches[1];
-        require 'routes/game_view.php';
         break;
 
     // http status codes d'exception
