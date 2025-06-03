@@ -17,7 +17,7 @@ session_start();
 <body>
     <header>
         <div class="logo">
-            <img src="public/images/logosansfond.png" alt="Logo du site">
+            <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
         </div>
         <nav>
             <ul>
