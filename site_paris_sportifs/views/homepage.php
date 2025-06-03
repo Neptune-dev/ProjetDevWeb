@@ -34,7 +34,7 @@ if (isset($_SESSION['user'])) {
 <body>
     <header>
         <div class="logo">
-            <img src="public/images/logosansfond.png" alt="Logo du site">
+            <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
         </div>
         <?php if (isset($_SESSION['user'])): ?>
             <div class="balance">
@@ -65,8 +65,10 @@ if (isset($_SESSION['user'])) {
         $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($games as $game) {
-            $_GET["gameID"] = $game['ID'];
-            require ('game_view.php'); 
+            if (!isset($game['H2H']) || $game['H2H'] == 0) {
+                $_GET["gameID"] = $game['ID'];
+                require ('game_view.php');
+            }
         }
         ?>
     </section>

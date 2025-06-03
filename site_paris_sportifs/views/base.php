@@ -35,7 +35,7 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
 <body>
     <header>
         <div class="logo">
-            <img src="public/images/logosansfond.png" alt="Logo du site">
+            <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
         </div>
         <?php if (isset($_SESSION['user'])): ?>
             <div class="balance">
