@@ -19,6 +19,13 @@
 }
 
 /*Header*/
+
+.full-width-banner {
+  width: 100vw;
+  height: auto;
+  display: block;
+}
+
 header {
   background-color: var(--header-color);
   padding: 0.1rem 3rem; /* Réglage du padding vertical*/

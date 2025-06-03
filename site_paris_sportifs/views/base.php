@@ -33,6 +33,7 @@ if (isset($_SESSION['user'])) {
 de base structurelle commune à toutes les pages qui se ressembleront-->
 
 <body>
+    <a href="https://www.joueurs-info-service.fr/" target="_blank"><div style="background: url('public/images/prevention.webp') center center no-repeat rgb(0, 0, 0); height: 60px; cursor: pointer; z-index: 120; display: block;"></div></a>
     <header>
         <div class="header-left">
             <div class="logo">

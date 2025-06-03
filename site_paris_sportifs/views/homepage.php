@@ -32,6 +32,7 @@ if (isset($_SESSION['user'])) {
     <!--Le dernier c'est pour les favicons de entreprises pour le footer-->
 </head>
 <body>
+    <a href="https://www.joueurs-info-service.fr/" target="_blank"><div style="background: url('public/images/prevention.webp') center center no-repeat rgb(0, 0, 0); height: 60px; cursor: pointer; z-index: 120; display: block;"></div></a>
     <header>
         <div class="header-left">
             <div class="logo">
@@ -55,7 +56,11 @@ if (isset($_SESSION['user'])) {
             </ul>
         </nav>
     </header>
-    
+    <br>
+    <!-- Faudra le mettre lorsqu'on valide le paris, c'est drôle.
+    <h3 id="message" class="Prévention">Chargement du message...</h3><br>
+    -->
+
     <section class="TopPari">
         <h1>Les Matches De La Semaine</h1>
         <?php
