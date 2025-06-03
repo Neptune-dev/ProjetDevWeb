@@ -15,8 +15,6 @@ checkAdmin();
 ?>
 <h1>Panneau de configuration administrateur</h1>
 
-<<<<<<< Updated upstream
-
 <!-- Tableau des matchs disponibles -->
 <button type="button" class="collapsible"><h2>Modifier un match</h2></button>
 <div class="collapsible-content">
@@ -63,12 +61,6 @@ checkAdmin();
             echo '<td><a type="button" href="/site_paris_sportifs/delete">Supprimer</a></td>';
             echo "</tr>";
         }
-=======
-<section class="admin">
-    <h2>Modifier un match</h2>
-</section>
->>>>>>> Stashed changes
-
         ?>
     </table>
 </div>
