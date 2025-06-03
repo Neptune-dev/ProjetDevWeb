@@ -43,8 +43,10 @@ session_start();
         $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($games as $game) {
-            $_GET["gameID"] = $game['ID'];
-            require ('game_view.php'); 
+            if (!isset($game['H2H']) || $game['H2H'] == 0) {
+                $_GET["gameID"] = $game['ID'];
+                require ('game_view.php');
+            }
         }
         ?>
     </section>
