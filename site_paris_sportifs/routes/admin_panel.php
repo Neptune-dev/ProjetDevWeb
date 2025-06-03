@@ -24,9 +24,11 @@ checkAdmin();
 <table>
     <tr>
         <th>Game ID</th>
+        <th>League</th>
         <th>Home</th>
         <th>Away</th>
         <th>Game Date</th>
+        <th>Game Time</th>
         <th>Is Live</th>
         <th>H2H</th>
         <th>Home Score</th>
@@ -45,9 +47,11 @@ checkAdmin();
     foreach ($games as $game) {
         echo "<tr>";
         echo "<td>".$game["ID"]."</td>";
+        echo "<td>".$game["League"]."</td>";
         echo "<td>".$game["Home"]."</td>";
         echo "<td>".$game["Away"]."</td>";
         echo "<td>".$game["GameDate"]."</td>";
+        echo "<td>".$game["GameTime"]."</td>";
         echo "<td>".$game["isLive"]."</td>";
         echo "<td>".$game["H2H"]."</td>";
         echo "<td>".$game["HomeScore"]."</td>";
@@ -66,6 +70,8 @@ checkAdmin();
     <h2>Créer un match</h2>
     <form class="contactForm" action="admin_panel" method="POST">
         Date : <input type="date" name="gameDate" required><br>
+        Time : <input type="time" name="gameTime" required><br>
+        League : <input type="text" name="league" required><br>
         Home : <input type="text" name="home" required><br>
         Away : <input type="text" name="away" required><br>
         Is Live : <input type="checkbox" name="isLive"><br>
@@ -78,9 +84,12 @@ checkAdmin();
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $league = $_POST['league'];
         $home = $_POST['home'];
         $away = $_POST['away'];
         $gameDate = $_POST['gameDate'];
+        $gameTime = $_POST['gameTime'];
         $isLive = $_POST['isLive'];
         $H2H = $_POST['H2H'];
         $homeScore = $_POST['homeScore'];
@@ -92,8 +101,10 @@ checkAdmin();
             $isLive = 0;
         }
 
-        $stmt = $pdo->prepare("INSERT INTO Games (Home, Away, GameDate, isLive, H2H, HomeScore, AwayScore) VALUES (?,?,?,?,?,?,?)");
-        $stmt->execute([$home, $away, $gameDate, $isLive, $H2H, $homeScore, $awayScore]);
+        echo $gameTime;
+
+        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore]);
         header("Refresh:0");
         exit();
     }

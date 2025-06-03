@@ -28,9 +28,11 @@ CREATE TABLE Wallets (
 /* table des matchs */
 CREATE TABLE Games (
   ID int NOT NULL AUTO_INCREMENT,
+  League varchar(255) NOT NULL,
   Home varchar(255) NOT NULL,
   Away varchar(255) NOT NULL,
   GameDate DATE NOT NULL,
+  GameTime TIME NOT NULL,
   isLive int,
   H2H int,
   HomeScore int,
@@ -64,8 +66,8 @@ WHERE Username="DarkTOTO";
 INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd, isAdmin)
 VALUES ("admin", "admin", "admin",  "2000-01-01", "$2y$10$dxFZ3Cv.kyxBGgEG0UfGl..0D66Glj5q5Spr6QQdjRz6ex/jhHRrm", 1);
 
-INSERT INTO Games (Home, Away, GameDate)
-VALUES ("Equipe A", "Equipe B", "2025-06-20");
+INSERT INTO Games (League, Home, Away, GameDate, GameTime)
+VALUES ("Ligue 1", "Equipe A", "Equipe B", "2025-06-20", "21:00:00");
 
-INSERT INTO Games (Home, Away, GameDate, H2H, HomeScore, AwayScore)
-VALUES ("Equipe C", "Equipe D", "2025-04-15", 1, 2, 1);
+INSERT INTO Games (League, Home, Away, GameDate, GameTime, H2H, HomeScore, AwayScore)
+VALUES ("Ligue 1", "Equipe C", "Equipe D", "2025-04-15", "20:00:00", 1, 2, 1);
