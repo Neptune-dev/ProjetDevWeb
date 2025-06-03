@@ -68,22 +68,37 @@ checkAdmin();
     ?>
 </table>
 
+<?php
+function dropDownTeams($name) {
+    require_once('includes/helpers.php');
+    $pdo = openDB();
+    $stmt = $pdo->prepare("SELECT * FROM Teams");
+    $stmt->execute();
+    $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo '<select name="'.$name.'">';
+    foreach ($teams as $team) {
+        echo '<option value="'.$team["ID"].'">'.$team["TeamName"]."</option>";
+    }
+    echo "</select><br>";
+}
+?>
 
 <!-- Formulaire de création de nouveau matchs -->
 <section class="Contact">
     <h2>Créer un match</h2>
     <form class="contactForm" action="admin_panel" method="POST">
-        Date : <input type="date" name="gameDate" required><br>
-        Time : <input type="time" name="gameTime" required><br>
-        League : <input type="text" name="league" required><br>
-        Home : <input type="text" name="home" required><br>
-        Away : <input type="text" name="away" required><br>
+        Date* : <input type="date" name="gameDate" required><br>
+        Time* : <input type="time" name="gameTime" required><br>
+        League* : <input type="text" name="league" required><br>
+        Home* : <?php dropDownTeams('home') ?><br>
+        Away* : <?php dropDownTeams('away') ?><br>
         Is Live : <input type="checkbox" name="isLive"><br>
         H2H : <input type="number" name="H2H"><br>
         Home Score : <input type="number" name="homeScore"><br>
         Away Score : <input type="number" name="awayScore"><br>
-        Home Odd : <input type="number" name="homeOdd"><br>
-        Away Odd : <input type="number" name="awayOdd"><br>
+        Home Odd* : <input type="number" name="homeOdd"><br>
+        Away Odd* : <input type="number" name="awayOdd"><br>
         <button type="submit">Créer le match</button>
     </form>
 </section>

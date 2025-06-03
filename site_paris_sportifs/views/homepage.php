@@ -35,8 +35,17 @@ session_start();
     <section class="TopPari">
         <h2>Les Matches De La Semaine</h2>
         <?php
-        $_GET["gameID"] = 1;
-        require ('game_view.php'); 
+
+        require_once 'includes/helpers.php';
+        $pdo = openDB();
+        $stmt = $pdo->prepare("SELECT * FROM Games");
+        $stmt->execute();
+        $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($games as $game) {
+            $_GET["gameID"] = $game['ID'];
+            require ('game_view.php'); 
+        }
         ?>
     </section>
 

@@ -13,12 +13,24 @@ $stmt->execute([$_GET["gameID"]]);
 $game = $stmt->fetch();
 
 $league = $game["League"];
-$home = $game["Home"];
-$away = $game["Away"];
 $gameDate = $game["GameDate"];
 $gameTime = $game["GameTime"];
 $homeOdd = $game["HomeOdd"];
 $awayOdd = $game["AwayOdd"];
+
+
+$stmt = $pdo->prepare("SELECT * FROM Teams WHERE ID=?");
+$stmt->execute([$game["Home"]]);
+$home = $stmt->fetch();
+$homeLogo = $home["TeamLogo"];
+$home = $home["TeamName"];
+
+$stmt = $pdo->prepare("SELECT * FROM Teams WHERE ID=?");
+$stmt->execute([$game["Away"]]);
+$away = $stmt->fetch();
+$awayLogo = $away["TeamLogo"];
+$away = $away["TeamName"];
+
 
 
 ob_start();
@@ -27,13 +39,13 @@ ob_start();
 <div class="match-bubble">
     <div class="teams">
         <div class="team">
-            <img src="public/images/psg.webp" alt="PSG">
+            <img src="<?=$homeLogo?>" alt="Home team Logo">
             <span class="team-name"><?= $home ?></span>
             <span class="team-name"><?= $homeOdd ?></span>
         </div>
         <span class="vs">VS</span>
         <div class="team">
-            <img src="public/images/om.png" alt="OM">
+            <img src="<?=$awayLogo?>" alt="Away team Logo">
             <span class="team-name"><?= $away ?></span>
             <span class="team-name"><?= $awayOdd ?></span>
         </div>
