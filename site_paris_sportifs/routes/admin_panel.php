@@ -33,6 +33,8 @@ checkAdmin();
         <th>H2H</th>
         <th>Home Score</th>
         <th>Away Score</th>
+        <th>Home Odd</th>
+        <th>Away Odd</th>
         <th>Modify</th>
         <th>Delete</th>
     </tr>
@@ -56,6 +58,8 @@ checkAdmin();
         echo "<td>".$game["H2H"]."</td>";
         echo "<td>".$game["HomeScore"]."</td>";
         echo "<td>".$game["AwayScore"]."</td>";
+        echo "<td>".$game["HomeOdd"]."</td>";
+        echo "<td>".$game["AwayOdd"]."</td>";
         echo '<td><a type="button" href="/site_paris_sportifs/modify">Modifier</a></td>';
         echo '<td><a type="button" href="/site_paris_sportifs/delete">Supprimer</a></td>';
         echo "</tr>";
@@ -78,6 +82,8 @@ checkAdmin();
         H2H : <input type="number" name="H2H"><br>
         Home Score : <input type="number" name="homeScore"><br>
         Away Score : <input type="number" name="awayScore"><br>
+        Home Odd : <input type="number" name="homeOdd"><br>
+        Away Odd : <input type="number" name="awayOdd"><br>
         <button type="submit">Créer le match</button>
     </form>
 </section>
@@ -94,6 +100,8 @@ checkAdmin();
         $H2H = $_POST['H2H'];
         $homeScore = $_POST['homeScore'];
         $awayScore = $_POST['awayScore'];
+        $homeOdd = $_POST['homeOdd'];
+        $awayOdd = $_POST['awayOdd'];
 
         if ($isLive == 'on') {
             $isLive = 1;
@@ -103,8 +111,8 @@ checkAdmin();
 
         echo $gameTime;
 
-        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore) VALUES (?,?,?,?,?,?,?,?,?)");
-        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore]);
+        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore, HomeOdd, AwayOdd) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd]);
         header("Refresh:0");
         exit();
     }

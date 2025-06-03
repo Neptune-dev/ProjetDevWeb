@@ -34,7 +34,10 @@ session_start();
     
     <section class="TopPari">
         <h2>Les Matches De La Semaine</h2>
-        <?php require ('game_view.php'); ?>
+        <?php
+        $_GET["gameID"] = 1;
+        require ('game_view.php'); 
+        ?>
     </section>
 
     <br>

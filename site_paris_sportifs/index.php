@@ -51,6 +51,12 @@ switch ($route) {
         require 'routes/reward_ad.php';
         break;
 
+    // NE FONCTIONNE PAS ENCORE
+    case preg_match('#^/game_view/(\d+)$#', $route, $matches):
+        $_GET['game_id'] = $matches[1];
+        require 'routes/game_view.php';
+        break;
+
     // http status codes d'exception
     case '/401':
         require 'routes/401.php';
