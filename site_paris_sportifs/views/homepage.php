@@ -33,15 +33,17 @@ if (isset($_SESSION['user'])) {
 </head>
 <body>
     <header>
-        <div class="logo">
-            <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
-        </div>
-        <?php if (isset($_SESSION['user'])): ?>
-            <div class="balance">
-                Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong> 💰
+        <div class="header-left">
+            <div class="logo">
+                <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
             </div>
-        <?php endif; ?>
-        <nav>
+            <?php if (isset($_SESSION['user'])): ?>
+                <div class="balance">
+                    Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong> 💰
+                </div>
+            <?php endif; ?>
+        </div>
+        <nav class="header-right">
             <ul>
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>
 

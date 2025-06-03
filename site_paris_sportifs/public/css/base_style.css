@@ -2,7 +2,6 @@ body {
   font-family: 'League Spartan', sans-serif;
   margin: 0;
   padding: 0;
-  padding-left: 10px;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -104,57 +103,85 @@ button {
 
 /*Pour la page utilisateur*/
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    max-width: 600px;
-    background-color: rgba(0, 0, 0, 0.7);        /* fond noir */
-    color: var(--text-color);                  /* texte en blanc */
-    padding: 20px;                 /* espace intérieur */
-    border-radius: 12px;           /* coins arrondis */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* ombre douce */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
 }
 
 .user-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .avatar {
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .user-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .username {
-    margin: 0;
-    font-size: 24px;
+  color: var(--text-color);
+  font-size: 24px;
+  margin: 0;
 }
 
 .bio {
-    margin: 5px 0 0;
-    font-size: 16px;
-    color: var(--primary-color);
+  font-size: 16px;
+  color: var(--primary-color);
 }
 
 .edit-profile {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .edit-profile:hover {
-    background-color: var(--header-color);
+  background-color: var(--header-color);
+}
+
+.account {
+  padding-left: 20px;
+}
+
+/*Pour la bio de l'utilisateur*/
+#edit-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#edit-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 10px;
+    resize: vertical;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-color);
+}
+
+#edit-form button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }

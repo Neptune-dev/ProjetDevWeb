@@ -23,9 +23,8 @@ header {
   background-color: var(--header-color);
   padding: 0.1rem 3rem; /* Réglage du padding vertical*/
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  justify-content: space-between; /* Espace entre logo+solde et nav */
+  align-items: center; /* Centrage vertical */
   /* Ombre */
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.6),
@@ -33,6 +32,7 @@ header {
 }
 
 .balance {
+  padding-left: 10px;
   color: var(--text-color);
   text-align: left;
   font-weight: bold;
@@ -41,6 +41,12 @@ header {
 }
 
 /*CSS du logo dans le header*/
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .logo img { 
   max-height: 100px; /* Taille augmentée (était 50px) */
   width: auto; /*Responsive*/
@@ -52,7 +58,7 @@ header {
 }
 
 /*CSS du texte du header, sait pas trop ce que c'est mdr*/
-nav ul {
+.header-right ul {
   display: flex;
   list-style: none;
   margin: 0;
@@ -61,7 +67,7 @@ nav ul {
 }
 
 /*Ne pas toucher !*/
-nav a {
+.header-right a {
   display: inline-block; /*Pour que la barre dessous texte ne dépasse pas*/
   color: var(--text-color);
   text-decoration: none;
@@ -75,18 +81,18 @@ nav a {
 }
 
 /*Pour l'accessibilité focus clavier pour les personnes en situation d'handicap.*/
-nav a:focus {
+.header-right a:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 4px;
 }
 
 /* CSS texte header au survol */
-nav a:hover {
+.header-right a:hover {
   color: var(--secondary-color); 
 }
 
 /*CSS de la barre en dessous du texte*/
-nav a::after { 
+.header-right a::after { 
   content: '';
   position: absolute;
   bottom: 0;
@@ -99,12 +105,12 @@ nav a::after {
 }
 
 /*CSS de la taille de la barre en dessous du texte*/
-nav a:hover::after {
+.header-right a:hover::after {
   width: 70%;
 }
 
 /* Style pour le lien actif */
-nav a.active {
+.header-right a.active {
   color: var(--secondary-color);
   font-weight: 700;
 }
@@ -328,7 +334,7 @@ footer .socials a:hover {
   color:var(--text-color);
 }
 
-h1{
+.TopPari h1{ /*Cela m'a attaqué mon titre ailleurs ton h1 commun à tous !*/
   text-align: center;
   margin-bottom: 1.5rem;
   color:var(--secondary-color);
