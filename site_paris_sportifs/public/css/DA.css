@@ -312,3 +312,33 @@ footer .socials a:hover {
   position: relative;
   z-index: 2;
 }
+
+/*Css de la gestion des match*/  
+.admin h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color:var(--text-color);
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color:var(--secondary-color);
+  font-size: 2.5rem;
+}
+
+table {
+    width: 80%; 
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd; 
+    padding: 12px;
+    text-align: left; 
+}
+
+th{
+  color:var(--secondary-color);
+}
