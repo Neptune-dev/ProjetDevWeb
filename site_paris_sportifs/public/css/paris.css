@@ -9,7 +9,7 @@
 }
 
 .TopPari h1 {
-  color: var(--secondary-color);
+  color: var(--panneau-color);
   font-size: 2.5rem;
   font-family: 'League-Spartan', sans-serif;
   text-align: center;
@@ -45,7 +45,6 @@
   width: 60px;
   height: 60px;
   object-fit: contain;
-  margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
 

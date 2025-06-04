@@ -32,6 +32,33 @@ $awayLogo = $away["TeamLogo"];
 $away = $away["TeamName"];
 
 
+$jours = [
+    'Monday' => 'Lundi',
+    'Tuesday' => 'Mardi',
+    'Wednesday' => 'Mercredi',
+    'Thursday' => 'Jeudi',
+    'Friday' => 'Vendredi',
+    'Saturday' => 'Samedi',
+    'Sunday' => 'Dimanche',
+];
+
+$matchDateTime = new DateTime($gameDate . ' ' . $gameTime);
+$now = new DateTime();
+
+$dayLabel = '';
+if ($matchDateTime->format('Y-m-d') === $now->format('Y-m-d')) {
+    $dayLabel = 'Aujourd’hui';
+} elseif ($matchDateTime->format('Y-m-d') === $now->modify('+1 day')->format('Y-m-d')) {
+    $dayLabel = 'Demain';
+} else {
+    $dayEn = $matchDateTime->format('l');
+    $dayLabel = $jours[$dayEn] ?? $dayEn;
+}
+
+$hour = (int)$matchDateTime->format('H');
+$minute = (int)$matchDateTime->format('i');
+$formattedTime = sprintf('%02dh%02d', $hour, $minute);
+
 
 ob_start();
 ?>
@@ -60,8 +87,10 @@ ob_start();
     </div>
 
     <div class="match-info">
-        <?= $league ?> — <?= $gameTime ?> — <?= $gameDate ?>
+        <?= $league ?> — <?= $dayLabel ?> — <?= $formattedTime ?>
     </div>
+    
+    
 </div>
 
 
