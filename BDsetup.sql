@@ -7,6 +7,7 @@ CREATE TABLE Users (
   FirstName varchar(255) NOT NULL,
   LastName varchar(255) NOT NULL,
   Username varchar(50) NOT NULL,
+  Bio varchar(255),
   Email varchar(255),
   Birthdate DATE NOT NULL,
   Pwd varchar(255) NOT NULL,

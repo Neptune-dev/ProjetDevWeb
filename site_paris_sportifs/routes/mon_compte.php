@@ -22,6 +22,13 @@ $stmt->execute([$user["ID"]]);
 $wallet = $stmt->fetch();
 
 $balance = $wallet ? $wallet["Balance"] : 0;
+
+// mise à jour de la bio
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $bio = $_POST["bio"];
+    $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
+    $stmt->execute([$bio, $user["ID"]]);
+}
 ?>
 
 <br>
@@ -39,8 +46,8 @@ $balance = $wallet ? $wallet["Balance"] : 0;
         </div>
         <button class="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
 
-        <form id="edit-form" action="update_profile" method="POST" style="display: none;">
-            <textarea name="bio" maxlength="256" placeholder="Votre nouvelle bio (max 256 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
+        <form id="edit-form" action="mon_compte" method="POST" style="display: none;">
+            <textarea name="bio" maxlength="255" placeholder="Votre nouvelle bio (max 255 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
             <button type="submit">Enregistrer</button>
         </form>
     </div>

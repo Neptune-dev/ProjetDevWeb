@@ -53,10 +53,6 @@ switch ($route) {
     case '/reward_ad':
         require 'routes/reward_ad.php';
         break;
-    
-    case '/update_profile':
-        require 'routes/update_profile.php';
-        break;
 
     // http status codes d'exception
     case '/401':
