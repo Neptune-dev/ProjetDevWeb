@@ -83,23 +83,24 @@ if (isset($_SESSION['user'])) {
     <br>
     <br>
     <br>
-    <section class="Contact">
-        <hr>
-        <h2>Contactez-nous</h2>
-        <form class="contactForm" action="https://formspree.io/f/xgvkgzoq" method="POST">
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" required>
+    <div class="contact-wrapper">
+        <section class="Contact">
+            <h2>Contactez-nous</h2>
+            <form class="contactForm" action="https://formspree.io/f/xgvkgzoq" method="POST">
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" required>
 
-            <label for="email">Email :</label>
-            <input type="email" name="email" required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" required>
 
-            <label for="message">Message :</label>
-            <textarea name="message" rows="5" required></textarea>
+                <label for="message">Message :</label>
+                <textarea name="message" rows="5" required></textarea>
 
-            <button type="submit">Envoyer</button>
-            <p class="msg"></p>
-        </form>
-    </section>
+                <button type="submit">Envoyer</button>
+                <p class="msg"></p>
+            </form>
+        </section>
+    </div>
     <script src="/site_paris_sportifs/public/js/script.js"></script>
 
     <footer>

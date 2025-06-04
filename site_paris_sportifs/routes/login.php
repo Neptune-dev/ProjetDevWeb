@@ -7,15 +7,17 @@ ob_start();
 <br>
 <br>
 <br>
-<section class="Contact">
-    <h2>Veuillez vous identifier.</h2>
-    <form class="contactForm" action="login" method="POST">
-        Nom d'utilisateur : <input type="text" name="username" required><br>
-        Mot de passe : <input type="password" name="pwd" required><br>
-        <button type="submit">Se connecter</button>
-    </form>
-    <a href="/site_paris_sportifs/signin">Vous n'avez pas de compte ? Cliquez ici.</a>
-</section>
+<div class="contact-wrapper">
+    <section class="Contact">
+        <h2>Connexion</h2>
+        <form class="contactForm" action="login" method="POST">
+            Nom d'utilisateur : <input type="text" name="username" required><br>
+            Mot de passe : <input type="password" name="pwd" required><br>
+            <button type="submit">Se connecter</button>
+        </form>
+        <a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi </a>
+    </section>
+</div>
 
 <?php
     session_start();

@@ -3,7 +3,8 @@
   --secondary-color: #ffcc33 ; /*Jaune*/
   --tertiary-color: #f4a300 ; /*Orangé*/
   --accent-color : #0f7abf; /*Bleu vif*/
-  --bg-color: #1b3555 ; /*Bleu nuit mais plus clair qu avant*/
+  --panneau-color : #1b3555; /*Bleu nuit mais plus clair qu avant*/
+  --bg-color: #eff0f1 ; /*Gris très clair, presque blanc, comme vrais sites paris sportifs*/
   --header-color: #0e1b2e; /*Initialement la couleur du background*/
   --text-color: #f4f2ee; /*Blanc cassé*/
 }
@@ -125,12 +126,26 @@ header {
 
 /* CSS contact, logIn et SignIn */
 .Contact {
-  padding: 2rem;
-  background-color: var(--bg-color);
+  padding: 1rem 4rem;
+  background-color: var(--panneau-color);
   color: var(--text-color);
+
+  /*Panneau rajouté*/
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
 }
 
 /*Pour le LogIn pour passer à SignIn, en vrai pareil pour tous*/
+.contact-wrapper {
+  height: calc(100vh - 120px); /* pleine hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* optionnel pour éviter d’être collé au bord */
+  box-sizing: border-box;
+}
+
 .Contact a {
   display: block;
   text-align: center;
