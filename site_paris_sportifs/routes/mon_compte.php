@@ -29,6 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
     $stmt->execute([$bio, $user["ID"]]);
 }
+
+// récupération de la bio
+$stmt = $pdo->prepare("SELECT Bio FROM Users WHERE ID = ?");
+$stmt->execute([$user["ID"]]);
+$user["Bio"] = $stmt->fetchColumn();
 ?>
 
 <br>
@@ -41,7 +46,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="public/images/psg.webp" alt="Avatar" class="avatar">
             <div class="user-details">
                 <h1 class="username">Bienvenue, <?= htmlspecialchars($user['Username']) ?> !</h1>
-                <p class="bio"><?= htmlspecialchars($user['bio'] ?? 'Aucune bio renseignée.') ?></p>
+                <p class="bio">
+                    <?php
+                    if (isset($user["Bio"])) {
+                        echo $user["Bio"];
+                    } else {
+                        echo 'Aucune bio renseignée.';
+                    }  
+                    ?>
+                </p>
             </div>
         </div>
         <button class="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
