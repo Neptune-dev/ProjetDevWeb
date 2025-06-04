@@ -27,7 +27,7 @@ $route = strtok($route, '?');
 //routing
 switch ($route) {
     case '/':
-        require 'views/homepage.php';
+        require 'routes/homepage.php';
         break;
     
     case '/login':

@@ -185,3 +185,13 @@ button {
     border-radius: 6px;
     cursor: pointer;
 }
+
+.Prévention {
+  text-align: center;
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+}
