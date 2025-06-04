@@ -30,6 +30,7 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="public/css/contact.css">
     <link rel="stylesheet" href="public/css/mon_compte.css">
     <link rel="stylesheet" href="public/css/erreur.css">
+    <link rel="stylesheet" href="public/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--Le dernier c'est pour les favicons de entreprises pour le footer-->
 </head>

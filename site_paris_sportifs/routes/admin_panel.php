@@ -13,10 +13,8 @@ require_once('includes/helpers.php');
 checkAdmin();
 
 ?>
-<h1>Panneau de configuration administrateur</h1>
-<section class="admin">
-    <h2>Modifier un match</h2>
-</section>
+
+<h1 class="admin">Panneau de configuration administrateur</h1>
 
 <!-- Tableau des matchs disponibles -->
 <button type="button" class="collapsible"><h2>Modifier un match</h2></button>
