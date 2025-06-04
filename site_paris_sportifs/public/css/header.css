@@ -1,0 +1,103 @@
+/*Header*/
+
+.full-width-banner {
+  width: 100vw;
+  height: auto;
+  display: block;
+}
+
+header {
+  background-color: var(--header-color);
+  padding: 0.1rem 3rem; /* Réglage du padding vertical*/
+  display: flex;
+  justify-content: space-between; /* Espace entre logo+solde et nav */
+  align-items: center; /* Centrage vertical */
+  /* Ombre */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.balance {
+  padding-left: 10px;
+  color: var(--text-color);
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 2rem; /* Ajustement de l'espacement */
+}
+
+/*CSS du logo dans le header*/
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img { 
+  max-height: 100px; /* Taille augmentée (était 50px) */
+  width: auto; /*Responsive*/
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/*CSS du texte du header, sait pas trop ce que c'est mdr*/
+.header-right ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem; /* Espacement légèrement augmenté */
+}
+
+/*Ne pas toucher !*/
+.header-right a {
+  display: inline-block; /*Pour que la barre dessous texte ne dépasse pas*/
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 550; /* Epaisseur des lettres */
+  font-size: 1.2rem; /* Taille de police */
+  letter-spacing: 0.8px; /* Espaces entre chaque lettres */
+  padding: 0.5rem 1rem; /* Espace entre chaque pages */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/*Pour l'accessibilité focus clavier pour les personnes en situation d'handicap.*/
+.header-right a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* CSS texte header au survol */
+.header-right a:hover {
+  color: var(--secondary-color); 
+}
+
+/*CSS de la barre en dessous du texte*/
+.header-right a::after { 
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /*Ne pas y toucher !*/
+  width: 0;
+  height: 3px; /* Épaisseur augmentée */
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+/*CSS de la taille de la barre en dessous du texte*/
+.header-right a:hover::after {
+  width: 70%;
+}
+
+/* Style pour le lien actif */
+.header-right a.active {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
