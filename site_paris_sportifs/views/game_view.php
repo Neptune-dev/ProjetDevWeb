@@ -54,9 +54,9 @@ ob_start();
     </div>
 
     <div class="odds">
-        <div class="odd">1</div>
-        <div class="odd">N</div>
-        <div class="odd">2</div>
+        <div class="odd"><?= $home ?></div>
+        <div class="odd">Nul</div>
+        <div class="odd"><?= $away ?></div>
     </div>
 
     <div class="match-info">

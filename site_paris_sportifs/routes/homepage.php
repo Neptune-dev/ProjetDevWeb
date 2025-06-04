@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
 -->
 
 <section class="TopPari">
-    <h1>Les Matchs</h1>
+    <h1>Les Matchs de la semaine</h1>
     <?php
 
     require_once 'includes/helpers.php';
@@ -70,20 +70,6 @@ if (isset($_SESSION['user'])) {
     </section>
 </div>
 <script src="/site_paris_sportifs/public/js/script.js"></script>
-
-<footer>
-    <a href="https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789" target="_blank">Mentions légales</a>
-    <div class="socials">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <!--Le <p> ajoute automatiquement un margin, mais j'aime pas celui du bas.-->
-    &copy; <span id="year"></span> Groupe_des_Wapitis
-</footer>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-
-
 
 <!--fin du contenu -->
 <?php
