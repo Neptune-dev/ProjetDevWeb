@@ -13,7 +13,7 @@ checkAdmin();
 
 //vérif syntaxe requete
 if (!isset($_GET["id"])) {
-    header('Location: /site_paris_sportifs/400');
+    header('Location: /site_paris_sportifs/400?');
     exit();
 } else { //on vérifie si ce match existe
     $pdo = openDB();
@@ -27,7 +27,7 @@ if (!isset($_GET["id"])) {
         }
     }
     if ($check == 0) {
-        header('Location: /site_paris_sportifs/404');
+        header('Location: /site_paris_sportifs/404?ressource=matchID:'.$_GET["id"]);
         exit();
     } else {
         $pdo = openDB();

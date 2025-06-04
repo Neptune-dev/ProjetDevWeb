@@ -9,7 +9,17 @@ ob_start();
 <div class="NotFound">
     <h1>404 - Not Found</h1>
     <h2 id="message">Chargement du message...</h2>
-    <p>La ressource suivante n'a pas été trouvée : <?= $route ?></p><br>
+    <p>La ressource suivante n'a pas été trouvée :
+        <?php
+        // si la ressource manquante est spécifiée en query parameter, celle-ci est affichée,
+        // sinon c'est l'URI de la requete qui est affichée
+        if (isset($_GET["ressource"])) {
+            echo $_GET["ressource"];
+        } else {
+            echo $route;
+        }
+        ?>
+    </p><br>
     <a href="/site_paris_sportifs/">Retour au terrain</a>
 </div>
 
