@@ -24,11 +24,12 @@ if (isset($_SESSION['user'])) {
     <title><?= $title ?></title>
     <!--Cela ne marchait pas, je suis remonté plus loin dans l'arborescence-->
     <link rel="stylesheet" href="/site_paris_sportifs/public/css/DA.css">
-    <link rel="stylesheet" href="/site_paris_sportifs/public/css/base_style.css">
     <link rel="stylesheet" href="public/css/header.css">
     <link rel="stylesheet" href="public/css/footer.css">
     <link rel="stylesheet" href="public/css/paris.css">
     <link rel="stylesheet" href="public/css/contact.css">
+    <link rel="stylesheet" href="public/css/mon_compte.css">
+    <link rel="stylesheet" href="public/css/erreur.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--Le dernier c'est pour les favicons de entreprises pour le footer-->
 </head>
