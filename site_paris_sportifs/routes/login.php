@@ -13,6 +13,8 @@ ob_start();
         <form class="contactForm" action="login" method="POST">
             Nom d'utilisateur : <input type="text" name="username" required><br>
             Mot de passe : <input type="password" name="pwd" required><br>
+            <a href="/site_paris_sportifs/reset_password">Mot de passe oublié ?</a><br> 
+            <!--Flemme de faire le reset de mot de passe, mais c'est pas compliqué à faire-->
             <button type="submit">Se connecter</button>
         </form>
         <a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi </a>

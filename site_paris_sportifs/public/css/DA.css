@@ -243,49 +243,44 @@ footer .socials a:hover {
 }
 
 
+.TopPari {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
 
-
-/*Css des matches*/  
-.TopPari h2 {
+.TopPari h1 {
+  color: var(--secondary-color);
+  font-size: 2.5rem;
+  font-family: 'League-Spartan', sans-serif;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
-/* match_bubbles.css - À ajouter à votre dossier public/css */
 
-
-.match-bubble {
-  position: relative;
-  text-decoration: none;
+.match-card {
+  background-color: var(--panneau-color);
   color: var(--text-color);
-  overflow: visible;
-}
-
-.match-bubble::after {
-  content: "";
-  position: absolute;
-  top: -4px;  /* Épaisseur du contour */
-  left: -4px; /* Épaisseur du contour */
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid var(--accent-color); /* Couleur bleue de votre thème */
-  z-index: -1; /* Place le contour derrière le contenu */
-  pointer-events: none; /* Permet de cliquer à travers */
-  transition: all 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .teams {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 2;
 }
 
 .team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   width: 40%;
 }
 
@@ -299,38 +294,34 @@ footer .socials a:hover {
 
 .team-name {
   font-weight: bold;
-  text-align: center;
   font-size: 1.1rem;
-  font-family: 'League-Spartan', sans-serif;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .vs {
+  font-size: 1.4rem;
   font-weight: bold;
   color: var(--secondary-color);
-  font-size: 1.2rem;
   text-shadow: 0 0 5px rgba(242, 106, 36, 0.5);
 }
 
 .odds {
   display: flex;
-  justify-content: space-around;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 2;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .odd {
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
   background-color: var(--bg-color);
+  color: #000;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  min-width: 60px;
+  text-align: center;
   transition: all 0.2s ease;
-  font-weight: 600;
-  min-width: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .odd:hover {
@@ -340,41 +331,7 @@ footer .socials a:hover {
 }
 
 .match-info {
-  margin-top: 1.5rem;
+  text-align: center;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
-  z-index: 2;
-}
-
-/*Css de la gestion des match*/  
-.admin h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color:var(--text-color);
-}
-
-.TopPari h1{ /*Cela m'a attaqué mon titre ailleurs ton h1 commun à tous !*/
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color:var(--secondary-color);
-  font-size: 2.5rem;
-}
-
-table {
-    width: 80%; 
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #ddd; 
-    padding: 12px;
-    text-align: left; 
-}
-
-th{
-  color:var(--secondary-color);
 }

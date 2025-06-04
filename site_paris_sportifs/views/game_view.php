@@ -36,28 +36,34 @@ $away = $away["TeamName"];
 ob_start();
 ?>
 
-<div class="match-bubble">
+<div class="match-card">
     <div class="teams">
         <div class="team">
-            <img src="<?=$homeLogo?>" alt="Home team Logo">
-            <span class="team-name"><?= $home ?></span>
-            <span class="team-name"><?= $homeOdd ?></span>
+            <img src="<?= $homeLogo ?>" alt="Logo <?= $home ?>">
+            <div class="team-name"><?= $home ?></div>
+            <div class="team-name"><?= $homeOdd ?></div>
         </div>
-        <span class="vs">VS</span>
+
+        <div class="vs">VS</div>
+
         <div class="team">
-            <img src="<?=$awayLogo?>" alt="Away team Logo">
-            <span class="team-name"><?= $away ?></span>
-            <span class="team-name"><?= $awayOdd ?></span>
+            <img src="<?= $awayLogo ?>" alt="Logo <?= $away ?>">
+            <div class="team-name"><?= $away ?></div>
+            <div class="team-name"><?= $awayOdd ?></div>
         </div>
     </div>
+
     <div class="odds">
-        <div class="odd"><?= 50 ?></div>
-        <div class="odd"><?= 50 ?></div>
+        <div class="odd">1</div>
+        <div class="odd">N</div>
+        <div class="odd">2</div>
     </div>
+
     <div class="match-info">
-        <?= $league ?> - <?= $gameTime ?> - <?= $gameDate ?>
+        <?= $league ?> — <?= $gameTime ?> — <?= $gameDate ?>
     </div>
 </div>
+
 
 <?php
 echo ob_get_clean();
