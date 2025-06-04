@@ -60,7 +60,8 @@ checkAdmin();
             echo "<td>".$game["AwayScore"]."</td>";
             echo "<td>".$game["HomeOdd"]."</td>";
             echo "<td>".$game["AwayOdd"]."</td>";
-            echo '<td><a type="button" href="/site_paris_sportifs/modify">Modifier</a></td>';
+            //bouton de modification
+            echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
             //bouton de suppression
             echo '<td><form action="admin_panel?deleteGame&id='.$game["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
@@ -155,6 +156,8 @@ function dropDownTeams($name) {
     </section>
 </div>
 
+
+<!-- GESTION DE REQUETE POST (formulaires) -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_GET["addGame"])) {
@@ -196,6 +199,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare("DELETE FROM Games WHERE ID=?");
         $stmt->execute([$_GET['id']]);
         header("Refresh:0");
+        exit();
+    }
+    if (isset($_GET["modifyGame"])) {
+        header("Location: /site_paris_sportifs/game_panel?id=".$_GET['id']);
         exit();
     }
     if (isset($_GET["deleteTeam"])) {

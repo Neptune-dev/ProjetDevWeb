@@ -1,5 +1,5 @@
 <?php
-//page d'erreur 404
+//page d'erreur 401
 ob_start();
 ?>
 

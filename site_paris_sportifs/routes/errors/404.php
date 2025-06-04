@@ -9,7 +9,7 @@ ob_start();
 <div class="NotFound">
     <h1>404 - Not Found</h1>
     <h2 id="message">Chargement du message...</h2>
-    <p>L'URL suivante n'a pas été trouvée : <?= $route ?></p><br>
+    <p>La ressource suivante n'a pas été trouvée : <?= $route ?></p><br>
     <a href="/site_paris_sportifs/">Retour au terrain</a>
 </div>
 

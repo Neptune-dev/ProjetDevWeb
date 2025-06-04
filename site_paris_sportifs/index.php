@@ -42,6 +42,10 @@ switch ($route) {
         require 'routes/admin_panel.php';
         break;
 
+    case '/game_panel':
+        require 'routes/game_panel.php';
+        break;
+
     case '/mon_compte':
         require 'routes/mon_compte.php';
         break;
@@ -55,12 +59,16 @@ switch ($route) {
         break;
 
     // http status codes d'exception
+    case '/400':
+        require 'routes/errors/400.php';
+        break;
+    
     case '/401':
-        require 'routes/401.php';
+        require 'routes/errors/401.php';
         break;
     
     default:
-        require 'routes/404.php';
+        require 'routes/errors/404.php';
         break;
 }
 
