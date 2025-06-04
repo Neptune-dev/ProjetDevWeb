@@ -22,6 +22,18 @@ $stmt->execute([$user["ID"]]);
 $wallet = $stmt->fetch();
 
 $balance = $wallet ? $wallet["Balance"] : 0;
+
+// mise à jour de la bio
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $bio = $_POST["bio"];
+    $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
+    $stmt->execute([$bio, $user["ID"]]);
+}
+
+// récupération de la bio
+$stmt = $pdo->prepare("SELECT Bio FROM Users WHERE ID = ?");
+$stmt->execute([$user["ID"]]);
+$user["Bio"] = $stmt->fetchColumn();
 ?>
 
 <br>
@@ -34,13 +46,21 @@ $balance = $wallet ? $wallet["Balance"] : 0;
             <img src="public/images/psg.webp" alt="Avatar" class="avatar">
             <div class="user-details">
                 <h1 class="username">Bienvenue, <?= htmlspecialchars($user['Username']) ?> !</h1>
-                <p class="bio"><?= htmlspecialchars($user['bio'] ?? 'Aucune bio renseignée.') ?></p>
+                <p class="bio">
+                    <?php
+                    if (isset($user["Bio"])) {
+                        echo $user["Bio"];
+                    } else {
+                        echo 'Aucune bio renseignée.';
+                    }  
+                    ?>
+                </p>
             </div>
         </div>
         <button class="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
 
-        <form id="edit-form" action="update_profile" method="POST" style="display: none;">
-            <textarea name="bio" maxlength="256" placeholder="Votre nouvelle bio (max 256 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
+        <form id="edit-form" action="mon_compte" method="POST" style="display: none;">
+            <textarea name="bio" maxlength="255" placeholder="Votre nouvelle bio (max 255 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
             <button type="submit">Enregistrer</button>
         </form>
     </div>
