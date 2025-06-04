@@ -62,7 +62,7 @@ if (isset($_SESSION['user'])) {
     -->
 
     <section class="TopPari">
-        <h1>Les Matches De La Semaine</h1>
+        <h1>Les Matchs</h1>
         <?php
 
         require_once 'includes/helpers.php';

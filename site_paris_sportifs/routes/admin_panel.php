@@ -61,7 +61,8 @@ checkAdmin();
             echo "<td>".$game["HomeOdd"]."</td>";
             echo "<td>".$game["AwayOdd"]."</td>";
             echo '<td><a type="button" href="/site_paris_sportifs/modify">Modifier</a></td>';
-            echo '<td><a type="button" href="/site_paris_sportifs/delete">Supprimer</a></td>';
+            //bouton de suppression
+            echo '<td><form action="admin_panel?deleteGame&id='.$game["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
         }
         ?>
@@ -94,7 +95,8 @@ checkAdmin();
             echo "<td>".$team["TeamName"]."</td>";
             echo '<td><img src="'.$team["TeamLogo"].'" alt="Team Logo" style="width: 10vh;"></td>'; //à adapter en CSS
             echo '<td><a type="button" href="/site_paris_sportifs/modify">Modifier</a></td>';
-            echo '<td><a type="button" href="/site_paris_sportifs/delete">Supprimer</a></td>';
+            //bouton de suppression
+            echo '<td><form action="admin_panel?deleteTeam&id='.$team["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
         }
 
@@ -190,7 +192,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Refresh:0");
         exit();
     }
-
+    if (isset($_GET["deleteGame"])) {
+        $stmt = $pdo->prepare("DELETE FROM Games WHERE ID=?");
+        $stmt->execute([$_GET['id']]);
+        header("Refresh:0");
+        exit();
+    }
+    if (isset($_GET["deleteTeam"])) {
+        $stmt = $pdo->prepare("DELETE FROM Teams WHERE ID=?");
+        $stmt->execute([$_GET['id']]);
+        header("Refresh:0");
+        exit();
+    }
 }
 ?>
 
