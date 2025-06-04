@@ -17,8 +17,8 @@
 }
 
 .match-card {
-  background-color: var(--panneau-color);
-  color: var(--text-color);
+  background-color: white;
+  color: black;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   padding: 2rem;
@@ -30,13 +30,13 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.teams {
+.teams { /*Pour les 2 équipes*/
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.team {
+.team { /*Pour chaque équipe*/
   text-align: center;
   width: 40%;
 }
@@ -70,8 +70,8 @@
 }
 
 .odd {
-  background-color: var(--bg-color);
-  color: #000;
+  background-color: var(--panneau-color);
+  color: var(--text-color);
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
   font-weight: bold;
@@ -83,7 +83,6 @@
 
 .odd:hover {
   background-color: var(--accent-color);
-  color: white;
   transform: scale(1.05);
 }
 
