@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="public/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="public/images/favicon3.png">
     <title><?= $title ?></title>
     <!--Cela ne marchait pas, je suis remonté plus loin dans l'arborescence-->
     <link rel="stylesheet" href="/site_paris_sportifs/public/css/DA.css">
