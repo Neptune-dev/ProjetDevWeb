@@ -70,6 +70,14 @@ switch ($route) {
     case '/401':
         require 'routes/errors/401.php';
         break;
+
+    case '/402':
+        require 'routes/errors/402.php';
+        break;
+
+    case '/404':
+        require 'routes/errors/404.php';
+        break;
     
     default:
         require 'routes/errors/404.php';

@@ -80,15 +80,23 @@ ob_start();
         </div>
     </div>
 
-    <div class="odds">
-        <a href="/site_paris_sportifs/bet"><div class="odd">dyna-odd</div></a>
-        <a href="/site_paris_sportifs/bet"><div class="odd">Nul</div></a>
-        <a href="/site_paris_sportifs/bet"><div class="odd">dyna-odd</div></a>
-    </div>
+    <?php 
+    if (!isset($_GET['nobets'])){
+        // H2H = 0 pour nul || 1 pour home || 2 pour away
+        echo '
+            <div class="odds">
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1"><div class="odd">dyna-odd</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0"><div class="odd">Nul</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2"><div class="odd">dyna-odd</div></a>
+            </div>';
+    }
+    ?>
 
     <div class="match-info">
         <?= $league ?> — <?= $dayLabel ?> — <?= $formattedTime ?>
     </div>
+    
+    
     
     
 </div>

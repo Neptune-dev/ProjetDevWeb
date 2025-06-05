@@ -65,6 +65,7 @@ CREATE TABLE Bets (
   FOREIGN KEY (GameID) REFERENCES Games(ID)
 );
 
+/*-----------------------------------------------------------------------------------*/
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" */
 INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd, isAdmin)
