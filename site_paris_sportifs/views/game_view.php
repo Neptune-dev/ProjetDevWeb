@@ -81,9 +81,9 @@ ob_start();
     </div>
 
     <div class="odds">
-        <div class="odd"><?= $home ?></div>
-        <div class="odd">Nul</div>
-        <div class="odd"><?= $away ?></div>
+        <a href="/site_paris_sportifs/bet"><div class="odd">dyna-odd</div></a>
+        <a href="/site_paris_sportifs/bet"><div class="odd">Nul</div></a>
+        <a href="/site_paris_sportifs/bet"><div class="odd">dyna-odd</div></a>
     </div>
 
     <div class="match-info">

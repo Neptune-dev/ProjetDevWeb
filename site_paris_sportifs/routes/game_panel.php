@@ -17,33 +17,32 @@ if (!isset($_GET["id"])) {
     exit();
 } else { //on vérifie si ce match existe
     $pdo = openDB();
-    $stmt = $pdo->prepare("SELECT * FROM Games");
-    $stmt->execute();
-    $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $check = 0;
-    foreach ($games as $game) {
-        if ($game['id'] == $_GET["id"]) {
-            $check = 1;
-        }
-    }
-    if ($check == 0) {
+    $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
+    $stmt->execute([$_GET["id"]]);
+    $game = $stmt->fetch();
+    if (!$game) {
         header('Location: /site_paris_sportifs/404?ressource=matchID:'.$_GET["id"]);
         exit();
-    } else {
-        $pdo = openDB();
-        $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
-        $stmt->execute([$_GET["id"]]);
-        $game = $stmt->fetch();
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //suppression du match
+    if (isset($_GET["delete"])) {
+        $stmt = $pdo->prepare("DELETE FROM Games WHERE ID=?");
+        $stmt->execute([$_GET['id']]);
+        header("Location: /site_paris_sportifs/admin_panel");
+        exit();
     }
 }
 
 
-
-
-echo $game['League'];
-
-
 ?>
+
+<!-- Suppression du match -->
+<form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">
+    <button type="submit">Supprimer</button>
+</form>
 
 <!--fin du contenu -->
 <?php

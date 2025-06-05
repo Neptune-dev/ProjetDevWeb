@@ -1,5 +1,5 @@
 <?php
-//page de login
+//page de l'admin
 ob_start();
 ?>
 
@@ -34,7 +34,6 @@ checkAdmin();
             <th>Home Odd</th>
             <th>Away Odd</th>
             <th>Modify</th>
-            <th>Delete</th>
         </tr>
         <?php
         require_once('includes/helpers.php');
@@ -60,8 +59,6 @@ checkAdmin();
             echo "<td>".$game["AwayOdd"]."</td>";
             //bouton de modification
             echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
-            //bouton de suppression
-            echo '<td><form action="admin_panel?deleteGame&id='.$game["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
         }
         ?>
@@ -190,12 +187,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $stmt = $pdo->prepare("INSERT INTO Teams (TeamName, TeamLogo) VALUES (?,?)");
         $stmt->execute([$teamName, $logo]);
-        header("Refresh:0");
-        exit();
-    }
-    if (isset($_GET["deleteGame"])) {
-        $stmt = $pdo->prepare("DELETE FROM Games WHERE ID=?");
-        $stmt->execute([$_GET['id']]);
         header("Refresh:0");
         exit();
     }
