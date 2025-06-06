@@ -4,7 +4,6 @@
   text-align: center;
   text-decoration: none;
   margin: 1rem auto;
-  color: var(--text-color);
   transition: color 0.3s ease;
 }
 
@@ -39,6 +38,12 @@
   opacity: 1;
 }
 
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: black;
+}
 #adButton {
   cursor: pointer;
   padding: 0.8rem 1.5rem;
