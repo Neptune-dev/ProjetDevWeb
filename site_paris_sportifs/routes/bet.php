@@ -64,6 +64,7 @@ require('views/game_view.php');
 <!-- Validation du paris -->
 <section class="Contact">
     <form action="bet?id=<?=$_GET['id']?>&bet=<?=$_GET['bet']?>" method="POST">
+        <p>Mise :</p>
         <input type="number" name="value" required>
         <button type="submit">Valider le Paris</button>
     </form>
