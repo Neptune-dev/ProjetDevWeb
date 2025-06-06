@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once('includes/helpers.php');
     $pdo = openDB();
         
-    $stmt = $pdo->prepare("DELETE FROM Games WHERE ID=?");
+    $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
     $stmt->execute([$_GET['Id']]);
     $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
