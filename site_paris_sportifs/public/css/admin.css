@@ -5,6 +5,11 @@
   color: var(--secondary-color);
   font-family: 'League-Spartan', sans-serif;
 }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
 
 /* Boutons collapsibles */
 .collapsible {

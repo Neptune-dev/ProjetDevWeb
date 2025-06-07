@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-
+<h1>Match Actuel</h1>
 
 <table>
     <tr>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pdo = openDB();
         
     $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
-    $stmt->execute([$_GET['Id']]);
+    $stmt->execute([$_GET['id']]);
     $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($games as $game) {
@@ -87,6 +87,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">
     <button type="submit">Supprimer</button>
 </form>
+
+<!-- Modification du match -->
+<?php
+function dropDownTeams($name) {
+    require_once('includes/helpers.php');
+    $pdo = openDB();
+    $stmt = $pdo->prepare("SELECT * FROM Teams");
+    $stmt->execute();
+    $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo '<select name="'.$name.'">';
+    foreach ($teams as $team) {
+        echo '<option value="'.$team["ID"].'">'.$team["TeamName"]."</option>";
+    }
+    echo "</select><br>";
+}
+?>
+
+<section class="Contact">
+    <h2>Modifier le match</h2>
+    <form class="contactForm" action="admin_panel?addGame" method="POST">
+        Date* : <input type="date" name="gameDate" required><br>
+        Time* : <input type="time" name="gameTime" required><br>
+        League* : <input type="text" name="league" required><br>
+        Home* : <?php dropDownTeams('home') ?><br>
+        Away* : <?php dropDownTeams('away') ?><br>
+        Is Live : <input type="checkbox" name="isLive"><br>
+        H2H : <input type="number" name="H2H"><br>
+        Home Score : <input type="number" name="homeScore"><br>
+        Away Score : <input type="number" name="awayScore"><br>
+        Home Odd* : <input type="number" name="homeOdd"><br>
+        Away Odd* : <input type="number" name="awayOdd"><br>
+        <button type="submit">Modifier le match</button>
+    </form>
+</section>
 
 <!--fin du contenu -->
 <?php
