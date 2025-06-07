@@ -34,6 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /site_paris_sportifs/admin_panel");
         exit();
     }
+    //modification du match
+    if (isset($_GET["modify"])) {
+        //TODO
+        header("Location: /site_paris_sportifs/admin_panel");
+        exit();
+    }
 }
 
 
@@ -83,11 +89,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 </table>
 
-<!-- Suppression du match -->
-<form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">
-    <button type="submit">Supprimer</button>
-</form>
-
 <!-- Modification du match -->
 <?php
 function dropDownTeams($name) {
@@ -107,7 +108,7 @@ function dropDownTeams($name) {
 
 <section class="Contact">
     <h2>Modifier le match</h2>
-    <form class="contactForm" action="admin_panel?addGame" method="POST">
+    <form class="contactForm" action="game_panel?id=<?=$game["ID"]?>&modify" method="POST">
         Date* : <input type="date" name="gameDate" required><br>
         Time* : <input type="time" name="gameTime" required><br>
         League* : <input type="text" name="league" required><br>
@@ -122,6 +123,11 @@ function dropDownTeams($name) {
         <button type="submit">Modifier le match</button>
     </form>
 </section>
+
+<!-- Suppression du match -->
+<form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">
+    <button type="submit">Supprimer</button>
+</form>
 
 <!--fin du contenu -->
 <?php
