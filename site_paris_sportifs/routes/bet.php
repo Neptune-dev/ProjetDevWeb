@@ -44,6 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare('INSERT INTO Bets (UserID, GameID, H2H, Amount) VALUES (?,?,?,?)');
         $stmt->execute([$userID, $_GET['id'], $_GET['bet'], $value]);
 
+        //mise à jour des côtes
+        //TODO
+
         header("Location: /site_paris_sportifs/mon_compte");
         exit();
     } else {

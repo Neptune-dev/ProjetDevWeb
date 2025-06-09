@@ -33,6 +33,9 @@ checkAdmin();
             <th>Away Score</th>
             <th>Home Odd</th>
             <th>Away Odd</th>
+            <th>Home Dynamic Odd</th>
+            <th>Draw Dynamic Odd</th>
+            <th>Away Dynamic Odd</th>
             <th>Modify</th>
         </tr>
         <?php
@@ -57,6 +60,9 @@ checkAdmin();
             echo "<td>".$game["AwayScore"]."</td>";
             echo "<td>".$game["HomeOdd"]."</td>";
             echo "<td>".$game["AwayOdd"]."</td>";
+            echo "<td>".$game["HomeDynaOdd"]."</td>";
+            echo "<td>".$game["DrawDynaOdd"]."</td>";
+            echo "<td>".$game["AwayDynaOdd"]."</td>";
             //bouton de modification
             echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
             echo "</tr>";
@@ -174,9 +180,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $isLive = 0;
         }
 
+        // cotes dynamiques par defaut
+        $homeDynaOdd = 1;
+        $drawDynaOdd = 1;
+        $awayDynaOdd = 1;
 
-        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore, HomeOdd, AwayOdd) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd]);
+
+        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore, HomeOdd, AwayOdd, HomeDynaOdd, DrawDynaOdd, AwayDynaOdd) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd, $homeDynaOdd, $drawDynaOdd, $awayDynaOdd]);
         header("Refresh:0");
         exit();
     }

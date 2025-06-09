@@ -48,6 +48,9 @@ CREATE TABLE Games (
   AwayScore int,
   HomeOdd FLOAT NOT NULL,
   AwayOdd FLOAT NOT NULL,
+  HomeDynaOdd FLOAT NOT NULL,
+  DrawDynaOdd FLOAT NOT NULL,
+  AwayDynaOdd FLOAT NOT NULL,
   FOREIGN KEY (Home) REFERENCES Teams(ID),
   FOREIGN KEY (Away) REFERENCES Teams(ID),
   PRIMARY KEY (ID)
@@ -94,7 +97,7 @@ INSERT INTO Teams (TeamName, TeamLogo)
 VALUES ("Monaco", "https://upload.wikimedia.org/wikipedia/fr/thumb/5/58/Logo_AS_Monaco_FC_-_2021.svg/1200px-Logo_AS_Monaco_FC_-_2021.svg.png");
 
 /* matchs d'exemple */
-INSERT INTO Games (League, Home, Away, GameDate, GameTime, HomeOdd, AwayOdd)
+INSERT INTO Games (League, Home, Away, GameDate, GameTime, HomeOdd, AwayOdd, HomeDynaOdd, DrawDynaOdd, AwayDynaOdd)
 VALUES (
 "Ligue 1",
 (SELECT ID FROM Teams WHERE TeamName = "PSG"),
@@ -102,9 +105,10 @@ VALUES (
 "2025-06-15",
 "20:45:00",
 1.5,
-2.8);
+2.8,
+1,1,1);
 
-INSERT INTO Games (League, Home, Away, GameDate, GameTime, HomeOdd, AwayOdd)
+INSERT INTO Games (League, Home, Away, GameDate, GameTime, HomeOdd, AwayOdd, HomeDynaOdd, DrawDynaOdd, AwayDynaOdd)
 VALUES (
 "Ligue 1",
 (SELECT ID FROM Teams WHERE TeamName = "OL"),
@@ -112,4 +116,5 @@ VALUES (
 "2025-06-16",
 "21:00:00",
 1.3,
-2.5);
+2.5,
+1,1,1);

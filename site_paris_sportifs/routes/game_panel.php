@@ -61,6 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <th>Away Score</th>
         <th>Home Odd</th>
         <th>Away Odd</th>
+        <th>Home Dynamic Odd</th>
+        <th>Draw Dynamic Odd</th>
+        <th>Away Dynamic Odd</th>
     </tr>
     <?php
     require_once('includes/helpers.php');
@@ -84,6 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<td>".$game["AwayScore"]."</td>";
         echo "<td>".$game["HomeOdd"]."</td>";
         echo "<td>".$game["AwayOdd"]."</td>";
+        echo "<td>".$game["HomeDynaOdd"]."</td>";
+        echo "<td>".$game["DrawDynaOdd"]."</td>";
+        echo "<td>".$game["AwayDynaOdd"]."</td>";
         echo "</tr>";
     }
     ?>

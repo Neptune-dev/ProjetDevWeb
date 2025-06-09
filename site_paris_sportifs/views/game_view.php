@@ -18,6 +18,9 @@ $gameTime = $game["GameTime"];
 $homeOdd = $game["HomeOdd"];
 $awayOdd = $game["AwayOdd"];
 
+$homeDynaOdd = $game["HomeDynaOdd"];
+$drawDynaOdd = $game["DrawDynaOdd"];
+$awayDynaOdd = $game["AwayDynaOdd"];
 
 $stmt = $pdo->prepare("SELECT * FROM Teams WHERE ID=?");
 $stmt->execute([$game["Home"]]);
@@ -85,9 +88,9 @@ ob_start();
         // H2H = 0 pour nul || 1 pour home || 2 pour away
         echo '
             <div class="odds">
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1"><div class="odd">dyna-odd</div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0"><div class="odd">Nul</div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2"><div class="odd">dyna-odd</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1"><div class="odd">'.$homeDynaOdd.'</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0"><div class="odd">'.$drawDynaOdd.'</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2"><div class="odd">'.$awayDynaOdd.'</div></a>
             </div>';
     }
     ?>
