@@ -34,10 +34,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /site_paris_sportifs/admin_panel");
         exit();
     }
-    //modification du match
+        //modification du match
     if (isset($_GET["modify"])) {
         //TODO
         header("Location: /site_paris_sportifs/admin_panel");
+        $gameDate = $_POST['gameDate'];
+        $gameTime = $_POST['gameTime'];
+        $isLive = $_POST['isLive'];
+        $H2H = $_POST['H2H'];
+        $homeScore = $_POST['homeScore'];
+        $awayScore = $_POST['awayScore'];
+        $dynahomeOdd = $_POST['dynahomeOdd'];
+        $dynaawayOdd = $_POST['dynaawayOdd'];
+        $dynadrawOdd = $_POST['dynadrawOdd'];
+
+        if ($isLive == 'on') {
+            $isLive = 1;
+        } else {
+            $isLive = 0;
+        }
+        $stmt = $pdo->prepare("UPDATE Games SET GameDate=?, GameTime=?, isLive=?, H2H=?, HomeScore=?, AwayScore=?, HomeDynaOdd=?, DrawDynaOdd=?, AwayDynaOdd=? WHERE ID=?");
+        $stmt->execute([$gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $dynahomeOdd, $dynadrawOdd, $dynaawayOdd,$game["ID"]]);
         exit();
     }
 }
@@ -95,6 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 </table>
 
+
 <!-- Modification du match -->
 <?php
 function dropDownTeams($name) {
@@ -110,25 +128,26 @@ function dropDownTeams($name) {
     }
     echo "</select><br>";
 }
+
 ?>
+
 
 <section class="Contact">
     <h2>Modifier le match</h2>
     <form class="contactForm" action="game_panel?id=<?=$game["ID"]?>&modify" method="POST">
         Date* : <input type="date" name="gameDate" required><br>
         Time* : <input type="time" name="gameTime" required><br>
-        League* : <input type="text" name="league" required><br>
-        Home* : <?php dropDownTeams('home') ?><br>
-        Away* : <?php dropDownTeams('away') ?><br>
         Is Live : <input type="checkbox" name="isLive"><br>
         H2H : <input type="number" name="H2H"><br>
         Home Score : <input type="number" name="homeScore"><br>
         Away Score : <input type="number" name="awayScore"><br>
-        Home Odd* : <input type="number" name="homeOdd"><br>
-        Away Odd* : <input type="number" name="awayOdd"><br>
+        dyna Home Odd* : <input type="number" name="dynahomeOdd"><br>
+        dyna Away Odd* : <input type="number" name="dynaawayOdd"><br>
+        dyna draw Odd* : <input type="number" name="dynadrawOdd"><br>
         <button type="submit">Modifier le match</button>
     </form>
 </section>
+
 
 <!-- Suppression du match -->
 <form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">
