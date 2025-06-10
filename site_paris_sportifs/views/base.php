@@ -47,7 +47,8 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
             </div>
             <?php if (isset($_SESSION['user'])): ?>
                 <div class="balance">
-                    Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong> 💰
+                    Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong>
+                    <img src="public/images/monnaie.png" alt="💰" class="monnaie"></a>
                 </div>
             <?php endif; ?>
         </div>

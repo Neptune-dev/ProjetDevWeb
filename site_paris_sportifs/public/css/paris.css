@@ -67,7 +67,12 @@
   margin-top: 1rem;
 }
 
-.odd {
+.odds a {
+    text-decoration: none; /* Enlève le soulignement */
+    color: inherit;         /* Garde la couleur du texte parent */
+}
+
+.odd { /*Vérifier si utile*/
   background-color: var(--panneau-color);
   color: var(--text-color);
   padding: 0.7rem 1.2rem;

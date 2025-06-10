@@ -70,6 +70,7 @@ ob_start();
         <div class="team">
             <img src="<?= $homeLogo ?>" alt="Logo <?= $home ?>">
             <div class="team-name"><?= $home ?></div>
+            <!--<div class="team-name"><?= $homeOdd ?></div> -->
         </div>
 
         <div class="vs">VS</div>
@@ -77,6 +78,7 @@ ob_start();
         <div class="team">
             <img src="<?= $awayLogo ?>" alt="Logo <?= $away ?>">
             <div class="team-name"><?= $away ?></div>
+            <!--<div class="team-name"><?= $awayOdd ?></div> -->
         </div>
     </div>
 
@@ -85,9 +87,21 @@ ob_start();
         // H2H = 0 pour nul || 1 pour home || 2 pour away
         echo '
             <div class="odds">
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1"><div class="odd">'.$homeDynaOdd.'</div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0"><div class="odd">'.$drawDynaOdd.'</div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2"><div class="odd">'.$awayDynaOdd.'</div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1">
+                    <div class="odd">
+                        <div>'.$home.'</div>
+                        <div>'.$homeDynaOdd.'</div>
+                    </div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0">
+                    <div class="odd">
+                        <div>Nul</div>
+                        <div>'.$drawDynaOdd.'</div>
+                    </div></a>
+                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2">
+                    <div class="odd">
+                        <div>'.$away.'</div>
+                        <div>'.$awayDynaOdd.'</div>
+                    </div></a>
             </div>';
     }
     ?>

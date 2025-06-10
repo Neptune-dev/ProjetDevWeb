@@ -27,6 +27,13 @@ header {
   margin-right: 2rem; /* Ajustement de l'espacement */
 }
 
+.monnaie { 
+  max-height: 24px;
+  width: 24px;
+  object-fit: contain;
+  vertical-align:sub; /* Pour aligner la monnaie avec le texte */
+}
+
 /*CSS du logo dans le header*/
 .header-left {
     display: flex;
