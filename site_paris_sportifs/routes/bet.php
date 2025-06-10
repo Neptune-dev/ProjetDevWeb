@@ -57,22 +57,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <div class="TopPari">
     <h1>Votre Paris</h1>
+    <h3 id="message" class="Prévention">Chargement du message...</h3>
+    <?php 
+        $_GET['nobets'] = 1;
+        $_GET['gameID'] = $_GET['id'];
+        require('views/game_view.php');
+    ?>
+
+    <!-- Validation du paris -->
+    <section class="Contact">
+        <form action="bet?id=<?=$_GET['id']?>&bet=<?=$_GET['bet']?>" method="POST">
+            <p>Mise :</p>
+            <input type="number" name="value" required>
+            <button type="submit">Parier</button>
+        </form>
+    </section>
 </div>
-
-<?php 
-$_GET['nobets'] = 1;
-$_GET['gameID'] = $_GET['id'];
-require('views/game_view.php');
-?>
-
-<!-- Validation du paris -->
-<section class="Contact">
-    <form action="bet?id=<?=$_GET['id']?>&bet=<?=$_GET['bet']?>" method="POST">
-        <p>Mise :</p>
-        <input type="number" name="value" required>
-        <button type="submit">Parier</button>
-    </form>
-</section>
 
 <!--fin du contenu -->
 <?php

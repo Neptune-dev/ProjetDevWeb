@@ -36,9 +36,6 @@ $stmt->execute([$user["ID"]]);
 $user["Bio"] = $stmt->fetchColumn();
 ?>
 
-<br>
-<br>
-<br>
 <section class="account">
 
     <div class="profile-container">
@@ -76,7 +73,7 @@ $user["Bio"] = $stmt->fetchColumn();
         <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
     </div>
 
-    <section class="TopPari">
+    <div class="TopPari">
         <h1>Vos Paris</h1>
         <?php
             require_once('includes/helpers.php');
@@ -90,7 +87,7 @@ $user["Bio"] = $stmt->fetchColumn();
                 require ('views/bet_view.php');
             }
         ?>
-    </section>
+    </div>
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
@@ -104,7 +101,7 @@ $user["Bio"] = $stmt->fetchColumn();
 
     <?php endif; ?>
     <script src="/site_paris_sportifs/public/js/script.js"></script>
-    <a href="/site_paris_sportifs/logout" class="logout-btn">Se déconnecter</a>
+    <button><a href="/site_paris_sportifs/logout" class="logout-btn">Se déconnecter</a></button>
 </section>
 
 <!--fin du contenu -->

@@ -8,14 +8,6 @@
   padding: 2rem 1rem;
 }
 
-.TopPari h1 {
-  color: var(--panneau-color);
-  font-size: 2.5rem;
-  font-family: 'League-Spartan', sans-serif;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
 .match-card {
   background-color: white;
   color: black;

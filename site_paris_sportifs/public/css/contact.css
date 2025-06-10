@@ -2,9 +2,7 @@
 .Contact {
   padding: 1rem 4rem;
   background-color: var(--panneau-color);
-  color: var(--text-color);
-
-  /*Panneau rajouté*/
+  color: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   max-width: 600px;
@@ -18,6 +16,14 @@
   align-items: center;
   padding: 1rem; /* optionnel pour éviter d’être collé au bord */
   box-sizing: border-box;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 1rem auto;
 }
 
 .Contact a {
@@ -43,41 +49,18 @@
   text-align: left;
 }
 
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: auto;
-}
-
 .contactForm label {
   font-weight: bold;
 }
 
 .contactForm input,
-.contactForm textarea { /*La belle textarea*/
-  padding: 10px;
+.contactForm textarea,
+.contactForm select { /*La belle textarea*/
+  padding: 0.5rem 1rem;
   border: 1px solid var(--accent-color);
   border-radius: 6px;
-  background-color: white;
-  color: #000;
-  font-family: inherit;
-}
-
-.contactForm button {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.contactForm button:hover {
-  background-color: var(--tertiary-color);
+  background-color: var(--text-color);
+  color: black;
 }
 
 

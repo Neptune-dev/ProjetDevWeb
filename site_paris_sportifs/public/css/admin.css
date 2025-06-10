@@ -5,11 +5,6 @@
   color: var(--secondary-color);
   font-family: 'League-Spartan', sans-serif;
 }
-h1 { /*Pas utile ?*/
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
 
 /* Boutons collapsibles */
 .collapsible {
@@ -67,62 +62,3 @@ td img {
   max-height: 60px;
   object-fit: contain;
 }
-
-
-
-
-
-/* Formulaires */
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.contactForm input,
-.contactForm select {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #222;
-}
-
-.contactForm button {
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.contactForm button:hover {
-  background-color: #0c5c90;
-}
-
-/* Boutons d'action dans les tableaux */
-form button,
-a[type="button"] {
-  padding: 0.4rem 0.8rem;
-  background-color: var(--tertiary-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-form button:hover,
-a[type="button"]:hover {
-  background-color: var(--primary-color);
-}
-
-

@@ -24,11 +24,6 @@ if (isset($_SESSION['user'])) {
 
 ?>
 
-<br>
-<!-- Faudra le mettre lorsqu'on valide le paris, c'est drôle.
-<h3 id="message" class="Prévention">Chargement du message...</h3><br>
--->
-
 <section class="TopPari">
     <h1>Matchs de la semaine</h1>
     <?php
@@ -49,9 +44,7 @@ if (isset($_SESSION['user'])) {
     ?>
 </section>
 
-<br>
-<br>
-<br>
+
 <div class="contact-wrapper">
     <section class="Contact">
         <h2>Contactez-nous</h2>

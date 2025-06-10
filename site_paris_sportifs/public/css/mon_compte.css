@@ -12,7 +12,6 @@
 }
 
 .logout-btn {
-  display: inline-block;
   background-color: var(--primary-color);
   color: var(--text-color);
   padding: 0.7rem 1.2rem;
@@ -114,10 +113,6 @@
 
 .edit-profile:hover {
   background-color: var(--header-color);
-}
-
-.account {
-  padding-left: 20px;
 }
 
 /*Pour la bio de l'utilisateur*/
