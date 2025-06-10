@@ -15,8 +15,7 @@ $game = $stmt->fetch();
 $league = $game["League"];
 $gameDate = $game["GameDate"];
 $gameTime = $game["GameTime"];
-$homeOdd = $game["HomeOdd"];
-$awayOdd = $game["AwayOdd"];
+
 
 $homeDynaOdd = $game["HomeDynaOdd"];
 $drawDynaOdd = $game["DrawDynaOdd"];
@@ -71,7 +70,6 @@ ob_start();
         <div class="team">
             <img src="<?= $homeLogo ?>" alt="Logo <?= $home ?>">
             <div class="team-name"><?= $home ?></div>
-            <div class="team-name"><?= $homeOdd ?></div>
         </div>
 
         <div class="vs">VS</div>
@@ -79,7 +77,6 @@ ob_start();
         <div class="team">
             <img src="<?= $awayLogo ?>" alt="Logo <?= $away ?>">
             <div class="team-name"><?= $away ?></div>
-            <div class="team-name"><?= $awayOdd ?></div>
         </div>
     </div>
 
