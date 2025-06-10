@@ -65,7 +65,7 @@
                 $awayAmount = 1;
             }
             if ($totalAmount == 0) {
-                $totalAmount = 3;
+                $totalAmount = 1;
             }
 
             // calcul des cotes
