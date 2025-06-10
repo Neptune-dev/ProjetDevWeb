@@ -72,7 +72,10 @@ $user["Bio"] = $stmt->fetchColumn();
     }
     </script>
 
-    <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
+    <div class="text">
+        <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
+    </div>
+
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
