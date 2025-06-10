@@ -55,8 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
-<h1>Votre Paris</h1>
+<div class="TopPari">
+    <h1>Votre Paris</h1>
+</div>
 
 <?php 
 $_GET['nobets'] = 1;
@@ -69,7 +70,7 @@ require('views/game_view.php');
     <form action="bet?id=<?=$_GET['id']?>&bet=<?=$_GET['bet']?>" method="POST">
         <p>Mise :</p>
         <input type="number" name="value" required>
-        <button type="submit">Valider le Paris</button>
+        <button type="submit">Parier</button>
     </form>
 </section>
 

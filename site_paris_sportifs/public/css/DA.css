@@ -19,12 +19,17 @@
   src: url('/public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
-body {
+body{
   font-family: 'League Spartan', sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+h1,h3,h4,h5,h6,p{ /*Gérer pour le h2 ! Utile ?*/
+  margin: 0;
+  padding: 0;
 }
 
 button {

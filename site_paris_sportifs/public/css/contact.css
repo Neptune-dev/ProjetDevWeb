@@ -38,6 +38,11 @@
   margin-bottom: 1.5rem;
 }
 
+#forgot-password {
+  margin-top: 0rem;
+  text-align: left;
+}
+
 .contactForm {
   display: flex;
   flex-direction: column;
@@ -51,21 +56,13 @@
 }
 
 .contactForm input,
-.contactForm textarea {
+.contactForm textarea { /*La belle textarea*/
   padding: 10px;
   border: 1px solid var(--accent-color);
   border-radius: 6px;
   background-color: white;
   color: #000;
   font-family: inherit;
-}
-
-/* Style sombre activé avec .contact-dark */
-.contactForm.contact-dark input,
-.contactForm.contact-dark textarea {
-  background-color: #333;
-  color: #fff;
-  border: 1px solid var(--accent-color);
 }
 
 .contactForm button {
@@ -81,4 +78,10 @@
 
 .contactForm button:hover {
   background-color: var(--tertiary-color);
+}
+
+
+/*Gestion mdp oublié*/
+.hidden {
+  display: none;
 }

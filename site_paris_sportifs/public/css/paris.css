@@ -64,12 +64,11 @@
   display: flex;
   justify-content: space-evenly;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .odds a {
     text-decoration: none; /* Enlève le soulignement */
-    color: inherit;         /* Garde la couleur du texte parent */
+    color: inherit;        /* Garde la couleur du texte parent */
 }
 
 .odd { /*Vérifier si utile*/
