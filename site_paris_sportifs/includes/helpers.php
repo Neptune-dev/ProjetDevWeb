@@ -70,9 +70,9 @@
 
             // calcul des cotes
 
-            $homeDynaOdd = round($totalAmount / $homeAmount, 2);
-            $drawDynaOdd = round($totalAmount / $drawAmount, 2);
-            $awayDynaOdd = round($totalAmount / $awayAmount, 2);
+            $homeDynaOdd = $totalAmount / $homeAmount;
+            $drawDynaOdd = $totalAmount / $drawAmount;
+            $awayDynaOdd = $totalAmount / $awayAmount;
 
             // mise à jour dans la DB
 

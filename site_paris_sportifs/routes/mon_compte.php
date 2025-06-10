@@ -76,6 +76,21 @@ $user["Bio"] = $stmt->fetchColumn();
         <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
     </div>
 
+    <section class="TopPari">
+        <h1>Vos Paris</h1>
+        <?php
+            require_once('includes/helpers.php');
+            $pdo = openDB();
+            $stmt = $pdo->prepare('SELECT * FROM Bets WHERE UserID=?');
+            $stmt->execute([$user['ID']]);
+            $bets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($bets as $bet) {
+                $_GET['bet'] = $bet;
+                require ('views/bet_view.php');
+            }
+        ?>
+    </section>
 
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
