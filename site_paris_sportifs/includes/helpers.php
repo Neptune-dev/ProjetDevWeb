@@ -21,4 +21,64 @@
         }
     }
 
+    // calcul des cotes de tous les matchs
+    function calcOdds () {
+        
+        $pdo = openDB();
+        $stmt = $pdo->prepare("SELECT * FROM Games");
+        $stmt->execute();
+        $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($games as $game) {
+
+            // récupération des valeurs totales
+
+            $stmt = $pdo->prepare("SELECT SUM(Amount) AS TotalAmount FROM Bets WHERE GameID=?");
+            $stmt->execute([$game['ID']]);
+            $totalAmount = $stmt->fetch();
+            $totalAmount = $totalAmount["TotalAmount"]; // somme totale
+
+            $stmt = $pdo->prepare("SELECT SUM(Amount) AS HomeAmount FROM Bets WHERE (GameID=? AND H2H=?)");
+            $stmt->execute([$game['ID'], 1]);
+            $homeAmount = $stmt->fetch();
+            $homeAmount = $homeAmount["HomeAmount"]; // somme des paris pour le domicile
+
+            $stmt = $pdo->prepare("SELECT SUM(Amount) AS DrawAmount FROM Bets WHERE (GameID=? AND H2H=?)");
+            $stmt->execute([$game['ID'], 0]);
+            $drawAmount = $stmt->fetch();
+            $drawAmount = $drawAmount["DrawAmount"]; // somme des paris pour le nul
+
+            $stmt = $pdo->prepare("SELECT SUM(Amount) AS AwayAmount FROM Bets WHERE (GameID=? AND H2H=?)");
+            $stmt->execute([$game['ID'], 2]);
+            $awayAmount = $stmt->fetch();
+            $awayAmount = $awayAmount["AwayAmount"]; // somme des paris pour l'exterieur
+
+            // correction des divisions par 0 et des cotes nulles
+
+            if ($homeAmount == 0) {
+                $homeAmount = 1;
+            }
+            if ($drawAmount == 0) {
+                $drawAmount = 1;
+            }
+            if ($awayAmount == 0) {
+                $awayAmount = 1;
+            }
+            if ($totalAmount == 0) {
+                $totalAmount = 3;
+            }
+
+            // calcul des cotes
+
+            $homeDynaOdd = round($totalAmount / $homeAmount, 2);
+            $drawDynaOdd = round($totalAmount / $drawAmount, 2);
+            $awayDynaOdd = round($totalAmount / $awayAmount, 2);
+
+            // mise à jour dans la DB
+
+            $stmt = $pdo->prepare("UPDATE Games SET HomeDynaOdd=?, DrawDynaOdd=?, AwayDynaOdd=? WHERE ID=?");
+            $stmt->execute([$homeDynaOdd, $drawDynaOdd, $awayDynaOdd, $game["ID"]]);
+        }
+    }
+
 ?>

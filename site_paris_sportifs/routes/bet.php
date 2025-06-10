@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute([$userID, $_GET['id'], $_GET['bet'], $value]);
 
         //mise à jour des côtes
-        //TODO
+        calcOdds();
 
         header("Location: /site_paris_sportifs/mon_compte");
         exit();
