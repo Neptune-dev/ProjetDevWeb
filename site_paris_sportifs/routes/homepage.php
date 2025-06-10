@@ -34,6 +34,7 @@ if (isset($_SESSION['user'])) {
     <?php
 
     require_once 'includes/helpers.php';
+    calcOdds(); // mise à jour des dernières cotes
     $pdo = openDB();
     $stmt = $pdo->prepare("SELECT * FROM Games");
     $stmt->execute();
