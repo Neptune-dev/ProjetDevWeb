@@ -47,25 +47,27 @@ checkAdmin();
         $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($games as $game) {
-            echo "<tr>";
-            echo "<td>".$game["ID"]."</td>";
-            echo "<td>".$game["League"]."</td>";
-            echo "<td>".$game["Home"]."</td>";
-            echo "<td>".$game["Away"]."</td>";
-            echo "<td>".$game["GameDate"]."</td>";
-            echo "<td>".$game["GameTime"]."</td>";
-            echo "<td>".$game["isLive"]."</td>";
-            echo "<td>".$game["H2H"]."</td>";
-            echo "<td>".$game["HomeScore"]."</td>";
-            echo "<td>".$game["AwayScore"]."</td>";
-            echo "<td>".$game["HomeOdd"]."</td>";
-            echo "<td>".$game["AwayOdd"]."</td>";
-            echo "<td>".$game["HomeDynaOdd"]."</td>";
-            echo "<td>".$game["DrawDynaOdd"]."</td>";
-            echo "<td>".$game["AwayDynaOdd"]."</td>";
-            //bouton de modification
-            echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
-            echo "</tr>";
+            if (!isset($game['H2H'])) {
+                echo "<tr>";
+                echo "<td>".$game["ID"]."</td>";
+                echo "<td>".$game["League"]."</td>";
+                echo "<td>".$game["Home"]."</td>";
+                echo "<td>".$game["Away"]."</td>";
+                echo "<td>".$game["GameDate"]."</td>";
+                echo "<td>".$game["GameTime"]."</td>";
+                echo "<td>".$game["isLive"]."</td>";
+                echo "<td>".$game["H2H"]."</td>";
+                echo "<td>".$game["HomeScore"]."</td>";
+                echo "<td>".$game["AwayScore"]."</td>";
+                echo "<td>".$game["HomeOdd"]."</td>";
+                echo "<td>".$game["AwayOdd"]."</td>";
+                echo "<td>".$game["HomeDynaOdd"]."</td>";
+                echo "<td>".$game["DrawDynaOdd"]."</td>";
+                echo "<td>".$game["AwayDynaOdd"]."</td>";
+                //bouton de modification
+                echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
+                echo "</tr>";
+            }
         }
         ?>
     </table>
@@ -80,7 +82,6 @@ checkAdmin();
             <th>Team ID</th>
             <th>Team Name</th>
             <th>Team Logo</th>
-            <th>Modify</th>
             <th>Delete</th>
         </tr>
         <?php
@@ -95,8 +96,7 @@ checkAdmin();
             echo "<tr>";
             echo "<td>".$team["ID"]."</td>";
             echo "<td>".$team["TeamName"]."</td>";
-            echo '<td><img src="'.$team["TeamLogo"].'" alt="Team Logo" style="width: 10vh;"></td>'; //à adapter en CSS
-            echo '<td><a type="button" href="/site_paris_sportifs/modify">Modifier</a></td>';
+            echo '<td><img src="'.$team["TeamLogo"].'" alt="Team Logo" style="width: 10vh;"></td>';
             //bouton de suppression
             echo '<td><form action="admin_panel?deleteTeam&id='.$team["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";

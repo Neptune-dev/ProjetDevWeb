@@ -34,10 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /site_paris_sportifs/admin_panel");
         exit();
     }
-        //modification du match
+
+    //modification du match
     if (isset($_GET["modify"])) {
-        //TODO
-        header("Location: /site_paris_sportifs/admin_panel");
         $gameDate = $_POST['gameDate'];
         $gameTime = $_POST['gameTime'];
         $isLive = $_POST['isLive'];
@@ -54,6 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $stmt = $pdo->prepare("UPDATE Games SET GameDate=?, GameTime=?, isLive=?, H2H=?, HomeScore=?, AwayScore=?, HomeOdd=?, AwayOdd=? WHERE ID=?");
         $stmt->execute([$gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd, $game["ID"]]);
+        header("Location: /site_paris_sportifs/admin_panel");
+        exit();
+    }
+
+    //validation des résultat
+    if (isset($_GET["result"])) {
+        $stmt = $pdo->prepare("UPDATE Games SET H2H=? WHERE ID=?");
+        $stmt->execute([$_POST['H2H'], $_GET["id"]]);
+        procWinnings($_GET["id"]); // distribution des gains
+        header("Location: /site_paris_sportifs/admin_panel");
         exit();
     }
 }
@@ -130,7 +139,6 @@ function dropDownTeams($name) {
 
 ?>
 
-
 <section class="Contact">
     <h2>Modifier le match</h2>
     <form class="contactForm" action="game_panel?id=<?=$game["ID"]?>&modify" method="POST">
@@ -146,6 +154,18 @@ function dropDownTeams($name) {
     </form>
 </section>
 
+<section class="Contact">
+    <h2>Valider le resultat</h2>
+    <form class="contactForm" action="game_panel?id=<?=$game["ID"]?>&result" method="POST">
+            Gagnant* :
+            <select name="H2H">
+                <option value="1">Home</option>
+                <option value="0">Draw</option>
+                <option value="2">Away</option>
+            </select>
+            <button type="submit">Valider</button>
+    </form>
+</section>
 
 <!-- Suppression du match -->
 <form action="game_panel?id=<?=$game["ID"]?>&delete" method="POST">

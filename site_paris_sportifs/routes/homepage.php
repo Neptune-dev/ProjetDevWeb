@@ -34,13 +34,14 @@ if (isset($_SESSION['user'])) {
     <?php
 
     require_once 'includes/helpers.php';
+    calcOdds(); // mise à jour des dernières cotes
     $pdo = openDB();
     $stmt = $pdo->prepare("SELECT * FROM Games");
     $stmt->execute();
     $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($games as $game) {
-        if (!isset($game['H2H']) || $game['H2H'] == 0) {
+        if (!isset($game['H2H'])) {
             $_GET["gameID"] = $game['ID'];
             require ('views/game_view.php');
         }

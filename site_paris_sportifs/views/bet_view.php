@@ -9,7 +9,7 @@ require_once('includes/helpers.php');
 $pdo = openDB();
 
 $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
-$stmt->execute([$_GET["gameID"]]);
+$stmt->execute([$_GET["bet"]["GameID"]]);
 $game = $stmt->fetch();
 
 $league = $game["League"];
@@ -20,6 +20,7 @@ $gameTime = $game["GameTime"];
 $homeDynaOdd = $game["HomeDynaOdd"];
 $drawDynaOdd = $game["DrawDynaOdd"];
 $awayDynaOdd = $game["AwayDynaOdd"];
+$odds = array($drawDynaOdd, $homeDynaOdd, $awayDynaOdd);
 
 $stmt = $pdo->prepare("SELECT * FROM Teams WHERE ID=?");
 $stmt->execute([$game["Home"]]);
@@ -33,6 +34,7 @@ $away = $stmt->fetch();
 $awayLogo = $away["TeamLogo"];
 $away = $away["TeamName"];
 
+$result = array('Nul', $home, $away);
 
 $jours = [
     'Monday' => 'Lundi',
@@ -82,37 +84,22 @@ ob_start();
         </div>
     </div>
 
-    <?php 
-    if (!isset($_GET['nobets'])){
-        // H2H = 0 pour nul || 1 pour home || 2 pour away
-        echo '
-            <div class="odds">
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=1">
-                    <div class="odd">
-                        <div>'.$home.'</div>
-                        <div>'.round($homeDynaOdd, 2).'</div>
-                    </div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=0">
-                    <div class="odd">
-                        <div>Nul</div>
-                        <div>'.round($drawDynaOdd, 2).'</div>
-                    </div></a>
-                <a href="/site_paris_sportifs/bet?id='.$game['ID'].'&bet=2">
-                    <div class="odd">
-                        <div>'.$away.'</div>
-                        <div>'.round($awayDynaOdd, 2).'</div>
-                    </div></a>
-            </div>';
-    }
-    ?>
+    <div>
+        Resultat :
+        <?= $result[$_GET["bet"]["H2H"]] ?><br>
+        Montant :
+        <?= $_GET["bet"]["Amount"] ?>
+        <img src="public/images/monnaie.png" alt="💰" class="monnaie"><br>
+        Cote :
+        <?= round($odds[$_GET["bet"]["H2H"]], 2) ?><br>
+        Gain Potentiel :
+        <?= round($_GET["bet"]["Amount"] * $odds[$_GET["bet"]["H2H"]]) ?>
+        <img src="public/images/monnaie.png" alt="💰" class="monnaie"><br>
+    </div>
 
     <div class="match-info">
         <?= $league ?> — <?= $dayLabel ?> — <?= $formattedTime ?>
     </div>
-    
-    
-    
-    
 </div>
 
 
