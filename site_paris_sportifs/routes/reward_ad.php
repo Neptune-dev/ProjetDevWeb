@@ -13,7 +13,7 @@ $pdo = openDB();
 $userID = $_SESSION["user"]["ID"];
 
 // Ajouter 200 unités
-$stmt = $pdo->prepare("UPDATE Wallets SET Balance = Balance + 200 WHERE UserID = ?");
+$stmt = $pdo->prepare("UPDATE Wallets SET Balance = Balance + 100 WHERE UserID = ?");
 $stmt->execute([$userID]);
 
 // Renvoyer le nouveau solde
