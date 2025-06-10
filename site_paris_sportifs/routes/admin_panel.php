@@ -138,8 +138,8 @@ function dropDownTeams($name) {
             H2H : <input type="number" name="H2H"><br>
             Home Score : <input type="number" name="homeScore"><br>
             Away Score : <input type="number" name="awayScore"><br>
-            Home Odd* : <input type="number" name="homeOdd"><br>
-            Away Odd* : <input type="number" name="awayOdd"><br>
+            Home Odd* : <input type="number" step="0.1" name="homeOdd"><br>
+            Away Odd* : <input type="number" step="0.1" name="awayOdd"><br>
             <button type="submit">Créer le match</button>
         </form>
     </section>
