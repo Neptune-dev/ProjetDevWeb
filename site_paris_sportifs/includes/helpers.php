@@ -105,7 +105,7 @@
         }
 
         foreach ($bets as $bet) {
-            $winning = $bet['Amount'] * $odd;
+            $winning = round($bet['Amount'] * $odd);
             $betUser = $bet['UserID'];
             $stmt = $pdo->prepare('UPDATE Wallets SET Balance = Balance + ? WHERE UserID=?');
             $stmt->execute([$winning, $betUser]);
