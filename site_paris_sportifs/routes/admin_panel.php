@@ -47,25 +47,27 @@ checkAdmin();
         $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($games as $game) {
-            echo "<tr>";
-            echo "<td>".$game["ID"]."</td>";
-            echo "<td>".$game["League"]."</td>";
-            echo "<td>".$game["Home"]."</td>";
-            echo "<td>".$game["Away"]."</td>";
-            echo "<td>".$game["GameDate"]."</td>";
-            echo "<td>".$game["GameTime"]."</td>";
-            echo "<td>".$game["isLive"]."</td>";
-            echo "<td>".$game["H2H"]."</td>";
-            echo "<td>".$game["HomeScore"]."</td>";
-            echo "<td>".$game["AwayScore"]."</td>";
-            echo "<td>".$game["HomeOdd"]."</td>";
-            echo "<td>".$game["AwayOdd"]."</td>";
-            echo "<td>".$game["HomeDynaOdd"]."</td>";
-            echo "<td>".$game["DrawDynaOdd"]."</td>";
-            echo "<td>".$game["AwayDynaOdd"]."</td>";
-            //bouton de modification
-            echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
-            echo "</tr>";
+            if (!isset($game['H2H'])) {
+                echo "<tr>";
+                echo "<td>".$game["ID"]."</td>";
+                echo "<td>".$game["League"]."</td>";
+                echo "<td>".$game["Home"]."</td>";
+                echo "<td>".$game["Away"]."</td>";
+                echo "<td>".$game["GameDate"]."</td>";
+                echo "<td>".$game["GameTime"]."</td>";
+                echo "<td>".$game["isLive"]."</td>";
+                echo "<td>".$game["H2H"]."</td>";
+                echo "<td>".$game["HomeScore"]."</td>";
+                echo "<td>".$game["AwayScore"]."</td>";
+                echo "<td>".$game["HomeOdd"]."</td>";
+                echo "<td>".$game["AwayOdd"]."</td>";
+                echo "<td>".$game["HomeDynaOdd"]."</td>";
+                echo "<td>".$game["DrawDynaOdd"]."</td>";
+                echo "<td>".$game["AwayDynaOdd"]."</td>";
+                //bouton de modification
+                echo '<td><form action="admin_panel?modifyGame&id='.$game["ID"].'" method="POST"><button type="submit">Modifier</button></form></td>';
+                echo "</tr>";
+            }
         }
         ?>
     </table>

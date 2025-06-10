@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
     $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($games as $game) {
-        if (!isset($game['H2H']) || $game['H2H'] == 0) {
+        if (!isset($game['H2H'])) {
             $_GET["gameID"] = $game['ID'];
             require ('views/game_view.php');
         }

@@ -81,4 +81,38 @@
         }
     }
 
+    //validation des paris et redistributions des gains
+    function procWinnings ($gameID) {
+        $pdo = openDB();
+
+        $stmt = $pdo->prepare("SELECT * FROM Games WHERE ID=?");
+        $stmt->execute([$gameID]);
+        $game = $stmt->fetch();
+        $H2H = $game['H2H'];
+
+        $stmt = $pdo->prepare("SELECT * FROM Bets WHERE (GameID=? AND H2H=?)");
+        $stmt->execute([$gameID, $H2H]);
+        $bets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($H2H == 1) {
+            $odd = $game['HomeDynaOdd'];
+        } elseif ($H2H == 0) {
+            $odd = $game['DrawDynaOdd'];
+        } elseif ($H2H == 2) {
+            $odd = $game['AwayDynaOdd'];
+        } else {
+            exit();
+        }
+
+        foreach ($bets as $bet) {
+            $winning = $bet['Amount'] * $odd;
+            $betUser = $bet['UserID'];
+            $stmt = $pdo->prepare('UPDATE Wallets SET Balance = Balance + ? WHERE UserID=?');
+            $stmt->execute([$winning, $betUser]);
+        }
+
+        $stmt = $pdo->prepare('DELETE FROM Bets WHERE GameID=?');
+        $stmt->execute([$gameID]);
+    }
+
 ?>
