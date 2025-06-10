@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $isLive = 0;
         }
         $stmt = $pdo->prepare("UPDATE Games SET GameDate=?, GameTime=?, isLive=?, H2H=?, HomeScore=?, AwayScore=?, HomeOdd=?, AwayOdd=? WHERE ID=?");
-        $stmt->execute([$gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd,$game["ID"]]);
+        $stmt->execute([$gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd, $game["ID"]]);
         exit();
     }
 }
@@ -134,14 +134,14 @@ function dropDownTeams($name) {
 <section class="Contact">
     <h2>Modifier le match</h2>
     <form class="contactForm" action="game_panel?id=<?=$game["ID"]?>&modify" method="POST">
-        Date* : <input type="date" name="gameDate" required><br>
-        Time* : <input type="time" name="gameTime" required><br>
+        Date : <input type="date" name="gameDate"><br>
+        Time : <input type="time" name="gameTime"><br>
         Is Live : <input type="checkbox" name="isLive"><br>
         H2H : <input type="number" name="H2H"><br>
         Home Score : <input type="number" name="homeScore"><br>
         Away Score : <input type="number" name="awayScore"><br>
-        Home Odd* : <input type="number" name="homeOdd"><br>
-        Away Odd* : <input type="number" name="awayOdd"><br>
+        Home Odd : <input type="number" step="0.1" name="homeOdd"><br>
+        Away Odd : <input type="number" step="0.1" name="awayOdd"><br>
         <button type="submit">Modifier le match</button>
     </form>
 </section>
