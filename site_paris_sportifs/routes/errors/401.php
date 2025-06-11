@@ -25,7 +25,19 @@ ob_start();
         "Tu bluffes comme Neymar, mais l’arbitre n’est pas dupe.",
         "Oops ! Tu n’as pas signé le contrat pro pour accéder à ces pages.",
         "La VAR a parlé : accès refusé.",
-        "Les vestiaires des admins sont interdits aux visiteurs. Va t’échauffer ailleurs."
+        "Les vestiaires des admins sont interdits aux visiteurs. Va t’échauffer ailleurs.",
+        "Cette page est comme un but refusé : hors-jeu !",
+        "L'arbitre est formel : vous n'entrez pas dans le terrain sans autorisation.",
+        "T'as pas le bon maillot, tu dois être sur le mauvais terrain...",
+        "T'as demandé au coach ? Il m'a dit de t'empêcher de passer. Désolé !",
+        "Hors limites ! Cette zone est réservée au staff technique.",
+        "Coup de sifflet final pour vous sur cette page. Vous ne pouvez pas entrer.",
+        "Carton jaune : vous approchez d'une zone sensible. Faites demi-tour.",
+        "On tond la pelouse du terrain. Accès interdit au public.",
+        "La direction a statué : vous n'êtes pas sur la liste pour cette page.",
+        "Le vestiaire est privé. Le public ne peut pas y entrer.",
+        "Faute de main ! Tu n'as pas les autorisations nécessaires.",
+        "Changement de stratégie : cette page ne t'est pas ouverte."
     ];
 
     const messageElement = document.getElementById("message");
