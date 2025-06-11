@@ -43,7 +43,18 @@ ob_start();
         "C'était presque ça... mais vous avez raté la page gagnante.",
         "Même la VAR n'a pas retrouvé cette page.",
         "Votre navigateur tente une passe en profondeur... vers nulle part.",
-        "Cette cote était trop belle pour être vraie."
+        "Cette cote était trop belle pour être vraie.",
+        "Page introuvable… mais on vous félicite pour l’audace.",
+        "La page que vous cherchez est en position de hors-jeu.",
+        "Cette page a été transférée au mercato. On ne sait pas où.",
+        "Pas de page ici. Comme d’hab, vous avez tenté un truc risqué.",
+        "La page que vous cherchez est dans le vestiaire, on dirait.",
+        "Cette page est aussi fiable qu’un combiné à 9 matchs.",
+        "Erreur 404 : comme votre dernier ticket, elle n’a mené nulle part.",
+        "Cette page est introuvable, comme la défense de votre équipe préférée.",
+        "Cette page est aussi introuvable que le dernier but de votre attaquant.",
+        "Erreur 404 : comme votre dernier ticket, elle n’a mené nulle part.",
+        "Page 404 : même l’arbitre ne l’a pas vue venir.",
     ];
 
     const messageElement = document.getElementById("message");
