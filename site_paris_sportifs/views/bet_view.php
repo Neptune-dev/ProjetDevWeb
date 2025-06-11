@@ -87,11 +87,11 @@ ob_start();
     <div>
         Resultat :
         <?= $result[$_GET["bet"]["H2H"]] ?><br>
+        Cote :
+        <?= round($odds[$_GET["bet"]["H2H"]], 2) ?><br>
         Montant :
         <?= $_GET["bet"]["Amount"] ?>
         <img src="public/images/monnaie.png" alt="💰" class="monnaie"><br>
-        Cote :
-        <?= round($odds[$_GET["bet"]["H2H"]], 2) ?><br>
         Gain Potentiel :
         <?= round($_GET["bet"]["Amount"] * $odds[$_GET["bet"]["H2H"]]) ?>
         <img src="public/images/monnaie.png" alt="💰" class="monnaie"><br>
