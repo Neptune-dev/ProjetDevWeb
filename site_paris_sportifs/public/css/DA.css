@@ -28,7 +28,7 @@ body{
   text-align: left;
 }
 
-h1,h3,h4,h5,h6,p{ /*Gérer pour le h2 ! Utile ?*/
+h3,h4,h5,h6,p{ /*Gérer pour le h2 ! Utile ?*/
   margin: 0;
   padding: 0;
 }
