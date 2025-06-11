@@ -23,24 +23,59 @@ $wallet = $stmt->fetch();
 
 $balance = $wallet ? $wallet["Balance"] : 0;
 
-// mise à jour de la bio
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // mise à jour de la bio
     $bio = $_POST["bio"];
     $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
     $stmt->execute([$bio, $user["ID"]]);
+    
+    //mise à jour de la photo de profil
+    $teamID = $_POST["profilePicture"];
+    $stmt = $pdo->prepare("SELECT TeamLogo FROM Teams WHERE ID=?");
+    $stmt->execute([$teamID]);
+    $teamLogo = $stmt->fetchColumn();
+    $stmt = $pdo->prepare("UPDATE Users SET Picture = ? WHERE ID = ?");
+    $stmt->execute([$teamLogo, $user["ID"]]);
+
+    header('Refresh:0');
+    exit();
 }
 
 // récupération de la bio
 $stmt = $pdo->prepare("SELECT Bio FROM Users WHERE ID = ?");
 $stmt->execute([$user["ID"]]);
 $user["Bio"] = $stmt->fetchColumn();
+
+// récupération de la photo de profil
+$stmt = $pdo->prepare("SELECT Picture FROM Users WHERE ID = ?");
+$stmt->execute([$user["ID"]]);
+$user["Picture"] = $stmt->fetchColumn();
+
+//vérif de si il n'y a pas de logo choisi par default
+if ($user['Picture'] == '' || $user["Picture"] == null) {
+    $user['Picture'] = 'public/images/favicon3.png';
+}
+
+function dropDownTeams($name) {
+    require_once('includes/helpers.php');
+    $pdo = openDB();
+    $stmt = $pdo->prepare("SELECT * FROM Teams");
+    $stmt->execute();
+    $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo '<select name="'.$name.'">';
+    foreach ($teams as $team) {
+        echo '<option value="'.$team["ID"].'">'.$team["TeamName"]."</option>";
+    }
+    echo "</select><br>";
+}
 ?>
 
 <section class="account">
 
     <div class="profile-container">
         <div class="user-info">
-            <img src="public/images/psg.webp" alt="Avatar" class="avatar">
+            <img src="<?= $user["Picture"] ?>" alt="Avatar" class="avatar">
             <div class="user-details">
                 <h1 class="username">Bienvenue, <?= htmlspecialchars($user['Username']) ?> !</h1>
                 <p class="bio">
@@ -57,6 +92,8 @@ $user["Bio"] = $stmt->fetchColumn();
         <button class="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
 
         <form id="edit-form" action="mon_compte" method="POST" style="display: none;">
+            <p>Logo de profil :</p>
+            <?php dropDownTeams('profilePicture') ?><br>
             <textarea name="bio" maxlength="255" placeholder="Votre nouvelle bio (max 255 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
             <button type="submit">Enregistrer</button>
         </form>
