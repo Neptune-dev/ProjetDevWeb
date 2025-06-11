@@ -14,7 +14,7 @@ checkAdmin();
 
 ?>
 
-<h1 class="admin">Panneau de configuration administrateur</h1>
+<h1 class="titre_orange">Panneau de configuration administrateur</h1>
 
 <!-- Tableau des matchs disponibles -->
 <button type="button" class="collapsible"><h2>Modifier un match</h2></button>
