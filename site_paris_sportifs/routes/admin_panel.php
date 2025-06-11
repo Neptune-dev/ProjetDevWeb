@@ -28,7 +28,6 @@ checkAdmin();
             <th>Game Date</th>
             <th>Game Time</th>
             <th>Is Live</th>
-            <th>H2H</th>
             <th>Home Score</th>
             <th>Away Score</th>
             <th>Home Odd</th>
@@ -56,7 +55,6 @@ checkAdmin();
                 echo "<td>".$game["GameDate"]."</td>";
                 echo "<td>".$game["GameTime"]."</td>";
                 echo "<td>".$game["isLive"]."</td>";
-                echo "<td>".$game["H2H"]."</td>";
                 echo "<td>".$game["HomeScore"]."</td>";
                 echo "<td>".$game["AwayScore"]."</td>";
                 echo "<td>".$game["HomeOdd"]."</td>";
