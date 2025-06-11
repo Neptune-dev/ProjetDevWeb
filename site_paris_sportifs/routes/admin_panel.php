@@ -129,17 +129,13 @@ function dropDownTeams($name) {
     <section class="Contact">
         <h2>Créer un match</h2>
         <form class="contactForm" action="admin_panel?addGame" method="POST">
-            Date* : <input type="date" name="gameDate" required><br>
-            Time* : <input type="time" name="gameTime" required><br>
-            League* : <input type="text" name="league" required><br>
-            Home* : <?php dropDownTeams('home') ?><br>
-            Away* : <?php dropDownTeams('away') ?><br>
-            Is Live : <input type="checkbox" name="isLive"><br>
-            H2H : <input type="number" name="H2H"><br>
-            Home Score : <input type="number" name="homeScore"><br>
-            Away Score : <input type="number" name="awayScore"><br>
-            Home Odd* : <input type="number" step="0.1" name="homeOdd"><br>
-            Away Odd* : <input type="number" step="0.1" name="awayOdd"><br>
+            Date : <input type="date" name="gameDate" required><br>
+            Time : <input type="time" name="gameTime" required><br>
+            League : <input type="text" name="league" required><br>
+            Home : <?php dropDownTeams('home') ?><br>
+            Away : <?php dropDownTeams('away') ?><br>
+            Home Odd : <input type="number" step="0.1" name="homeOdd"><br>
+            Away Odd : <input type="number" step="0.1" name="awayOdd"><br>
             <button type="submit">Créer le match</button>
         </form>
     </section>
@@ -167,10 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $away = $_POST['away'];
         $gameDate = $_POST['gameDate'];
         $gameTime = $_POST['gameTime'];
-        $isLive = $_POST['isLive'];
-        $H2H = $_POST['H2H'];
-        $homeScore = $_POST['homeScore'];
-        $awayScore = $_POST['awayScore'];
         $homeOdd = $_POST['homeOdd'];
         $awayOdd = $_POST['awayOdd'];
 
@@ -186,8 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $awayDynaOdd = 1;
 
 
-        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, isLive, H2H, HomeScore, AwayScore, HomeOdd, AwayOdd, HomeDynaOdd, DrawDynaOdd, AwayDynaOdd) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd, $homeDynaOdd, $drawDynaOdd, $awayDynaOdd]);
+        $stmt = $pdo->prepare("INSERT INTO Games (League, Home, Away, GameDate, GameTime, HomeOdd, AwayOdd, HomeDynaOdd, DrawDynaOdd, AwayDynaOdd) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $stmt->execute([$league, $home, $away, $gameDate, $gameTime, $homeOdd, $awayOdd, $homeDynaOdd, $drawDynaOdd, $awayDynaOdd]);
         header("Refresh:0");
         exit();
     }
