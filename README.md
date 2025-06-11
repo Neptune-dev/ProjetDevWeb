@@ -24,3 +24,7 @@ Betglory est un site de paris sportifs à monnaie fictive, conçu dans le cadre 
 - Identifiants d'utilisateur d'exemple:
   - **Nom d'utilisateur** : DarkTOTO  
   - **Mot de passe** : password
+
+---
+
+Ce projet est sous licence Creative Commons Attribution : [Licence](LICENSE)
