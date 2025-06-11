@@ -28,7 +28,6 @@ checkAdmin();
             <th>Game Date</th>
             <th>Game Time</th>
             <th>Is Live</th>
-            <th>H2H</th>
             <th>Home Score</th>
             <th>Away Score</th>
             <th>Home Odd</th>
@@ -56,7 +55,6 @@ checkAdmin();
                 echo "<td>".$game["GameDate"]."</td>";
                 echo "<td>".$game["GameTime"]."</td>";
                 echo "<td>".$game["isLive"]."</td>";
-                echo "<td>".$game["H2H"]."</td>";
                 echo "<td>".$game["HomeScore"]."</td>";
                 echo "<td>".$game["AwayScore"]."</td>";
                 echo "<td>".$game["HomeOdd"]."</td>";
@@ -75,14 +73,14 @@ checkAdmin();
 
 <!-- Tableau des équipes disponibles -->
 
-<button type="button" class="collapsible"><h2>Modifier une équipe</h2></button>
+<button type="button" class="collapsible"><h2>Les équipes</h2></button>
 <div class="collapsible-content">
     <table>
         <tr>
             <th>Team ID</th>
             <th>Team Name</th>
             <th>Team Logo</th>
-            <th>Delete</th>
+            <!--<th>Delete</th> -->
         </tr>
         <?php
         require_once('includes/helpers.php');
@@ -97,8 +95,8 @@ checkAdmin();
             echo "<td>".$team["ID"]."</td>";
             echo "<td>".$team["TeamName"]."</td>";
             echo '<td><img src="'.$team["TeamLogo"].'" alt="Team Logo" style="width: 10vh;"></td>';
-            //bouton de suppression
-            echo '<td><form action="admin_panel?deleteTeam&id='.$team["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
+            //bouton de suppression : à faire fonctionner
+            //echo '<td><form action="admin_panel?deleteTeam&id='.$team["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
         }
 

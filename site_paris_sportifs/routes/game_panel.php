@@ -40,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gameDate = $_POST['gameDate'];
         $gameTime = $_POST['gameTime'];
         $isLive = $_POST['isLive'];
-        $H2H = $_POST['H2H'];
         $homeScore = $_POST['homeScore'];
         $awayScore = $_POST['awayScore'];
         $homeOdd = $_POST['homeOdd'];
@@ -51,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $isLive = 0;
         }
-        $stmt = $pdo->prepare("UPDATE Games SET GameDate=?, GameTime=?, isLive=?, H2H=?, HomeScore=?, AwayScore=?, HomeOdd=?, AwayOdd=? WHERE ID=?");
-        $stmt->execute([$gameDate, $gameTime, $isLive, $H2H, $homeScore, $awayScore, $homeOdd, $awayOdd, $game["ID"]]);
+        $stmt = $pdo->prepare("UPDATE Games SET GameDate=?, GameTime=?, isLive=?, HomeScore=?, AwayScore=?, HomeOdd=?, AwayOdd=? WHERE ID=?");
+        $stmt->execute([$gameDate, $gameTime, $isLive, $homeScore, $awayScore, $homeOdd, $awayOdd, $game["ID"]]);
         header("Location: /site_paris_sportifs/admin_panel");
         exit();
     }
@@ -81,7 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <th>Game Date</th>
         <th>Game Time</th>
         <th>Is Live</th>
-        <th>H2H</th>
         <th>Home Score</th>
         <th>Away Score</th>
         <th>Home Odd</th>
@@ -107,7 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<td>".$game["GameDate"]."</td>";
         echo "<td>".$game["GameTime"]."</td>";
         echo "<td>".$game["isLive"]."</td>";
-        echo "<td>".$game["H2H"]."</td>";
         echo "<td>".$game["HomeScore"]."</td>";
         echo "<td>".$game["AwayScore"]."</td>";
         echo "<td>".$game["HomeOdd"]."</td>";
@@ -145,7 +142,6 @@ function dropDownTeams($name) {
         Date : <input type="date" name="gameDate"><br>
         Time : <input type="time" name="gameTime"><br>
         Is Live : <input type="checkbox" name="isLive"><br>
-        H2H : <input type="number" name="H2H"><br>
         Home Score : <input type="number" name="homeScore"><br>
         Away Score : <input type="number" name="awayScore"><br>
         Home Odd : <input type="number" step="0.1" name="homeOdd"><br>
