@@ -85,7 +85,7 @@ ob_start();
     </div>
 
     <div>
-        Resultat :
+        Résultat :
         <?= $result[$_GET["bet"]["H2H"]] ?><br>
         Cote :
         <?= round($odds[$_GET["bet"]["H2H"]], 2) ?><br>
