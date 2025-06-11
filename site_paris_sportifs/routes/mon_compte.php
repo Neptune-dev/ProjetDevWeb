@@ -74,7 +74,9 @@ $user["Bio"] = $stmt->fetchColumn();
     </div>
 
     <div class="TopPari">
-        <h1>Vos Paris</h1>
+        <?php if (empty($user['isAdmin'])): ?>
+            <h1>Vos Paris</h1>
+        <?php endif; ?>
         <?php
             require_once('includes/helpers.php');
             $pdo = openDB();
@@ -91,7 +93,7 @@ $user["Bio"] = $stmt->fetchColumn();
     
     <div class ="centre">
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
-        <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
+        <button><a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a></button>
     <?php else: ?>
         
         <button id="adButton">Regarder une publicité (+200 unités)</button>
@@ -102,7 +104,7 @@ $user["Bio"] = $stmt->fetchColumn();
 
     <?php endif; ?>
     <script src="/site_paris_sportifs/public/js/script.js"></script>
-    <button class="logout-btn"><a href="/site_paris_sportifs/logout">Se déconnecter</a></button>
+    <button><a href="/site_paris_sportifs/logout">Se déconnecter</a></button>
     </div>
 </section>
 

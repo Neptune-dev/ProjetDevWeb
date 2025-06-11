@@ -74,6 +74,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </section>
 </div>
 
+<script>
+    const messages = [
+        "🔞 Parier comporte des risques… la pauvreté en comporte davantage !",
+        "🔞 Parier comporte des risques… mais s'arrêter c'est accepter sa défaite.",
+        "🔞 Parier comporte des risques… mais qui ne tente rien n’a rien",
+        "🔞 Parier comporte des risques… mais la vie sans risque est ennuyeuse !",
+        "🔞 Parier comporte des risques… mais vous êtes peut-être à un pari de vous refaire.",
+        "🔞 Votre banquier n'aime pas ce site. Nous si.",
+        "🔞 Si vous perdez, ce n’est pas de la malchance. C’est la faute de l’arbitre.",
+        "🔞 Ne rêvez pas votre vie, pariez-la.",
+        "🔞 Le jeu ne fait pas le bonheur… sauf quand ça passe à la 95e.",
+        "🔞 Misez. Vibrez. Recommencez.",
+        "🔞 Parier ne résout pas les problèmes. Mais ça les rend plus excitants.",
+        "🔞 La chance ne sourit qu'aux audacieux et aux parieurs.",
+        "🔞 La vie est un pari. Faites-en un gagnant.",
+        "🔞 Parier, c’est comme l’amour : parfois on gagne, parfois on perd, mais on ne s’ennuie jamais.",
+    ];
+
+    const messageElement = document.getElementById("message");
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    messageElement.textContent = messages[randomIndex];
+</script>
+
 <!--fin du contenu -->
 <?php
 $title = 'Bet'; //titre de la page

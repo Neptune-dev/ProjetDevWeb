@@ -15,7 +15,7 @@ ob_start();
             <!--Flemme de faire le reset de mot de passe, mais c'est pas compliqué à faire-->
             <button type="submit">Se connecter</button>
         </form>
-        <h5><a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi</a></h5>
+        <h5 style="text-align: center;"><a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi</a></h5>
     </section>
 </div>
 <script src="/site_paris_sportifs/public/js/script.js"></script>

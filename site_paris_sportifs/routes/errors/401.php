@@ -5,7 +5,7 @@ ob_start();
 
 <!--contenu de la page -->
 <?php http_response_code(401); ?>
-<br><br><br>
+
 <div class="NotFound">
     <h1>401 - Unauthorized</h1>
     <h2 id="message">Chargement du message...</h2>

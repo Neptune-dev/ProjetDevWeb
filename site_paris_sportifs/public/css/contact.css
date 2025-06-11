@@ -26,15 +26,6 @@
   margin: 1rem auto;
 }
 
-.Contact a {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin: 1rem auto;
-  color: var(--text-color);
-  transition: color 0.3s ease;
-}
-
 .Contact a:hover{
   color:var(--accent-color);
 }
