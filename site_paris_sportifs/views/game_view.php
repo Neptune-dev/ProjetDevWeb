@@ -88,32 +88,20 @@ ob_start();
         switch ($_GET['H2H']) {
             case 0:
                 echo '
-                    <div class="odds">
-                        <div class="odd">
-                            <div>Nul</div>
-                            <div>'.round($drawDynaOdd, 2).'</div>
-                        </div>
-                    </div>';
+                    Resultat : Nul<br>
+                    Cote : '.round($drawDynaOdd, 2);
                 break;
 
             case 1:
                 echo '
-                    <div class="odds">
-                        <div class="odd">
-                            <div>'.$home.'</div>
-                            <div>'.round($homeDynaOdd, 2).'</div>
-                        </div>
-                    </div>';
+                    Resultat : '.$home.'<br>
+                    Cote : '.round($homeDynaOdd, 2);
                 break;
             
             case 2:
                 echo '
-                    <div class="odds">
-                        <div class="odd">
-                            <div>'.$away.'</div>
-                            <div>'.round($awayDynaOdd, 2).'</div>
-                        </div>
-                    </div>';
+                    <p>Resultat :'.$away.'<br>
+                    Cote : '.round($awayDynaOdd, 2);
                 break;
             
             default:
