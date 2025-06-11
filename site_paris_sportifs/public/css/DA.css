@@ -64,6 +64,6 @@ a {
   text-align: center;
   text-decoration: none;
   margin: 1rem auto;
-  color: var(--text-color);
+  color: var(--header-color);
   transition: color 0.3s ease;
 }
