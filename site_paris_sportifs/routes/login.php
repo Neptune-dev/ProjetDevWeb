@@ -35,7 +35,7 @@ ob_start();
             }
             exit();
         } else {
-            echo "<p> Identifiants incorrects.</p>";
+            echo '<p class="text" style="color:black;"> Identifiants incorrects.</p>';
         }
     }
 ?>
