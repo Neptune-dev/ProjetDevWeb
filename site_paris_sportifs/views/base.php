@@ -45,12 +45,18 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
             <div class="logo">
                 <a href="/site_paris_sportifs"><img src="public/images/logosansfond.png" alt="Logo du site"></a>
             </div>
-            <?php if (isset($_SESSION['user'])): ?>
-                <div class="balance">
-                    Solde : <strong id="balance"><?= htmlspecialchars($balance) ?></strong>
-                    <img src="public/images/monnaie.png" alt="💰" class="monnaie"></a>
-                </div>
-            <?php endif; ?>
+            <!-- Affichage du solde si qqun est connecté, et si ce n'est pas un admin -->
+            <?php
+            if (isset($_SESSION['user'])) {
+                if (!$_SESSION['user']['isAdmin']) {
+                    echo '
+                        <div class="balance">
+                            Solde : <strong id="balance">'.htmlspecialchars($balance).'</strong>
+                            <img src="public/images/monnaie.png" alt="💰" class="monnaie"></a>
+                        </div>';
+                }
+            }
+            ?>
         </div>
         <nav class="header-right">
             <ul>
