@@ -26,8 +26,10 @@ $balance = $wallet ? $wallet["Balance"] : 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // mise à jour de la bio
     $bio = $_POST["bio"];
-    $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
-    $stmt->execute([$bio, $user["ID"]]);
+    if ($bio != '') {
+        $stmt = $pdo->prepare("UPDATE Users SET Bio = ? WHERE ID = ?");
+        $stmt->execute([$bio, $user["ID"]]);
+    }
     
     //mise à jour de la photo de profil
     $teamID = $_POST["profilePicture"];
@@ -94,7 +96,7 @@ function dropDownTeams($name) {
         <form id="edit-form" action="mon_compte" method="POST" style="display: none;">
             <p>Logo de profil :</p>
             <?php dropDownTeams('profilePicture') ?><br>
-            <textarea name="bio" maxlength="255" placeholder="Votre nouvelle bio (max 255 caractères)" required><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
+            <textarea name="bio" maxlength="255" placeholder="Votre nouvelle bio (max 255 caractères)"><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
             <button type="submit">Enregistrer</button>
         </form>
     </div>

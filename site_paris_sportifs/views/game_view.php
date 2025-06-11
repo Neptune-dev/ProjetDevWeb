@@ -100,7 +100,7 @@ ob_start();
             
             case 2:
                 echo '
-                    <p>Resultat :'.$away.'<br>
+                    <p>Résultat :'.$away.'<br>
                     Cote : '.round($awayDynaOdd, 2);
                 break;
             

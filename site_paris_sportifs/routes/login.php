@@ -4,21 +4,6 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-<div class="contact-wrapper">
-    <section class="Contact">
-        <h2>Connexion</h2>
-        <form class="contactForm" action="login" method="POST">
-            Nom d'utilisateur : <input type="text" name="username" required><br>
-            Mot de passe : <input type="password" name="pwd" required>
-            <h5><a href="#" id="forgot-password">Mot de passe oublié ?</a></h5>
-            <div id="forgot-msg" class="hidden">Cheh ! Fallait pas l'oublier.</div>
-            <!--Flemme de faire le reset de mot de passe, mais c'est pas compliqué à faire-->
-            <button type="submit">Se connecter</button>
-        </form>
-        <h5 style="text-align: center;"><a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi</a></h5>
-    </section>
-</div>
-<script src="/site_paris_sportifs/public/js/script.js"></script>
 
 <?php
     session_start();
@@ -54,6 +39,24 @@ ob_start();
         }
     }
 ?>
+
+<div class="contact-wrapper">
+    <section class="Contact">
+        <h2>Connexion</h2>
+        <form class="contactForm" action="login" method="POST">
+            Nom d'utilisateur : <input type="text" name="username" required><br>
+            Mot de passe : <input type="password" name="pwd" required>
+            <h5><a href="#" id="forgot-password">Mot de passe oublié ?</a></h5>
+            <div id="forgot-msg" class="hidden">Cheh ! Fallait pas l'oublier.</div>
+            <!--Flemme de faire le reset de mot de passe, mais c'est pas compliqué à faire-->
+            <button type="submit">Se connecter</button>
+        </form>
+        <h5 style="text-align: center;"><a href="/site_paris_sportifs/signin">Pas encore de compte ?<br>Incris-toi</a></h5>
+    </section>
+</div>
+
+
+<script src="/site_paris_sportifs/public/js/forgotpwd.js"></script>
 
 <!--fin du contenu -->
 <?php
