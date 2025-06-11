@@ -10,12 +10,12 @@
 
 /*Pour le LogIn pour passer à SignIn, en vrai pareil pour tous*/
 .contact-wrapper {
-  height: calc(100vh - 120px); /* pleine hauteur de la fenêtre */
+  min-height: calc(100vh - 120px); /* au lieu de height */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem; /* optionnel pour éviter d’être collé au bord */
-  box-sizing: border-box;
+  padding: 1rem;
+  flex-direction: column; /* utile si tu ajoutes un titre ou autres éléments */
 }
 
 .contactForm {

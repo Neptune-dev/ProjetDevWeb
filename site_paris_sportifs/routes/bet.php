@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <div class="TopPari">
-    <h1>Votre Paris</h1>
+    <h1 style="padding-bottom: 0;">Votre Paris</h1>
     <?php 
         $_GET['H2H'] = $_GET['bet'];
         $_GET['gameID'] = $_GET['id'];
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         "🔞 Parier comporte des risques… et parfois des miracles.",
         "🔞 Parier comporte des risques… mais les regrets, c’est pire.",
         "🔞 Parier comporte des risques… comme ignorer cette cote à 17 qui sentait la remontada.",
-        "🔞 Parier comporte des risques… mais les paris perdus font les meilleures anecdotes."
+        "🔞 Parier comporte des risques… mais les paris perdus font les meilleures anecdotes.",
         "🔞 Parier comporte des risques… mais c’est moins risqué que de croire aux licornes.",
         "🔞 Si vous perdez, ce n’est pas de la malchance. C’est la faute de l’arbitre.",
         "🔞 Ne rêvez pas votre vie, pariez-la.",
