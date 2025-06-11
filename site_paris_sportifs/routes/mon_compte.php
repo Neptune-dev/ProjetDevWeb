@@ -123,9 +123,13 @@ function dropDownTeams($name) {
             $stmt->execute([$user['ID']]);
             $bets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($bets as $bet) {
-                $_GET['bet'] = $bet;
-                require ('views/bet_view.php');
+            if (empty($bets)) {
+                echo '<p class="text" style="color:black;">Vous n'."'avez pas encore fait de paris</p>";
+            } else {
+                foreach ($bets as $bet) {
+                    $_GET['bet'] = $bet;
+                    require ('views/bet_view.php');
+                }
             }
         ?>
     </div>
