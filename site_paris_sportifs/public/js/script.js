@@ -1,4 +1,4 @@
-
+/*Contactez nous qui marche*/
 document.querySelectorAll(".contactForm").forEach(form => {
   const msg = form.querySelector(".msg");
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("On lance la pub !");
     videoContainer.classList.add('active');
 
-    videoContainer.innerHTML = `<p>🎬 La publicité commence... Patientez 15 secondes.</p>`;
+    videoContainer.innerHTML = `<p style='color:black; padding: 1rem 0rem;'>🎬 La publicité commence... Patientez 15 secondes.</p>`;
 
     const iframe = document.createElement('iframe');
     iframe.width = 560;
@@ -90,15 +90,28 @@ document.addEventListener('DOMContentLoaded', () => {
     videoContainer.appendChild(iframe);
 
     setTimeout(() => {
+      // Masquer la pub (avec transition)
+          videoContainer.classList.remove('active');
+
+      // Nettoyer après la transition
+      setTimeout(() => {
+        videoContainer.innerHTML = '';
+      }, 300);
+
       fetch('/site_paris_sportifs/reward_ad')
         .then(res => res.json())
         .then(data => {
           if (data.success) {
             balanceElem.textContent = data.newBalance;
             rewardMsg.textContent = "✅ +200 unités ajoutées à votre solde !";
+
+            // Disparition du message après 3s
+            setTimeout(() => {
+              rewardMsg.textContent = '';
+            }, 3000);
           } else {
             rewardMsg.textContent = "Erreur : " + data.message;
-          }
+          } 
         });
     }, 15000);
   });
