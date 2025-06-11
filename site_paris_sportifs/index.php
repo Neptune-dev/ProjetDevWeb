@@ -1,7 +1,7 @@
 <?php
 
 ////////////////////////////////////////////
-// ROUTEUR, NE PAS TOUCHER POUR L'INSTANT //
+//                ROUTEUR                 //
 ////////////////////////////////////////////
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //récupération de l'URL de la requete HTTP du client
