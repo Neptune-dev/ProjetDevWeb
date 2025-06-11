@@ -88,7 +88,8 @@ $user["Bio"] = $stmt->fetchColumn();
             }
         ?>
     </div>
-
+    
+    <div class ="centre">
     <?php if (isset($user['isAdmin']) && $user['isAdmin']): ?>
         <a href="/site_paris_sportifs/admin_panel">Accéder au panneau d'administration</a>
     <?php else: ?>
@@ -101,7 +102,8 @@ $user["Bio"] = $stmt->fetchColumn();
 
     <?php endif; ?>
     <script src="/site_paris_sportifs/public/js/script.js"></script>
-    <button><a href="/site_paris_sportifs/logout" class="logout-btn">Se déconnecter</a></button>
+    <button class="logout-btn"><a href="/site_paris_sportifs/logout">Se déconnecter</a></button>
+    </div>
 </section>
 
 <!--fin du contenu -->

@@ -1,29 +1,17 @@
 /*Mon compte, mal programmé*/
-.account a {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin: 1rem auto;
-  transition: color 0.3s ease;
+
+
+.account a{
+  margin: 0;
 }
 
-.account a:hover{
-  color:var(--accent-color);
-}
+/*J'arrive pas à faire centrer le bouton de déconnexion.*/
 
-.logout-btn {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  padding: 0.7rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 2rem;
-  transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-  background-color: var(--secondary-color);
-  color:var(--text-color)!important ; /*Mal programmé*/
+.centre {
+  display: flex;
+  flex-direction: column;       /* Aligne verticalement */
+  align-items: center;          /* Centre les éléments horizontalement */
+  gap: 0.5rem; /* Espace entre les éléments */ 
 }
 
 .video-container {
@@ -100,6 +88,7 @@
   color: var(--primary-color);
 }
 
+/*Bouton modifier*/
 .edit-profile {
   margin-top: 20px;
   padding: 10px 20px;
@@ -112,7 +101,7 @@
 }
 
 .edit-profile:hover {
-  background-color: var(--header-color);
+  background-color: var(--panneau-color);
 }
 
 /*Pour la bio de l'utilisateur*/
@@ -142,14 +131,4 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-}
-
-.Prévention {
-  text-align: center;
-  color: var(--text-color);
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  width: 100%;
-  box-sizing: border-box;
 }

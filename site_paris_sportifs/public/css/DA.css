@@ -38,7 +38,6 @@ main{ /*C'est important, ça fait les marges dans le corps de la page*/
 }
 
 button {
-  align-items: center;
   background-color: var(--primary-color);
   color: var(--text-color);
   border: none;
@@ -59,4 +58,12 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+a {
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem auto;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }

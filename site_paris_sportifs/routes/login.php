@@ -4,9 +4,6 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-<br>
-<br>
-<br>
 <div class="contact-wrapper">
     <section class="Contact">
         <h2>Connexion</h2>

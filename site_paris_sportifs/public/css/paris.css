@@ -59,8 +59,9 @@
 }
 
 .odds a {
-    text-decoration: none; /* Enlève le soulignement */
-    color: inherit;        /* Garde la couleur du texte parent */
+  margin:0;
+  text-decoration: none; /* Enlève le soulignement */
+  color: inherit;        /* Garde la couleur du texte parent */
 }
 
 .odd { /*Vérifier si utile*/
@@ -84,4 +85,14 @@
   text-align: center;
   font-size: 0.9rem;
   color: grey;
+}
+
+.Prévention {
+  text-align: center;
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
 }
