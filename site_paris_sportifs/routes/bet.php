@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section class="Contact">
         <form action="bet?id=<?=$_GET['id']?>&bet=<?=$_GET['bet']?>" method="POST">
             <p>Mise :</p>
-            <input type="number" name="value" required>
+            <input type="number" name="value" min=0 oninput="validity.valid||(value='');" required>
             <button type="submit">Parier</button>
         </form>
     </section>
