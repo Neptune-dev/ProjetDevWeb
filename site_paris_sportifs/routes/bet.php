@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Votre Paris</h1>
     <h3 id="message" class="Prévention">Chargement du message...</h3>
     <?php 
-        $_GET['nobets'] = 1;
+        $_GET['H2H'] = $_GET['bet'];
         $_GET['gameID'] = $_GET['id'];
         require('views/game_view.php');
     ?>
