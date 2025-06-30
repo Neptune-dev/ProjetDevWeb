@@ -6,12 +6,12 @@ Betglory est un site de paris sportifs à monnaie fictive, conçu dans le cadre 
 
 - PHP 8.x
 - MySQL 5.x ou 8.x
-- Un serveur web local (XAMPP, WAMP, MAMP, ou `php -S`)
+- Un serveur web local XAMPP
 
 ## Installation
 
 1. Clonez ou téléchargez ce dépôt.
-2. Importez le script [BDsetup.sql](BDsetup.sql) dans votre base MySQL.
+2. Importez le script [BDsetup.sql](BDsetup.sql) dans votre base MySQL via phpmyadmin.
 3. Configurez les accès à la base dans [`site_paris_sportifs/includes/config.php`](site_paris_sportifs/includes/config.php).
 4. Placez le dossier [site_paris_sportifs](site_paris_sportifs) dans le répertoire d'exécution de votre serveur web.
 
