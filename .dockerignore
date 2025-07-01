@@ -1,0 +1,5 @@
+db/
+docker-compose.yml
+.dockerignore
+VERSION
+README.md

@@ -3,6 +3,8 @@
 
 RewriteEngine On
 
+RewriteBase /site_paris_sportifs/
+
 # Réécrit toutes les requêtes sauf celles qui pointent vers un fichier ou dossier réel
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

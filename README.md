@@ -1,8 +1,12 @@
 # BETGLORY
 
-Betglory est un site de paris sportifs à monnaie fictive, conçu dans le cadre d'un projet de développement web à l'INSA.
+Betglory est un site de paris sportifs à monnaie fictive, dont la conception a commencé dans le cadre d'un projet de développement web à l'INSA. 
 
 ## Prérequis
+
+- Docker 
+
+ou
 
 - PHP 8.x
 - MySQL 5.x ou 8.x
@@ -10,10 +14,17 @@ Betglory est un site de paris sportifs à monnaie fictive, conçu dans le cadre 
 
 ## Installation
 
+### Avec Docker
+
 1. Clonez ou téléchargez ce dépôt.
-2. Importez le script [BDsetup.sql](BDsetup.sql) dans votre base MySQL via phpmyadmin.
-3. Configurez les accès à la base dans [`site_paris_sportifs/includes/config.php`](site_paris_sportifs/includes/config.php).
-4. Placez le dossier [site_paris_sportifs](site_paris_sportifs) dans le répertoire d'exécution de votre serveur web.
+2. À la racine du projet, exécutez la commande : `docker-compose up --build`
+
+### Avec XAMPP
+
+1. Clonez ou téléchargez ce dépôt.
+2. Importez le script [`db/BDsetup.sql`](db/BDsetup.sql) dans votre base MySQL via phpmyadmin.
+3. Configurez les accès à la base dans [`www/site_paris_sportifs/includes/config.php`](www/site_paris_sportifs/includes/config.php).
+4. Placez le dossier [site_paris_sportifs](www/site_paris_sportifs) dans le répertoire d'exécution de votre serveur web.
 
 ## Utilisation
 
@@ -24,6 +35,7 @@ Betglory est un site de paris sportifs à monnaie fictive, conçu dans le cadre 
 - Identifiants d'utilisateur d'exemple:
   - **Nom d'utilisateur** : DarkTOTO  
   - **Mot de passe** : password
+- phpmyadmin est accessible à l'adresse [http://localhost/](http://localhost/)
 
 ---
 

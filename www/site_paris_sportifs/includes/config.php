@@ -4,7 +4,7 @@
 // notamment pour les tests
 
 $dbName = 'SiteParis';
-$addr = 'localhost:3307';
+$addr = getenv('DB_HOST') ?: 'localhost:3307'; //défaut = localhost:3307 | avec docker = variable d'environnement
 $MySQLusername = 'root';
 $MySQLpwd = '';
 

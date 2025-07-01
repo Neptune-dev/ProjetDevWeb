@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD:
+    depends_on:
+      - db
