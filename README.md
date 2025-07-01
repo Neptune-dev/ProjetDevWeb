@@ -35,7 +35,9 @@ ou
 - Identifiants d'utilisateur d'exemple:
   - **Nom d'utilisateur** : DarkTOTO  
   - **Mot de passe** : password
-- phpmyadmin est accessible à l'adresse [http://localhost/](http://localhost/)
+- phpmyadmin est accessible à l'adresse:
+  - **Pour XAMPP** :[http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
+  - **Pour Docker** : [http://localhost:8080/](http://localhost:8080/)
 
 ---
 
