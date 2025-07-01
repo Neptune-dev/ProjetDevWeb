@@ -24,6 +24,7 @@
   border-radius: 10px;
   background-color: var(--header-color);
   margin-bottom: 1rem;
+  justify-content: space-evenly;
 }
 
 /* Tableaux */

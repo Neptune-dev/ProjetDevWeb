@@ -122,16 +122,17 @@ function dropDownTeams($name) {
     echo "</select><br>";
 }
 ?>
+
 <button type="button" class="collapsible"><h2>Ajouter un match</h2></button>
 <div class="collapsible-content">
     <section class="Contact">
         <h2>Créer un match</h2>
         <form class="contactForm" action="admin_panel?addGame" method="POST">
-            Date : <input type="date" name="gameDate" required><br>
-            Time : <input type="time" name="gameTime" required><br>
-            League : <input type="text" name="league" required><br>
-            Home : <?php dropDownTeams('home') ?><br>
-            Away : <?php dropDownTeams('away') ?><br>
+            Date* : <input type="date" name="gameDate" required><br>
+            Time* : <input type="time" name="gameTime" required><br>
+            League* : <input type="text" name="league" required><br>
+            Home* : <?php dropDownTeams('home') ?><br>
+            Away* : <?php dropDownTeams('away') ?><br>
             Home Odd : <input type="number" step="0.1" name="homeOdd"><br>
             Away Odd : <input type="number" step="0.1" name="awayOdd"><br>
             <button type="submit">Créer le match</button>
