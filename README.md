@@ -53,7 +53,9 @@ Le site est accessible à l'adresse [http://localhost/site_paris_sportifs/](http
 <br>
 
 - Pour fermer le serveur :
-  - **Pour Docker** : À la racine du projet, exécutez la commande : `docker-compose down -v`
+  - **Pour Docker** : 
+    - À la racine du projet, exécutez la commande : `docker-compose down -v`
+    - Pour conserver les volumes (données enregistrées dans la base de donnée), exécutez la commande : `docker-compose down`
   - **Pour XAMPP** : Arretez Apache et MySQL depuis le panneau de contrôle de XAMPP.
 
 ---
