@@ -76,7 +76,7 @@ CREATE TABLE Friends (
   B int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (A) REFERENCES Users(ID),
-  FOREIGN KEY (B) REFERENCES Users(ID),
+  FOREIGN KEY (B) REFERENCES Users(ID)
 );
 
 /* tables des demandes d'amis */
@@ -86,7 +86,7 @@ CREATE TABLE FriendRequests (
   Receiver int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (Sender) REFERENCES Users(ID),
-  FOREIGN KEY (Receiver) REFERENCES Users(ID),
+  FOREIGN KEY (Receiver) REFERENCES Users(ID)
 );
 
 /*-----------------------------------------------------------------------------------*/
