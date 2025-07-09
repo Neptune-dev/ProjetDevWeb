@@ -91,7 +91,7 @@ function dropDownTeams($name) {
                 </p>
             </div>
         </div>
-        <button class="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
+        <button class="edit-profile" id="edit-profile" onclick="toggleEditForm()">Modifier le profil</button>
 
         <form id="edit-form" action="mon_compte" method="POST" style="display: none;">
             <p>Logo de profil :</p>
@@ -101,8 +101,15 @@ function dropDownTeams($name) {
         </form>
     </div>
 
+    <!-- amis -->
+    <div>
+        <p style="color: black;">Mes amis (rien pour l'instant)</p>
+    </div>
+
     <script>
     function toggleEditForm() {
+        const btn = document.getElementById("edit-profile");
+        btn.innerText = btn.innerText == "Annuler" ? "Modifier le profil" : "Annuler";
         const form = document.getElementById("edit-form");
         form.style.display = form.style.display === "none" ? "block" : "none";
     }

@@ -69,6 +69,26 @@ CREATE TABLE Bets (
   FOREIGN KEY (GameID) REFERENCES Games(ID)
 );
 
+/* table des amis */
+CREATE TABLE Friends (
+  ID int NOT NULL AUTO_INCREMENT,
+  A int NOT NULL,
+  B int NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (A) REFERENCES Users(ID),
+  FOREIGN KEY (B) REFERENCES Users(ID),
+);
+
+/* tables des demandes d'amis */
+CREATE TABLE FriendRequests (
+  ID int NOT NULL AUTO_INCREMENT,
+  Sender int NOT NULL,
+  Receiver int NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (Sender) REFERENCES Users(ID),
+  FOREIGN KEY (Receiver) REFERENCES Users(ID),
+);
+
 /*-----------------------------------------------------------------------------------*/
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" */
