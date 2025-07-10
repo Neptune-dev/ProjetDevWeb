@@ -116,21 +116,21 @@ function dropDownTeams($name) {
         require_once('includes/helpers.php');
         $pdo = openDB();
         
-        $stmt = $pdo->prepare("SELECT * FROM Friends JOIN Users AS UserA ON Friends.A = UserA.ID JOIN Users AS UserB ON Friends.B = UserB.ID WHERE Friends.A = ? OR Friends.B = ? ");
-        $stmt->execute();
+        $stmt = $pdo->prepare("SELECT Friends.ID AS ID,If (Friends.A= ?, UserB.ID,UserA.ID) AS Friend,If (Friends.A= ?, UserB.Username,UserA.Username) AS Pseudo,If (Friends.A= ?, UserB.Picture,UserA.Picture) AS Profil  FROM Friends JOIN Users AS UserA ON Friends.A = UserA.ID
+                                JOIN Users AS UserB ON Friends.B = UserB.ID
+                                WHERE ((UserA.ID = ? OR UserB.ID = ?) AND (IF(Friends.A = ?, UserB.ID, UserA.ID) != ?))"); 
+        $stmt->execute([$user['ID'], $user['ID'],$user['ID'], $user['ID'], $user['ID'], $user['ID'], $user['ID']]);
         $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($friends as $friends) {
-            if (!isset($game['H2H'])) {
-                echo "<tr>";
-                echo "<td>".$friens["Username"]."</td>";
-                echo "<td>".$friens["Picture"]."</td>";
-                echo "<td>".$friens["Username"]."</td>";
-                echo "<td>".$friens["Username"]."</td>";
-                //bouton de modification
-                echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
-                echo "</tr>";
-            }
+        foreach ($friends as $friend) {
+            echo "<tr>";
+            echo "<td>".$friend["Pseudo"]."</td>";
+            echo "<td>".$friend["Profil"]."</td>";
+            echo "<td>".$friend["ID"]."</td>";
+            echo "<td>".$friend["ID"]."</td>";
+            //bouton de modification
+            echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
+            echo "</tr>";
         }
         ?>
     </table>
