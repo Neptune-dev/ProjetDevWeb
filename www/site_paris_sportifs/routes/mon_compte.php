@@ -103,7 +103,7 @@ function dropDownTeams($name) {
 
     <!-- amis -->
     
-    <h2>Mes amis</h2>
+    <h3>Mes amis</h3>
     <table>
         <tr>
             <th>Pseudo</th>
@@ -125,9 +125,10 @@ function dropDownTeams($name) {
         foreach ($friends as $friend) {
             echo "<tr>";
             echo "<td>".$friend["Pseudo"]."</td>";
-            echo "<td>".$friend["Profil"]."</td>";
+            echo '<td><img src="'.$friend["Profil"].'" alt="Team Logo" style="width: 10vh;"></td>';
             echo "<td>".$friend["ID"]."</td>";
-            echo "<td>".$friend["ID"]."</td>";
+            //bouton d'historique
+            echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Historique</button></form></td>';
             //bouton de modification
             echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
             echo "</tr>";
