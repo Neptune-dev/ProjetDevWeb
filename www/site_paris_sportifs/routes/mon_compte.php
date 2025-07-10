@@ -102,9 +102,38 @@ function dropDownTeams($name) {
     </div>
 
     <!-- amis -->
-    <div>
-        <p style="color: black;">Mes amis (rien pour l'instant)</p>
-    </div>
+    
+    <h2>Mes amis</h2>
+    <table>
+        <tr>
+            <th>Pseudo</th>
+            <th>Pofil</th>
+            <th>Gains Hebdo</th>
+            <th>Historique</th>
+            <th>Supprimer</th>
+        </tr>
+        <?php
+        require_once('includes/helpers.php');
+        $pdo = openDB();
+        
+        $stmt = $pdo->prepare("SELECT * FROM Friends JOIN Users AS UserA ON Friends.A = UserA.ID JOIN Users AS UserB ON Friends.B = UserB.ID WHERE Friends.A = ? OR Friends.B = ? ");
+        $stmt->execute();
+        $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($friends as $friends) {
+            if (!isset($game['H2H'])) {
+                echo "<tr>";
+                echo "<td>".$friens["Username"]."</td>";
+                echo "<td>".$friens["Picture"]."</td>";
+                echo "<td>".$friens["Username"]."</td>";
+                echo "<td>".$friens["Username"]."</td>";
+                //bouton de modification
+                echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
+                echo "</tr>";
+            }
+        }
+        ?>
+    </table>
 
     <script>
     function toggleEditForm() {
