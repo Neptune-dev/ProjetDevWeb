@@ -24,6 +24,16 @@ session_start();
         $stmt->execute([$user['ID'], $user['ID'],$user['ID'], $user['ID'], $user['ID'], $user['ID'], $user['ID']]);
         $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            //suppression du match
+            if (isset($_GET["delete"]) && isset ($_GET["id"])) {
+                $stmt = $pdo->prepare("DELETE FROM Friends WHERE ID=?");
+                $stmt->execute([$_GET['id']]);
+                header("Location: /site_paris_sportifs/friends");
+                exit();
+            }
+        }       
+
         if (sizeof($friends) != 0) {
             foreach ($friends as $friend) {
 
@@ -46,15 +56,17 @@ session_start();
                 echo "<td>".$friend["ID"]."</td>";
                 //bouton d'historique
                 echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Historique</button></form></td>';
-                //bouton de modification
-                echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
+                //bouton de suppression de l'ami
+                echo '<td><form action="friends?delete&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
                 echo "</tr></table>";
             }
         } else {
             echo '<div class="text">'."<p>Vous n'avez pas encore d'amis.</p></div>";
         }
-        ?>
+    ?>
     
+
+
 
 
 <!--fin du contenu -->
