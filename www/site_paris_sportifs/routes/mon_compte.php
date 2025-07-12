@@ -101,41 +101,6 @@ function dropDownTeams($name) {
         </form>
     </div>
 
-    <!-- amis -->
-    
-    <h3>Mes amis</h3>
-    <table>
-        <tr>
-            <th>Pseudo</th>
-            <th>Pofil</th>
-            <th>Gains Hebdo</th>
-            <th>Historique</th>
-            <th>Supprimer</th>
-        </tr>
-        <?php
-        require_once('includes/helpers.php');
-        $pdo = openDB();
-        
-        $stmt = $pdo->prepare("SELECT Friends.ID AS ID,If (Friends.A= ?, UserB.ID,UserA.ID) AS Friend,If (Friends.A= ?, UserB.Username,UserA.Username) AS Pseudo,If (Friends.A= ?, UserB.Picture,UserA.Picture) AS Profil  FROM Friends JOIN Users AS UserA ON Friends.A = UserA.ID
-                                JOIN Users AS UserB ON Friends.B = UserB.ID
-                                WHERE ((UserA.ID = ? OR UserB.ID = ?) AND (IF(Friends.A = ?, UserB.ID, UserA.ID) != ?))"); 
-        $stmt->execute([$user['ID'], $user['ID'],$user['ID'], $user['ID'], $user['ID'], $user['ID'], $user['ID']]);
-        $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($friends as $friend) {
-            echo "<tr>";
-            echo "<td>".$friend["Pseudo"]."</td>";
-            echo '<td><img src="'.$friend["Profil"].'" alt="Team Logo" style="width: 10vh;"></td>';
-            echo "<td>".$friend["ID"]."</td>";
-            //bouton d'historique
-            echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Historique</button></form></td>';
-            //bouton de modification
-            echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
     <script>
     function toggleEditForm() {
         const btn = document.getElementById("edit-profile");

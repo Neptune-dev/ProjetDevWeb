@@ -4,7 +4,10 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-<?php http_response_code(400); ?>
+<?php 
+session_start();
+http_response_code(400); 
+?>
 
 <div class="NotFound">
     <h1>400 - Bad Request</h1>

@@ -50,6 +50,10 @@ switch ($route) {
         require 'routes/mon_compte.php';
         break;
 
+    case '/friends':
+        require 'routes/friends.php';
+        break;
+
     case '/bet':
         require 'routes/bet.php';
         break;

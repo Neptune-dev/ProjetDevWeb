@@ -4,7 +4,10 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-<?php http_response_code(402); ?>
+<?php 
+session_start();
+http_response_code(402);
+?>
 
 <div class="NotFound">
     <h3>402 - Payment Required</h3>

@@ -4,7 +4,10 @@ ob_start();
 ?>
 
 <!--contenu de la page -->
-<?php http_response_code(404); ?>
+<?php 
+session_start();
+http_response_code(404);
+?>
 
 <div class="NotFound">
     <h1>404 - Not Found</h1>
