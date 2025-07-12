@@ -84,7 +84,7 @@ CREATE TABLE FriendRequests (
   ID int NOT NULL AUTO_INCREMENT,
   Sender int NOT NULL,
   Receiver int NOT NULL,
-  Validation int NULL
+  Validation int NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (Sender) REFERENCES Users(ID),
   FOREIGN KEY (Receiver) REFERENCES Users(ID)
