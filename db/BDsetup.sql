@@ -92,16 +92,27 @@ CREATE TABLE FriendRequests (
 
 /*-----------------------------------------------------------------------------------*/
 /*Remplissage des tables avec des exemples
-le pwd hashé est "password" */
+le pwd hashé est "password" pour les deux utilisateurs*/
 INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd, isAdmin)
 VALUES ("Toto", "Legrand", "DarkTOTO", "toto@server.fr", "2000-05-24", "$2y$10$RpDO0tGPhU77NdrJ7RdDz.StAikvsuK08jDZHVfABZEZGVGEVO3/e", 0);
+
+INSERT INTO Users (FirstName, LastName, Username, Email, Birthdate, Pwd, isAdmin)
+VALUES ("Zozo", "Lepetit", "BrightZOZO", "zozo@server.fr", "2000-05-25", "$2y$10$RpDO0tGPhU77NdrJ7RdDz.StAikvsuK08jDZHVfABZEZGVGEVO3/e", 0);
 
 INSERT INTO Wallets (UserID, Balance)
 SELECT ID, 10000
 FROM Users
 WHERE Username="DarkTOTO";
 
-/* le pwd est 1234 */
+INSERT INTO Wallets (UserID, Balance)
+SELECT ID, 5000
+FROM Users
+WHERE Username="BrightZOZO";
+
+INSERT INTO Friends (A, B)
+VALUES (1,2);
+
+/* le pwd admin est 1234 */
 INSERT INTO Users (FirstName, LastName, Username, Birthdate, Pwd, isAdmin)
 VALUES ("admin", "admin", "admin",  "2000-01-01", "$2y$10$dxFZ3Cv.kyxBGgEG0UfGl..0D66Glj5q5Spr6QQdjRz6ex/jhHRrm", 1);
 
