@@ -8,7 +8,7 @@ ob_start();
 session_start();
 ?>
 
-<h3>Mes stats</h3>
+<h3>Stats</h3>
 <?php
 require_once('includes/helpers.php');       
 $pdo = openDB();
