@@ -42,6 +42,18 @@ switch ($route) {
         require 'routes/admin_panel.php';
         break;
 
+    case '/notification':
+        require 'routes/notification.php';
+        break;
+
+    case '/groupes':
+        require 'routes/groupes.php';
+        break;
+
+    case '/classe':
+        require 'routes/classe.php';
+        break;
+
     case '/game_panel':
         require 'routes/game_panel.php';
         break;

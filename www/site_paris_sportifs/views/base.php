@@ -65,7 +65,9 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
                 <li><a href="/site_paris_sportifs/">Accueil</a></li>
 
                 <?php if (isset($_SESSION['user'])): ?>
-                    <li><a href="/site_paris_sportifs/notifications"><i class="fa fa-bell"></i></a></li>
+                    <li><a href="/site_paris_sportifs/classe">Classé</a></li>
+                    <li><a href="/site_paris_sportifs/groupes">Groupes</a></li>
+                    <li><a href="/site_paris_sportifs/notification"><i class="fa fa-bell"></i></a></li>
                     <li><a href="/site_paris_sportifs/friends">Amis</a></li>
                 <?php endif; ?>
 
