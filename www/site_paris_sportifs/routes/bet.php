@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute([$value, $userID]);
 
         //enregistrement du paris
-        $stmt = $pdo->prepare('INSERT INTO Bets (UserID, GameID, H2H, Amount) VALUES (?,?,?,?)');
-        $stmt->execute([$userID, $_GET['id'], $_GET['bet'], $value]);
+        $stmt = $pdo->prepare('INSERT INTO Bets (UserID, GameID, H2H, Amount, Finished) VALUES (?,?,?,?,?)');
+        $stmt->execute([$userID, $_GET['id'], $_GET['bet'], $value,0]);
 
         //mise à jour des côtes
         calcOdds();

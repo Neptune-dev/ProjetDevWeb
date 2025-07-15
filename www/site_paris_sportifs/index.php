@@ -54,6 +54,10 @@ switch ($route) {
         require 'routes/friends.php';
         break;
 
+    case '/historique':
+        require 'routes/historique.php';
+        break;
+
     case '/bet':
         require 'routes/bet.php';
         break;

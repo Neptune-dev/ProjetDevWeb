@@ -111,7 +111,7 @@
             $stmt->execute([$winning, $betUser]);
         }
 
-        $stmt = $pdo->prepare('DELETE FROM Bets WHERE GameID=?');
+        $stmt = $pdo->prepare('UPDATE Bets SET Finished = 1 WHERE GameID=?');
         $stmt->execute([$gameID]);
     }
 

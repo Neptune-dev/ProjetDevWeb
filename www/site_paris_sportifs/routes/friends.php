@@ -32,7 +32,11 @@ session_start();
                 header("Location: /site_paris_sportifs/friends");
                 exit();
             }
-        }       
+            if (isset($_GET["historique"]) && isset ($_GET["id"])) {
+                header("Location: /site_paris_sportifs/historique?id=".$_GET['id']);
+                exit();
+            } 
+        }      
 
         if (sizeof($friends) != 0) {
             foreach ($friends as $friend) {
@@ -55,7 +59,7 @@ session_start();
                 echo '<td><img src="'.$friend["Profil"].'" alt="Team Logo" style="width: 10vh;"></td>';
                 echo "<td>".$friend["ID"]."</td>";
                 //bouton d'historique
-                echo '<td><form action="admin_panel?modifyGame&id='.$friend["ID"].'" method="POST"><button type="submit">Historique</button></form></td>';
+                echo '<td><form action="friends?historique&id='.$friend["Friend"].'" method="POST"><button type="submit">Historique</button></form></td>';
                 //bouton de suppression de l'ami
                 echo '<td><form action="friends?delete&id='.$friend["ID"].'" method="POST"><button type="submit">Supprimer</button></form></td>';
                 echo "</tr></table>";

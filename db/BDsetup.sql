@@ -64,6 +64,7 @@ CREATE TABLE Bets (
   GameID int NOT NULL,
   H2H int NOT NULL,
   Amount int NOT NULL,
+  Finished int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (UserID) REFERENCES Users(ID),
   FOREIGN KEY (GameID) REFERENCES Games(ID)

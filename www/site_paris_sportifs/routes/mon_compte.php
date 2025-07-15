@@ -121,7 +121,7 @@ function dropDownTeams($name) {
         <?php
             require_once('includes/helpers.php');
             $pdo = openDB();
-            $stmt = $pdo->prepare('SELECT * FROM Bets WHERE UserID=?');
+            $stmt = $pdo->prepare('SELECT * FROM Bets WHERE UserID=? and Finished=0');
             $stmt->execute([$user['ID']]);
             $bets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
