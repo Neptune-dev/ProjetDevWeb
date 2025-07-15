@@ -13,7 +13,7 @@ session_start();
 require_once('includes/helpers.php');       
 $pdo = openDB();
 
-$userId = $_SESSION['user']['ID'];
+$userId = $_GET['id'];
 $stmt = $pdo->prepare("SELECT COUNT(*) AS nb_paris FROM Bets WHERE UserID = ?");
 $stmt->execute([$userId]);
 $result = $stmt->fetch();
