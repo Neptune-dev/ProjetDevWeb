@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<!--contenu de la page -->
+
 
 <?php
 

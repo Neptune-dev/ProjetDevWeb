@@ -61,6 +61,11 @@ switch ($route) {
     case '/bet':
         require 'routes/bet.php';
         break;
+
+    case '/mes_stats':
+        require 'routes/mes_stats.php';
+        break;
+
     
     case '/logout':
         require 'routes/logout.php';

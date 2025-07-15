@@ -50,10 +50,12 @@ de base structurelle commune à toutes les pages qui se ressembleront-->
             if (isset($_SESSION['user'])) {
                 if (!$_SESSION['user']['isAdmin']) {
                     echo '
-                        <div class="balance">
+                    <div class="balance">
+                        <a href="/site_paris_sportifs/mes_stats" style="text-decoration:none; color:inherit;">
                             Solde : <strong id="balance">'.htmlspecialchars($balance).'</strong>
-                            <img src="public/images/monnaie.png" alt="💰" class="monnaie"></a>
-                        </div>';
+                            <img src="public/images/monnaie.png" alt="💰" class="monnaie">
+                        </a>
+                    </div>';
                 }
             }
             ?>

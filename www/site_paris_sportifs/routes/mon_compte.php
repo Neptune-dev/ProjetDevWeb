@@ -110,9 +110,6 @@ function dropDownTeams($name) {
     }
     </script>
 
-    <div class="text">
-        <p>Heureux de vous revoir sur notre site de paris sportifs 🎯</p>
-    </div>
 
     <div class="TopPari">
         <?php if (empty($user['isAdmin'])): ?>
