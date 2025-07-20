@@ -24,7 +24,6 @@ $pdo = openDB();
         echo "Aucun utilisateur sélectionné.";
     } else {
         $userId = $_GET['id'];
-        // Exemple : récupérer les paris de cet utilisateur
         $stmt = $pdo->prepare("SELECT * FROM Bets WHERE UserID=? and Finished=1");
         $stmt->execute([$userId]);
         $bets = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -119,7 +119,14 @@ if (!empty($results)) {
     <p class="text">Mise moyenne par pari : <?php echo $mise_moyenne; ?> <img src="public/images/monnaie.png" alt="💰" class="monnaie"></p>
 </div>
 <?php
-echo '<form action="friends?historique&id='.$userId.'" method="POST"><button type="submit">Historique</button></form>';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_GET["historique"]) && isset ($_GET["id"])) {
+        header("Location: /site_paris_sportifs/historique?id=".$_GET['id']);
+        exit();
+    } 
+}
+echo '<form action="mes_stats?historique&id='.$userId.'" method="POST"><button type="submit">Historique</button></form>';
 ?>
 <!--fin du contenu -->
 <?php
