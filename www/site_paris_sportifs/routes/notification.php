@@ -28,23 +28,32 @@ $user = $_SESSION['user'];
                                 WHERE Receiver = ?"); 
         $stmt->execute([$user['ID']]);
         $notifs= $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            //suppression du match
-            if (isset($_GET["delete"]) && isset ($_GET["id"])) {
-                $stmt = $pdo->prepare("DELETE FROM Friends WHERE ID=?");
-                $stmt->execute([$_GET['id']]);
-                header("Location: /site_paris_sportifs/friends");
-                exit();
-            }
-            if (isset($_GET["stats"]) && isset ($_GET["id"])) {
-                header("Location: /site_paris_sportifs/mes_stats?id=".$_GET['id']);
-                exit();
-            } 
-        }      
+ 
 
         if (sizeof($notifs) != 0) {
             foreach ($notifs as $notif) {
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    //suppression du match
+                    if (isset($_GET["delete"]) && isset ($_GET["id"])) {
+                        $stmt = $pdo->prepare("DELETE FROM FriendRequests WHERE ID=?");
+                        $stmt->execute([$_GET['id']]);
+                        header("Location: /site_paris_sportifs/notification");
+                        exit();
+                    }
+                    if (isset($_GET["stats"]) && isset ($_GET["id"])) {
+                        header("Location: /site_paris_sportifs/mes_stats?id=".$_GET['id']);
+                        exit();
+                    } 
+                    if (isset($_GET["accepte"]) && isset ($_GET["id"])) {
+                        $stmt = $pdo->prepare("DELETE FROM FriendRequests WHERE ID=?");
+                        $stmt->execute([$_GET['id']]);
+                        $stmt = $pdo->prepare("INSERT INTO Friends (A, B) VALUES (?, ?);");
+                        $stmt->execute([$notif['senderId'], $user['ID']]);
+                        header("Location: /site_paris_sportifs/notification");
+                        exit();
+                    }  
+                }    
 
                 //vérif de si il n'y a pas de logo choisi par default
                 if ($notif['Profil'] == '' || $notif["Profil"] == null) {
@@ -65,10 +74,10 @@ $user = $_SESSION['user'];
                 echo '<td><img src="'.$notif["Profil"].'" alt="Team Logo" style="width: 10vh;"></td>';
                 echo "<td>".$notif["ID"]."</td>";
                 //bouton statistiques
-                echo '<td><form action="notificationss?stats&id='.$notif["senderId"].'" method="POST"><button type="submit">Stats</button></form></td>';
+                echo '<td><form action="notification?stats&id='.$notif["senderId"].'" method="POST"><button type="submit">Stats</button></form></td>';
                 //bouton de suppression de l'ami
-                echo '<td><form action="notificationss?accepte&id='.$notifs["ID"].'" method="POST"><button type="submit">Accepter</button></form></td>';
-                echo '<td><form action="notificationss?delete&id='.$notifs["ID"].'" method="POST"><button type="submit">Refuser</button></form></td>';
+                echo '<td><form action="notification?accepte&id='.$notif["ID"].'" method="POST"><button type="submit">Accepter</button></form></td>';
+                echo '<td><form action="notification?delete&id='.$notif["ID"].'" method="POST"><button type="submit">Refuser</button></form></td>';
                 echo "</tr></table>";
             }
         } else {
