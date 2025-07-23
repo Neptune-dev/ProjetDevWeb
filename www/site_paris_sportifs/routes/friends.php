@@ -7,15 +7,28 @@ ob_start();
 <?php
 
 session_start();
+$user = $_SESSION['user'];
+require_once('includes/helpers.php');
 
 ?>
+<button type="button" class="collapsible"><h2>Ajouter des amis</h2></button>
+
+
+<div class="collapsible-content"> 
+    <form action="friends?ajouter&id=<?php echo $user["ID"]; ?>" method="POST">
+        <input type="text" name="pseudo" placeholder="Pseudo de l'ami">
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+
+
+
 
 <h3>Mes amis</h3>
 
     <?php
-        $user = $_SESSION['user'];
         
-        require_once('includes/helpers.php');
+        
         $pdo = openDB();
         
         $stmt = $pdo->prepare("SELECT Friends.ID AS ID,If (Friends.A= ?, UserB.ID,UserA.ID) AS Friend,If (Friends.A= ?, UserB.Username,UserA.Username) AS Pseudo,If (Friends.A= ?, UserB.Picture,UserA.Picture) AS Profil  FROM Friends JOIN Users AS UserA ON Friends.A = UserA.ID
@@ -35,7 +48,21 @@ session_start();
             if (isset($_GET["stats"]) && isset ($_GET["id"])) {
                 header("Location: /site_paris_sportifs/mes_stats?id=".$_GET['id']);
                 exit();
-            } 
+            }
+            if (isset($_GET["ajouter"]) && isset ($_GET["id"])) { 
+                $stmt = $pdo->prepare("SELECT ID FROM Users WHERE Username = ?");
+                $stmt->execute([$_POST['pseudo']]);
+                $friendId = $stmt->fetchColumn();
+
+                if ($friendId) {
+                    $stmt = $pdo->prepare("INSERT INTO FriendRequests (Sender, Receiver) VALUES (?, ?)");
+                    $stmt->execute([$user['ID'], $friendId]);
+                } else {
+                    echo "<p class='error'>Ami non trouvé.</p>";
+                }
+                header("Location: /site_paris_sportifs/friends");
+                exit();
+            }
         }      
 
         if (sizeof($friends) != 0) {
@@ -72,7 +99,7 @@ session_start();
 
 
 
-
+<script src="/site_paris_sportifs/public/js/collapse.js"></script>
 <!--fin du contenu -->
 <?php
 $title = 'Mes Amis'; //titre de la page
