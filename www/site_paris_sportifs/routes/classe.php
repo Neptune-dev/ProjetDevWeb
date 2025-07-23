@@ -17,6 +17,7 @@ $user = $_SESSION['user'];
 $pdo = openDB();
 ?>
 
+<h1 class="titre_orange">Coming soon...</h1>
 
 <!--fin du contenu -->
 <?php
