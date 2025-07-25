@@ -95,6 +95,7 @@ CREATE TABLE Groupes (
   ID int NOT NULL AUTO_INCREMENT,
   GroupName varchar(255) NOT NULL,
   Limitation int NOT NULL,
+  CreatorID int NOT NULL,
   PRIMARY KEY (ID)
 );
 
