@@ -91,6 +91,37 @@ CREATE TABLE FriendRequests (
   FOREIGN KEY (Receiver) REFERENCES Users(ID)
 );
 
+CREATE TABLE Groupes (
+  ID int NOT NULL AUTO_INCREMENT,
+  GroupName varchar(255) NOT NULL,
+  Limitation int NOT NULL,
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE GroupesUsers (
+  ID int NOT NULL AUTO_INCREMENT,
+  UserID int NOT NULL,
+  GroupeID int NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (UserID) REFERENCES Users(ID),
+  FOREIGN KEY (GroupeID) REFERENCES Groupes(ID)
+);
+
+CREATE TABLE GroupesBets (
+  ID int NOT NULL AUTO_INCREMENT,
+  UserID int NOT NULL,
+  GroupeID int NOT NULL,
+  GameID int NOT NULL,
+  H2H int NOT NULL,
+  Amount int NOT NULL,
+  Finished int NOT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (UserID) REFERENCES Users(ID),
+  FOREIGN KEY (GroupeID) REFERENCES Groupes(ID),
+  FOREIGN KEY (GameID) REFERENCES Games(ID)
+);
+
+
 /*-----------------------------------------------------------------------------------*/
 /*Remplissage des tables avec des exemples
 le pwd hashé est "password" pour les deux utilisateurs*/

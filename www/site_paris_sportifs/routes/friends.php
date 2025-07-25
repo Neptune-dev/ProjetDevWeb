@@ -58,7 +58,7 @@ require_once('includes/helpers.php');
                     $stmt = $pdo->prepare("INSERT INTO FriendRequests (Sender, Receiver) VALUES (?, ?)");
                     $stmt->execute([$user['ID'], $friendId]);
                 } else {
-                    echo "<p class='error'>Ami non trouvé.</p>";
+                    echo "<p>Ami non trouvé</p>";
                 }
                 header("Location: /site_paris_sportifs/friends");
                 exit();
