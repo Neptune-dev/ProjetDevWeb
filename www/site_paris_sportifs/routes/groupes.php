@@ -54,8 +54,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('includes/helpers.php');
         $pdo = openDB();
         
-        $stmt = $pdo->prepare("SELECT * FROM Groupes");
-        $stmt->execute();
+
+        $stmt = $pdo->prepare("SELECT * FROM Groupes WHERE Groupes.CreatorID = ?");
+        $stmt->execute( [$user['ID']]);
+        $groupes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($groupes as $groupe) {
+                echo "<tr>";
+                echo "<td>".$groupe["GroupName"]."</td>";
+                echo "<td>".$groupe["Limitation"]."</td>";
+                echo '<td><form action="groupes?modifyGame&id='.$groupe["ID"].'" method="POST"><button type="submit">Entrer</button></form></td>';
+                echo "</tr>";
+        }
+        $stmt = $pdo->prepare("SELECT * FROM Groupes JOIN GroupesUsers ON Groupes.ID = GroupesUsers.GroupeID WHERE GroupesUsers.UserID = ?");
+        $stmt->execute( [$user['ID']]);
         $groupes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($groupes as $groupe) {
