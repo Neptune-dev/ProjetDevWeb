@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <h1 class="titre_orange">Mes Groupes</h1>
     <table>
         <tr>
